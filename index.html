@@ -48,6 +48,7 @@
             /*========== z index ==========*/
             --z-tooltip: 10;
             --z-fixed: 100;
+            --z-modal: 1000;
         }
 
         /*=============== Light Theme Variables ===============*/
@@ -370,7 +371,10 @@
             padding: 1rem;
             border-radius: .75rem;
             text-align: center;
-            transition: background-color .4s;
+            transition: background-color .4s, transform .3s;
+        }
+        .about__info-box:hover {
+            transform: translateY(-.25rem);
         }
         .about__info-icon {
             font-size: 1.5rem;
@@ -408,6 +412,10 @@
         }
         .skills__data {
             text-align: center;
+            transition: transform .3s;
+        }
+        .skills__data:hover {
+            transform: translateY(-.25rem);
         }
         .skills__icon {
             font-size: 3rem;
@@ -453,6 +461,62 @@
         .swiper-button-prev { left: 1rem; }
         .swiper-pagination-bullet-active {
             background-color: var(--first-color);
+        }
+
+        /*=============== PROJECT MODAL ===============*/
+        .portfolio__modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: hsla(var(--hue), 24%, 16%, 0.7);
+            z-index: var(--z-modal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+        }
+        .portfolio__modal-content {
+            position: relative;
+            background-color: var(--body-color);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        .portfolio__modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--first-color);
+            cursor: pointer;
+        }
+        .portfolio__modal-title {
+            font-size: var(--h3-font-size);
+            margin-bottom: 1rem;
+        }
+        .portfolio__modal-description {
+            margin-bottom: 1.5rem;
+        }
+        .portfolio__modal-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            row-gap: .75rem;
+        }
+        .portfolio__modal-list-item {
+            margin-bottom: .5rem;
+        }
+        .portfolio__modal-list-item strong {
+            color: var(--title-color);
+        }
+        .active-modal {
+            opacity: 1;
+            visibility: visible;
         }
 
         /*=============== CONTACT ===============*/
@@ -511,6 +575,10 @@
         }
         .contact__form-area textarea {
             resize: none;
+        }
+        .contact__status-message {
+            margin-top: 1rem;
+            font-size: var(--small-font-size);
         }
 
         /*=============== FOOTER ===============*/
@@ -755,30 +823,42 @@
             <div class="portfolio__container container swiper">
                 <div class="swiper-wrapper">
                     <!-- Project 1 -->
-                    <div class="portfolio__content grid swiper-slide">
+                    <div class="portfolio__content grid swiper-slide" 
+                         data-title="Inventory Optimization System"
+                         data-challenge="The company faced frequent stockouts on popular items and overstocking of slow-moving products, leading to lost sales and increased holding costs."
+                         data-solution="I designed and implemented a centralized inventory tracking system using Google Sheets. This system aggregated real-time sales and stock data from all marketplaces, providing a single source of truth for inventory levels."
+                         data-result="This initiative successfully reduced stockouts by 35% and cut overstock situations by 40%, directly protecting revenue and improving capital efficiency.">
                         <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Inventory+System" alt="Inventory Optimization System" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Inventory Optimization System</h3>
-                            <p id="project-desc-1">Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
-                            <button class="button button--ai" onclick="enhanceDescription(this, 'project-desc-1')">✨ Enhance with AI</button>
+                            <p>Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
+                            <button class="button button--ai" onclick="openProjectModal(this)">View Details</button>
                         </div>
                     </div>
                     <!-- Project 2 -->
-                    <div class="portfolio__content grid swiper-slide">
+                    <div class="portfolio__content grid swiper-slide"
+                         data-title="Catalog Standardization Process"
+                         data-challenge="Inconsistent product listings across 8+ different eCommerce platforms were causing brand dilution and significantly slowing down the time-to-market for new products."
+                         data-solution="I created and enforced standardized templates for all product information, including titles, descriptions, images, and specifications. This ensured a uniform and professional brand presentation everywhere."
+                         data-result="The new standardized process dramatically reduced the average product listing time by 60%, allowing for faster campaign launches and a more cohesive brand identity across all digital channels.">
                         <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Catalog+Standardization" alt="Catalog Standardization" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Catalog Standardization</h3>
-                            <p id="project-desc-2">Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
-                             <button class="button button--ai" onclick="enhanceDescription(this, 'project-desc-2')">✨ Enhance with AI</button>
+                            <p>Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
+                            <button class="button button--ai" onclick="openProjectModal(this)">View Details</button>
                         </div>
                     </div>
                     <!-- Project 3 -->
-                    <div class="portfolio__content grid swiper-slide">
+                    <div class="portfolio__content grid swiper-slide"
+                         data-title="Automated Price Monitoring Tool"
+                         data-challenge="The market pricing was highly dynamic, and manually tracking competitor prices was inefficient and often too slow to react, leading to lost sales opportunities."
+                         data-solution="Using SQL, I implemented an automated system to monitor key competitor pricing in real-time. The tool was programmed to automatically adjust our own product listings within predefined strategic parameters."
+                         data-result="This data-driven pricing strategy led to a direct increase in the product conversion rate by 22%, capturing more sales during peak demand and maintaining a competitive edge.">
                         <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Automated+Pricing" alt="Automated Price Monitoring" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Automated Price Monitoring</h3>
-                            <p id="project-desc-3">Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
-                             <button class="button button--ai" onclick="enhanceDescription(this, 'project-desc-3')">✨ Enhance with AI</button>
+                            <p>Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
+                            <button class="button button--ai" onclick="openProjectModal(this)">View Details</button>
                         </div>
                     </div>
                     <!-- Testimonial -->
@@ -818,7 +898,7 @@
                     </div>
                 </div>
 
-                <form action="" class="contact__form">
+                <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST" class="contact__form" id="contact-form">
                     <div class="contact__form-group">
                         <label for="name" class="contact__form-tag">Name</label>
                         <input type="text" name="name" id="name" class="contact__form-input" required>
@@ -831,7 +911,8 @@
                         <label for="message" class="contact__form-tag">Message</label>
                         <textarea name="message" id="message" class="contact__form-input" required></textarea>
                     </div>
-                    <button class="button">Send Message</button>
+                    <p class="contact__status-message" id="contact-status"></p>
+                    <button type="submit" class="button">Send Message</button>
                 </form>
             </div>
         </section>
@@ -848,6 +929,28 @@
             <p class="footer__copy">&#169; Ravinder Rawal. All rights reserved</p>
         </div>
     </footer>
+
+    <!--==================== PROJECT MODAL ====================-->
+    <div class="portfolio__modal" id="project-modal">
+        <div class="portfolio__modal-content">
+            <i class="ri-close-line portfolio__modal-close" id="modal-close-button"></i>
+            <h3 class="portfolio__modal-title" id="modal-title"></h3>
+            <ul class="portfolio__modal-list">
+                <li class="portfolio__modal-list-item">
+                    <strong>The Challenge:</strong> <span id="modal-challenge"></span>
+                </li>
+                <li class="portfolio__modal-list-item">
+                    <strong>My Solution:</strong> <span id="modal-solution"></span>
+                </li>
+                <li class="portfolio__modal-list-item">
+                    <strong>Key Results:</strong> <span id="modal-result"></span>
+                </li>
+            </ul>
+            <p id="modal-ai-description" class="portfolio__modal-description"></p>
+            <button class="button button--ai" id="modal-ai-button">✨ Enhance with AI</button>
+        </div>
+    </div>
+
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
@@ -936,36 +1039,70 @@
         const lightTheme = 'light-theme'
         const iconTheme = 'ri-sun-line'
 
-        // Previously selected topic (if user selected)
         const selectedTheme = localStorage.getItem('selected-theme')
         const selectedIcon = localStorage.getItem('selected-icon')
 
-        // We obtain the current theme that the interface has by validating the light-theme class
         const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'dark' : 'light'
         const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
 
-        // We validate if the user previously chose a topic
         if (selectedTheme) {
-          // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
           document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](lightTheme)
           themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
         }
 
-        // Activate / deactivate the theme manually with the button
         themeButton.addEventListener('click', () => {
-            // Add or remove the light / icon theme
             document.body.classList.toggle(lightTheme)
             themeButton.classList.toggle(iconTheme)
-            // We save the theme and the current icon that the user chose
             localStorage.setItem('selected-theme', getCurrentTheme())
             localStorage.setItem('selected-icon', getCurrentIcon())
         })
 
-        /*=============== GEMINI API: ENHANCE PROJECT DESCRIPTION ===============*/
-        async function enhanceDescription(button, descriptionId) {
-            const descriptionElement = document.getElementById(descriptionId);
-            const originalText = descriptionElement.textContent;
+        /*=============== PROJECT MODAL ===============*/
+        const modal = document.getElementById('project-modal');
+        const modalCloseButton = document.getElementById('modal-close-button');
+        const modalTitle = document.getElementById('modal-title');
+        const modalChallenge = document.getElementById('modal-challenge');
+        const modalSolution = document.getElementById('modal-solution');
+        const modalResult = document.getElementById('modal-result');
+        const modalAiDescription = document.getElementById('modal-ai-description');
+        const modalAiButton = document.getElementById('modal-ai-button');
+        let currentProjectDescription = '';
+
+        function openProjectModal(buttonElement) {
+            const projectContent = buttonElement.closest('.portfolio__content');
             
+            modalTitle.textContent = projectContent.dataset.title;
+            modalChallenge.textContent = projectContent.dataset.challenge;
+            modalSolution.textContent = projectContent.dataset.solution;
+            modalResult.textContent = projectContent.dataset.result;
+            
+            // Store original description for AI enhancement
+            currentProjectDescription = projectContent.querySelector('p').textContent;
+            modalAiDescription.textContent = ''; // Clear previous AI text
+            
+            modalAiButton.textContent = '✨ Enhance with AI';
+            modalAiButton.disabled = false;
+            modalAiButton.classList.remove('loading');
+
+            modal.classList.add('active-modal');
+        }
+
+        modalCloseButton.addEventListener('click', () => {
+            modal.classList.remove('active-modal');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active-modal');
+            }
+        });
+        
+        modalAiButton.addEventListener('click', () => {
+            enhanceDescription(modalAiButton, modalAiDescription, currentProjectDescription);
+        });
+
+        /*=============== GEMINI API: ENHANCE PROJECT DESCRIPTION ===============*/
+        async function enhanceDescription(button, descriptionElement, originalText) {
             // Show loading state
             button.textContent = 'Enhancing...';
             button.classList.add('loading');
@@ -1002,14 +1139,52 @@
                 }
             } catch (error) {
                 console.error("Gemini API Error:", error);
-                descriptionElement.textContent = originalText; // Revert on error
+                descriptionElement.textContent = "Sorry, the AI enhancement failed. Please try again later.";
                 button.textContent = '✨ Enhance with AI';
                 button.classList.remove('loading');
                 button.disabled = false;
-                // Optionally show an error message to the user
-                alert("Sorry, the AI enhancement failed. Please try again later.");
             }
         }
+
+        /*=============== CONTACT FORM ===============*/
+        const contactForm = document.getElementById('contact-form');
+        const contactStatus = document.getElementById('contact-status');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const data = new FormData(form);
+            
+            contactStatus.textContent = 'Sending...';
+            contactStatus.style.color = 'hsl(var(--hue), 8%, 75%)';
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    contactStatus.textContent = "Thanks for your message!";
+                    contactStatus.style.color = 'hsl(var(--hue), 63%, 40%)';
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            contactStatus.textContent = data["errors"].map(error => error["message"]).join(", ")
+                        } else {
+                            contactStatus.textContent = "Oops! There was a problem submitting your form";
+                            contactStatus.style.color = 'hsl(0, 63%, 40%)';
+                        }
+                    })
+                }
+            }).catch(error => {
+                contactStatus.textContent = "Oops! There was a problem submitting your form";
+                contactStatus.style.color = 'hsl(0, 63%, 40%)';
+            });
+        });
+
 
         /*=============== SCROLL REVEAL ANIMATION ===============*/
         const sr = ScrollReveal({
