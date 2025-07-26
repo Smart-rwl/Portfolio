@@ -7,10 +7,8 @@
     <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="https://placehold.co/32x32/1ABC9C/FFFFFF?text=RR" type="image/x-icon">
 
-    <!--=============== REMIXICONS & FONT AWESOME ===============-->
+    <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
 
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
@@ -18,25 +16,24 @@
     <!--=============== CSS ===============-->
     <style>
         /*=============== GOOGLE FONTS ===============*/
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
         /*=============== VARIABLES CSS ===============*/
         :root {
-            --header-height: 3rem;
+            --header-height: 3.5rem;
 
-            /*========== Colors ==========*/
+            /*========== Colors (Default Dark Theme) ==========*/
             --hue: 174;
-            --sat: 63%;
-            --first-color: hsl(var(--hue), var(--sat), 40%);
-            --first-color-alt: hsl(var(--hue), var(--sat), 36%);
-            --title-color: hsl(var(--hue), 12%, 15%);
-            --text-color: hsl(var(--hue), 8%, 35%);
-            --body-color: hsl(var(--hue), 100%, 99%);
-            --container-color: #FFF;
-
+            --first-color: hsl(var(--hue), 63%, 40%);
+            --first-color-alt: hsl(var(--hue), 63%, 36%);
+            --title-color: hsl(var(--hue), 8%, 95%);
+            --text-color: hsl(var(--hue), 8%, 75%);
+            --body-color: hsl(var(--hue), 40%, 12%);
+            --container-color: hsl(var(--hue), 24%, 16%);
+            --border-color: hsl(var(--hue), 8%, 20%);
+            
             /*========== Font and typography ==========*/
-            --body-font: 'Poppins', sans-serif;
-
+            --body-font: 'Space Grotesk', sans-serif;
             --h1-font-size: 2.25rem;
             --h2-font-size: 1.5rem;
             --h3-font-size: 1.25rem;
@@ -46,24 +43,25 @@
 
             --font-medium: 500;
             --font-semi-bold: 600;
-
-            /*========== Margenes Bottom ==========*/
-            --mb-0-25: .25rem;
-            --mb-0-5: .5rem;
-            --mb-0-75: .75rem;
-            --mb-1: 1rem;
-            --mb-1-5: 1.5rem;
-            --mb-2: 2rem;
-            --mb-2-5: 2.5rem;
+            --font-bold: 700;
 
             /*========== z index ==========*/
             --z-tooltip: 10;
             --z-fixed: 100;
         }
 
-        @media screen and (min-width: 968px) {
+        /*=============== Light Theme Variables ===============*/
+        body.light-theme {
+            --title-color: hsl(var(--hue), 8%, 15%);
+            --text-color: hsl(var(--hue), 8%, 35%);
+            --body-color: hsl(var(--hue), 100%, 99%);
+            --container-color: #FFF;
+            --border-color: hsl(var(--hue), 8%, 80%);
+        }
+
+        @media screen and (min-width: 1024px) {
             :root {
-                --h1-font-size: 3rem;
+                --h1-font-size: 3.5rem;
                 --h2-font-size: 1.75rem;
                 --h3-font-size: 1.5rem;
                 --normal-font-size: 1.125rem;
@@ -85,18 +83,19 @@
 
         body,
         button,
-        input {
+        input,
+        textarea {
             font-family: var(--body-font);
             font-size: var(--normal-font-size);
         }
 
         body {
-            margin: var(--header-height) 0 0 0;
             background-color: var(--body-color);
             color: var(--text-color);
+            transition: background-color .4s;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: var(--title-color);
             font-weight: var(--font-semi-bold);
         }
@@ -121,41 +120,41 @@
         }
 
         /*=============== REUSABLE CSS CLASSES ===============*/
-        .section {
-            padding: 4.5rem 0 2.5rem;
-        }
-
-        .section__title {
-            font-size: var(--h2-font-size);
-            margin-bottom: var(--mb-2);
-            text-align: center;
-        }
-
-        /*=============== LAYOUT ===============*/
         .container {
-            max-width: 968px;
-            margin-left: var(--mb-1-5);
-            margin-right: var(--mb-1-5);
+            max-width: 1120px;
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
         }
 
         .grid {
             display: grid;
         }
 
-        .main {
-            padding-left: 0;
+        .section {
+            padding: 4.5rem 0 2.5rem;
         }
 
+        .section__title {
+            font-size: var(--h1-font-size);
+            font-weight: var(--font-bold);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section__title span {
+            color: var(--first-color);
+        }
+
+        /*=============== HEADER & NAV ===============*/
         .header {
-            width: 100%;
             position: fixed;
             top: 0;
             left: 0;
+            width: 100%;
+            background-color: transparent;
             z-index: var(--z-fixed);
-            background-color: var(--body-color);
         }
 
-        /*=============== NAV ===============*/
         .nav {
             height: var(--header-height);
             display: flex;
@@ -163,534 +162,389 @@
             align-items: center;
         }
 
-        .nav__logo,
-        .nav__toggle {
+        .nav__logo {
             color: var(--title-color);
             font-weight: var(--font-medium);
         }
 
-        .nav__logo:hover {
-            color: var(--first-color);
-        }
-
         .nav__toggle {
-            font-size: 1.2rem;
-            cursor: pointer;
+            display: none;
         }
 
-        .nav__toggle:hover {
-            color: var(--first-color);
-        }
-
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 1023px) {
             .nav__menu {
                 position: fixed;
-                background-color: var(--body-color);
-                top: 0;
-                right: -100%;
+                bottom: 0;
+                left: 0;
                 width: 100%;
-                height: 100%;
-                box-shadow: -1px 0 4px hsla(var(--hue), var(--sat), 15%, .1);
-                padding: 4rem 0 0 3rem;
-                transition: .3s;
+                background-color: var(--body-color);
+                box-shadow: 0 -1px 12px hsla(var(--hue), 24%, 15%, 0.15);
+                padding: 1rem 3rem;
+                border-radius: 2rem 2rem 0 0;
+            }
+            .nav__list {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .nav__link {
+                color: var(--text-color);
+                font-size: 1.5rem;
+                display: grid;
+                place-items: center;
+            }
+            .nav__link:hover, .active-link {
+                color: var(--first-color);
             }
         }
 
-        .nav__list {
+        /*=============== SIDEBAR ===============*/
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100vh;
+            background-color: var(--body-color);
+            border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            row-gap: 2.5rem;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 0;
+            transition: background-color .4s;
         }
 
-        .nav__link {
+        .sidebar__logo {
+            font-weight: var(--font-semi-bold);
+            font-size: 1.5rem;
+            color: var(--title-color);
+            writing-mode: vertical-rl;
+            transform: rotate(-180deg);
+        }
+
+        .sidebar__nav {
+            writing-mode: vertical-rl;
+            transform: rotate(-180deg);
+        }
+
+        .sidebar__menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 3.5rem;
+        }
+
+        .sidebar__link {
             color: var(--text-color);
             font-weight: var(--font-medium);
+            position: relative;
             transition: .3s;
         }
 
-        .nav__link:hover {
+        .sidebar__link:hover, .sidebar-active-link {
             color: var(--first-color);
         }
 
-        .nav__close {
-            position: absolute;
-            right: .75rem;
-            top: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--first-color);
-        }
-
-        .nav__close:hover {
-            color: var(--first-color-alt);
-        }
-
-        /* show menu */
-        .show-menu {
-            right: 0;
-        }
-
-        /* Change background header */
-        .scroll-header {
-            box-shadow: 0 1px 4px hsla(var(--hue), var(--sat), 15%, .1);
-        }
-
-        /* Active link */
-        .active-link {
-            position: relative;
-            color: var(--first-color);
-        }
-
-        .active-link::after {
+        .sidebar-active-link::before {
             content: '';
             position: absolute;
-            bottom: -.5rem;
-            left: 0;
-            width: 50%;
-            height: 2px;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
             background-color: var(--first-color);
+            border-radius: 50%;
+        }
+
+        .sidebar__bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 1.5rem;
+        }
+
+        .sidebar__social {
+            display: grid;
+            row-gap: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .sidebar__social a {
+            color: var(--text-color);
+        }
+        .sidebar__social a:hover {
+            color: var(--first-color);
+        }
+
+        .theme__toggle {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+        .theme__toggle:hover {
+            color: var(--first-color);
+        }
+
+        .main {
+            padding-left: 100px;
         }
 
         /*=============== HOME ===============*/
         .home__container {
-            row-gap: 2.5rem;
+            padding: 3.5rem 0 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 2rem;
         }
-
-        .home__content {
-            row-gap: 2rem;
-        }
-
-        .home__social {
-            display: flex;
-            flex-direction: column;
-            row-gap: 1.5rem;
-        }
-
-        .home__social-link {
-            width: max-content;
-            color: var(--text-color);
-            font-size: 1.25rem;
-            transition: .3s;
-        }
-
-        .home__social-link:hover {
-            color: var(--first-color);
-            transform: translateX(.25rem);
-        }
-
         .home__img {
-            width: 250px;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
             justify-self: center;
+            border: 5px solid var(--first-color);
         }
-
-        .home__blob {
-            fill: var(--first-color);
-        }
-
-        .home__blob-img {
-            width: 170px;
-        }
-
-        .home__title {
+        .home__name {
             font-size: var(--h1-font-size);
-            margin-bottom: var(--mb-0-25);
+            font-weight: var(--font-bold);
         }
-
-        .home__subtitle {
+        .home__profession {
             font-size: var(--h3-font-size);
-            color: var(--text-color);
-            font-weight: var(--font-medium);
-            margin-bottom: var(--mb-0-75);
+            margin-bottom: .75rem;
         }
-
-        .home__description {
-            margin-bottom: var(--mb-2);
-        }
-
-        .home__scroll {
-            display: none;
-        }
-
-        .home__scroll-button {
+        .home__profession .typing-text {
             color: var(--first-color);
-            transition: .3s;
+            font-weight: var(--font-semi-bold);
         }
-
-        .home__scroll-button:hover {
-            transform: translateY(.25rem);
+        .home__description {
+            max-width: 550px;
+            margin-bottom: 2.5rem;
         }
-
-        .home__scroll-mouse {
-            font-size: 2rem;
-        }
-
-        .home__scroll-name {
-            font-size: var(--small-font-size);
-            color: var(--title-color);
-            font-weight: var(--font-medium);
-            margin-right: var(--mb-0-25);
-        }
-
-        .home__scroll-arrow {
-            font-size: 1.25rem;
-        }
-
-        /*=============== BUTTONS ===============*/
         .button {
             display: inline-block;
             background-color: var(--first-color);
-            color: #FFF;
+            color: var(--title-color);
             padding: 1rem 2rem;
             border-radius: .5rem;
             font-weight: var(--font-medium);
             transition: .3s;
         }
-
         .button:hover {
             background-color: var(--first-color-alt);
         }
-
-        .button__icon {
-            font-size: 1.25rem;
-            margin-left: var(--mb-0-5);
-            transition: .3s;
+        .button--ai {
+            padding: .75rem 1.5rem;
+            font-size: var(--small-font-size);
+            margin-top: 1rem;
+        }
+        .button--ai.loading {
+            cursor: not-allowed;
+            opacity: .7;
         }
 
-        .button--flex {
-            display: inline-flex;
-            align-items: center;
-        }
 
         /*=============== ABOUT ===============*/
         .about__container {
-            row-gap: 2.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 4rem;
         }
-
         .about__img {
-            width: 250px;
-            border-radius: .75rem;
+            width: 350px;
+            border-radius: 1rem;
             justify-self: center;
         }
-
-        .about__data {
-            text-align: center;
-        }
-
         .about__description {
-            margin-bottom: var(--mb-2-5);
+            margin-bottom: 2rem;
+        }
+        .about__info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .about__info-box {
+            background-color: var(--container-color);
+            padding: 1rem;
+            border-radius: .75rem;
+            text-align: center;
+            transition: background-color .4s;
+        }
+        .about__info-icon {
+            font-size: 1.5rem;
+            color: var(--first-color);
+            margin-bottom: .75rem;
+        }
+        .about__info-title {
+            font-size: var(--small-font-size);
+        }
+        .about__info-subtitle {
+            font-size: var(--smaller-font-size);
         }
 
         /*=============== SKILLS ===============*/
         .skills__container {
-            row-gap: 2.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
         }
-
+        .skills__content {
+            background-color: var(--container-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: background-color .4s;
+        }
+        .skills__title {
+            font-size: var(--h3-font-size);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .skills__box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
         .skills__data {
             text-align: center;
         }
-        
-        .skills__content,
-        .skills__header {
-            display: flex;
-            align-items: center;
-        }
-
-        .skills__header {
-            cursor: pointer;
-        }
-
-        .skills__content {
-            column-gap: .75rem;
-        }
-
-        .skills__icon,
-        .skills__arrow {
-            font-size: 2rem;
+        .skills__icon {
+            font-size: 3rem;
             color: var(--first-color);
         }
-
-        .skills__arrow {
-            margin-left: auto;
-            transition: .4s;
-        }
-
-        .skills__title {
-            font-size: var(--h3-font-size);
-        }
-
-        .skills__subtitle {
-            font-size: var(--small-font-size);
-            color: var(--text-color);
-        }
-
-        .skills__list {
-            row-gap: 1.5rem;
-            padding-left: 2.7rem;
-        }
-
-        .skills__titles {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: var(--mb-0-5);
-        }
-
         .skills__name {
-            font-size: var(--normal-font-size);
-            font-weight: var(--font-medium);
-        }
-
-        .skills__bar,
-        .skills__percentage {
-            height: 5px;
-            border-radius: .25rem;
-        }
-
-        .skills__bar {
-            background-color: hsl(var(--hue), var(--sat), 80%);
-        }
-
-        .skills__percentage {
-            display: block;
-            background-color: var(--first-color);
-        }
-
-        .skills [data-content] {
-            display: none;
-        }
-
-        .skills__active[data-content] {
-            display: block;
-        }
-
-        .skills__active .skills__arrow {
-            transform: rotate(-180deg);
-        }
-        
-        /*=============== EXPERIENCE & QUALIFICATION ===============*/
-        .qualification__tabs{
-            display: flex;
-            justify-content: center;
-            margin-bottom: var(--mb-2);
-        }
-        .qualification__button{
-            font-size: var(--h3-font-size);
-            font-weight: var(--font-medium);
-            color: var(--title-color);
-            margin: 0 var(--mb-1);
-            cursor: pointer;
-        }
-        .qualification__button:hover{
-            color: var(--first-color);
-        }
-        .qualification__icon{
-            font-size: 1.8rem;
-            margin-right: var(--mb-0-25);
-        }
-        .qualification__active{
-            color: var(--first-color);
-        }
-        .qualification__sections{
-            display: grid;
-            justify-content: center;
-        }
-        .qualification__content{
-            display: none;
-        }
-        .qualification__content-active{
-            display: block;
-        }
-        .qualification__data{
-            display: grid;
-            grid-template-columns: 1fr max-content 1fr;
-            column-gap: 1.5rem;
-        }
-        .qualification__title{
-            font-size: var(--normal-font-size);
-            font-weight: var(--font-medium);
-        }
-        .qualification__subtitle{
-            display: inline-block;
+            margin-top: .5rem;
             font-size: var(--small-font-size);
-            margin-bottom: var(--mb-1);
-        }
-        .qualification__calendar{
-            font-size: var(--smaller-font-size);
-        }
-        .qualification__rounder{
-            display: inline-block;
-            width: 13px;
-            height: 13px;
-            background-color: var(--first-color);
-            border-radius: 50%;
-        }
-        .qualification__line{
-            display: block;
-            width: 1px;
-            height: 100%;
-            background-color: var(--first-color);
-            transform: translate(6px, -7px);
         }
 
         /*=============== PORTFOLIO ===============*/
         .portfolio__container {
             padding-top: 1rem;
         }
-
         .portfolio__content {
-            border-radius: .75rem;
+            background-color: var(--container-color);
+            border-radius: 1rem;
             overflow: hidden;
+            transition: background-color .4s;
         }
-
         .portfolio__img {
             width: 100%;
             height: 250px;
             object-fit: cover;
         }
-
         .portfolio__data {
             padding: 1.5rem;
         }
-
         .portfolio__title {
             font-size: var(--h3-font-size);
-            margin-bottom: var(--mb-0-75);
+            margin-bottom: .75rem;
         }
-
         .swiper-button-next::after,
         .swiper-button-prev::after {
             content: '';
         }
-
         .swiper-button-next,
         .swiper-button-prev {
-            width: initial;
-            height: initial;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--first-color);
         }
-
-        .swiper-button-next {
-            right: .5rem;
-        }
-
-        .swiper-button-prev {
-            left: .5rem;
-        }
-
-        .swiper-pagination-bullet {
-            background-color: hsl(var(--hue), 8%, 65%);
-        }
-
+        .swiper-button-next { right: 1rem; }
+        .swiper-button-prev { left: 1rem; }
         .swiper-pagination-bullet-active {
             background-color: var(--first-color);
         }
 
         /*=============== CONTACT ===============*/
         .contact__container {
-            row-gap: 2.5rem;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
         }
-
-        .contact__content {
-            text-align: center;
-            row-gap: 1.5rem;
+        .contact__info {
+            display: grid;
+            row-gap: 2rem;
         }
-
         .contact__card {
             background-color: var(--container-color);
-            border: 1px solid hsla(var(--hue), var(--sat), 15%, .15);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: .75rem;
             text-align: center;
+            transition: background-color .4s;
         }
-
         .contact__card-icon {
             font-size: 2rem;
-            color: var(--title-color);
-            margin-bottom: var(--mb-0-25);
-        }
-
-        .contact__card-title,
-        .contact__card-data {
-            font-size: var(--small-font-size);
-        }
-
-        .contact__card-title {
-            font-weight: var(--font-medium);
-        }
-
-        .contact__card-data {
-            display: block;
-            margin-bottom: var(--mb-0-75);
-        }
-
-        .contact__button {
             color: var(--first-color);
-            font-size: var(--small-font-size);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            column-gap: .25rem;
+            margin-bottom: .5rem;
         }
-
-        .contact__button:hover .contact__button-icon {
-            transform: translateX(.25rem);
+        .contact__form-group {
+            position: relative;
+            margin-bottom: 2rem;
+            height: 4rem;
         }
-
-        .contact__button-icon {
-            font-size: 1rem;
-            transition: .3s;
+        .contact__form-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--border-color);
+            background: none;
+            color: var(--text-color);
+            padding: 1.5rem;
+            border-radius: .75rem;
+            outline: none;
+            z-index: 1;
+            transition: border-color .4s;
+        }
+        .contact__form-tag {
+            position: absolute;
+            top: -.75rem;
+            left: 1.25rem;
+            font-size: var(--smaller-font-size);
+            padding: .25rem;
+            background-color: var(--body-color);
+            z-index: 10;
+            transition: background-color .4s;
+        }
+        .contact__form-area {
+            height: 11rem;
+        }
+        .contact__form-area textarea {
+            resize: none;
         }
 
         /*=============== FOOTER ===============*/
         .footer {
-            background-color: var(--first-color);
+            background-color: var(--container-color);
+            padding: 4rem 0 2rem;
+            transition: background-color .4s;
         }
-
         .footer__container {
-            padding: 2rem 0 6rem;
-        }
-
-        .footer__title,
-        .footer__link {
-            color: #FFF;
-        }
-
-        .footer__title {
             text-align: center;
-            margin-bottom: var(--mb-2);
         }
-
-        .footer__list {
-            display: flex;
-            justify-content: center;
-            column-gap: 1.5rem;
-            margin-bottom: var(--mb-2);
+        .footer__title {
+            font-size: var(--h1-font-size);
+            font-weight: var(--font-bold);
+            margin-bottom: 1rem;
         }
-
-        .footer__link:hover {
-            text-decoration: underline;
+        .footer__title span {
+            color: var(--first-color);
         }
-
         .footer__social {
             display: flex;
             justify-content: center;
-            column-gap: 1.25rem;
+            column-gap: 1.5rem;
+            font-size: 1.5rem;
+            margin-top: 2rem;
         }
-
-        .footer__social-link {
-            background-color: #FFF;
+        .footer__social a {
+            color: var(--text-color);
+        }
+        .footer__social a:hover {
             color: var(--first-color);
-            padding: .25rem;
-            border-radius: .25rem;
-            font-size: 1rem;
-            display: inline-flex;
         }
-
         .footer__copy {
-            display: block;
-            margin-top: 4.5rem;
-            color: #FFF;
-            text-align: center;
+            margin-top: 4rem;
             font-size: var(--smaller-font-size);
         }
 
@@ -699,335 +553,172 @@
             position: fixed;
             right: 1rem;
             bottom: -30%;
-            background-color: var(--first-color);
-            opacity: .8;
-            padding: .5rem;
-            border-radius: .4rem;
+            background-color: var(--container-color);
+            box-shadow: 0 4px 12px hsla(var(--hue), 24%, 15%, 0.15);
+            display: inline-flex;
+            padding: .35rem;
+            border-radius: .25rem;
+            font-size: 1.25rem;
+            color: var(--first-color);
             z-index: var(--z-tooltip);
-            transition: .4s;
+            transition: .3s;
         }
-
         .scrollup:hover {
-            background-color: var(--first-color-alt);
+            transform: translateY(-.25rem);
         }
-
-        .scrollup__icon {
-            font-size: 1.2rem;
-            color: #FFF;
-        }
-
-        /* Show Scroll */
         .show-scroll {
             bottom: 3rem;
         }
 
         /*=============== SCROLL BAR ===============*/
         ::-webkit-scrollbar {
-            width: .60rem;
-            background-color: hsl(var(--hue), 8%, 75%);
+            width: .6rem;
+            background-color: hsl(var(--hue), 8%, 20%);
             border-radius: .5rem;
         }
-
         ::-webkit-scrollbar-thumb {
-            background-color: hsl(var(--hue), 8%, 55%);
+            background-color: hsl(var(--hue), 8%, 30%);
             border-radius: .5rem;
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: hsl(var(--hue), 8%, 45%);
+        body.light-theme::-webkit-scrollbar {
+            background-color: hsl(var(--hue), 8%, 85%);
+        }
+        body.light-theme::-webkit-scrollbar-thumb {
+            background-color: hsl(var(--hue), 8%, 70%);
         }
 
         /*=============== MEDIA QUERIES ===============*/
-        /* For small devices */
-        @media screen and (max-width: 350px) {
-            .container {
-                margin-left: var(--mb-1);
-                margin-right: var(--mb-1);
-            }
-            .nav__menu {
-                padding: 2rem .25rem 4rem;
-            }
-            .nav__list {
-                column-gap: 0;
-            }
-            .home__content {
-                grid-template-columns: .25fr 3fr;
-            }
-            .home__blob {
-                width: 180px;
-            }
-            .skills__title {
-                font-size: var(--normal-font-size);
-            }
-            .contact__card {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .qualification__data{
-                gap: .5rem;
-            }
-        }
-
-        /* For medium devices */
-        @media screen and (min-width: 568px) {
-            .home__content {
-                grid-template-columns: max-content 1fr 1fr;
-            }
-            .home__data {
-                grid-column: initial;
-            }
-            .home__img {
-                order: 1;
-                justify-self: center;
-            }
-            .about__container,
-            .skills__container,
-            .portfolio__container,
-            .contact__container,
-            .qualification__sections {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .qualification__sections{
-                grid-template-columns: .6fr;
-                justify-content: center;
-            }
-        }
-
-        @media screen and (min-width: 767px) {
-            body {
-                margin: 0;
-            }
-            .section {
-                padding: 6rem 0 2rem;
-            }
-            .section__title {
-                margin-bottom: 4rem;
-            }
-            .header {
-                top: 0;
-                bottom: initial;
-            }
-            .header,
-            .main,
-            .footer__container {
-                padding: 0 1rem;
-            }
-            .nav {
-                height: calc(var(--header-height) + 1.5rem);
-                column-gap: 1rem;
-            }
-            .nav__icon,
-            .nav__close,
-            .nav__toggle {
-                display: none;
-            }
-            .nav__list {
-                display: flex;
-                flex-direction: row;
-                column-gap: 2rem;
-            }
-            .nav__menu {
-                margin-left: auto;
-            }
-            .active-link::after {
+        @media screen and (max-width: 1023px) {
+            .sidebar {
                 display: none;
             }
             .main {
                 padding-left: 0;
             }
-            .home__container {
-                row-gap: 5rem;
-            }
-            .home__content {
-                padding-top: 5.5rem;
-                column-gap: 2rem;
-            }
-            .home__blob {
-                width: 270px;
-            }
-            .home__scroll {
-                display: block;
-            }
-            .home__scroll-button {
-                margin-left: 3rem;
-            }
-            .about__container {
-                column-gap: 5rem;
-            }
-            .about__img {
-                width: 350px;
-            }
-            .about__description {
-                text-align: left;
-            }
-            .skills__container {
-                grid-template-columns: repeat(2, 450px);
-                justify-content: center;
-                column-gap: 3rem;
-            }
-            .qualification__sections{
-                grid-template-columns: .5fr;
-            }
-            .portfolio__img {
-                width: 100%;
-                height: 320px;
-            }
-            .portfolio__content {
-                align-items: center;
-            }
-            .contact__container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .contact__content {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
-        /* For large devices */
-        @media screen and (min-width: 1024px) {
-            .header,
-            .main,
-            .footer__container {
-                padding: 0;
+        @media screen and (max-width: 767px) {
+            .home__container {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
             }
+            .home__img {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 2rem;
+            }
+            .about__container {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+            .about__img {
+                margin-bottom: 2rem;
+            }
+            .skills__container {
+                grid-template-columns: 1fr;
+            }
+            .contact__container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media screen and (max-width: 576px) {
+            .about__info {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media screen and (max-width: 350px) {
             .container {
-                max-width: 1120px;
-            }
-            .home__blob {
-                width: 320px;
-            }
-            .home__social {
-                transform: translateX(-6rem);
-            }
-            .portfolio__content {
-                column-gap: 5rem;
-            }
-            .swiper-button-next {
-                right: -3.5rem;
-            }
-            .swiper-button-prev {
-                left: -3.5rem;
-            }
-            .swiper-container .swiper-pagination-portfolio {
-                bottom: -4.5rem;
-            }
-            .contact__content {
-                grid-template-columns: repeat(3, 1fr);
+                margin-left: 1rem;
+                margin-right: 1rem;
             }
         }
     </style>
     <title>Ravinder Rawal - Portfolio</title>
 </head>
 <body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Ravinder Rawal</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class="ri-home-5-line"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="ri-user-line"></i> About
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="ri-trophy-line"></i> Skills
-                        </a>
-                    </li>
-                     <li class="nav__item">
-                        <a href="#qualification" class="nav__link">
-                            <i class="ri-book-open-line"></i> Qualification
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
-                            <i class="ri-image-line"></i> Projects
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class="ri-chat-3-line"></i> Contact
-                        </a>
-                    </li>
-                </ul>
-                <i class="ri-close-line nav__close" id="nav-close"></i>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-apps-2-line"></i>
+    <!--==================== SIDEBAR ====================-->
+    <div class="sidebar">
+        <a href="#" class="sidebar__logo">R.</a>
+
+        <nav class="sidebar__nav">
+            <div class="sidebar__menu">
+                <a href="#home" class="sidebar__link sidebar-active-link">Home</a>
+                <a href="#about" class="sidebar__link">About</a>
+                <a href="#skills" class="sidebar__link">Skills</a>
+                <a href="#portfolio" class="sidebar__link">Portfolio</a>
+                <a href="#contact" class="sidebar__link">Contact</a>
             </div>
         </nav>
-    </header>
+
+        <div class="sidebar__bottom">
+            <div class="sidebar__social">
+                <a href="https://www.linkedin.com/in/rvndrrwi" target="_blank"><i class="ri-linkedin-fill"></i></a>
+                <a href="https://github.com/Smart-rwl" target="_blank"><i class="ri-github-fill"></i></a>
+            </div>
+            <i class="ri-moon-line theme__toggle" id="theme-button"></i>
+        </div>
+    </div>
 
     <!--==================== MAIN ====================-->
     <main class="main">
+        <!--==================== HEADER (for mobile) ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">Ravinder Rawal</a>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="ri-home-5-line"></i></a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link"><i class="ri-user-line"></i></a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line"></i></a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link"><i class="ri-briefcase-4-line"></i></a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link"><i class="ri-message-3-line"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
         <!--==================== HOME ====================-->
         <section class="home section" id="home">
             <div class="home__container container grid">
-                <div class="home__content grid">
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/rvndrrwi" target="_blank" class="home__social-link">
-                            <i class="ri-linkedin-box-fill"></i>
-                        </a>
-                        <a href="https://github.com/Smart-rwl" target="_blank" class="home__social-link">
-                            <i class="ri-github-fill"></i>
-                        </a>
-                    </div>
-                    <div class="home__img">
-                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <mask id="mask0" mask-type="alpha">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-                                <image class="home__blob-img" x="12" y="18" href="https://placehold.co/200x200/ffffff/000000?text=Your+Photo" onerror="this.onerror=null;this.href='https://placehold.co/170x170/ffffff/000000?text=RR';"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="home__data">
-                        <h1 class="home__title">Hi, I'm Ravinder Rawal</h1>
-                        <h3 class="home__subtitle">eCommerce Specialist</h3>
-                        <p class="home__description">
-                            Over 7 years of experience in managing and scaling online retail operations, with expertise in inventory, pricing, and data analysis.
-                        </p>
-                        <a href="#contact" class="button button--flex">
-                            Contact Me <i class="ri-send-plane-fill button__icon"></i>
-                        </a>
-                    </div>
+                <div class="home__data">
+                    <h1 class="home__name">Ravinder Rawal</h1>
+                    <h3 class="home__profession">I'm a <span class="typing-text"></span></h3>
+                    <p class="home__description">
+                        Over 7 years of experience in managing and scaling online retail operations, with expertise in inventory, pricing, and data analysis.
+                    </p>
+                    <a download="" href="Ravinder Rawal - Professional Resume.pdf" class="button">Download CV</a>
                 </div>
-                <div class="home__scroll">
-                    <a href="#about" class="home__scroll-button button--flex">
-                        <i class="ri-mouse-line home__scroll-mouse"></i>
-                        <span class="home__scroll-name">Scroll down</span>
-                        <i class="ri-arrow-down-s-line home__scroll-arrow"></i>
-                    </a>
-                </div>
+                <img src="https://placehold.co/400x400/1a2e39/ffffff?text=Your+Photo" alt="Ravinder Rawal" class="home__img">
             </div>
         </section>
 
         <!--==================== ABOUT ====================-->
         <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
+            <h2 class="section__title">About <span>Me</span></h2>
             <div class="about__container container grid">
-                <img src="https://placehold.co/500x750/F0F8FF/000000?text=Your+Professional+Photo" alt="" class="about__img">
-                <div class="about__data">
+                <img src="https://placehold.co/500x750/1a2e39/ffffff?text=Professional+Photo" alt="About Ravinder Rawal" class="about__img">
+                <div>
                     <p class="about__description">
                         Results-driven Catalogue & Pricing Executive with 7+ years of eCommerce expertise. Adept at inventory management, data analysis, and cross-functional collaboration. Proven track record in optimizing workflows and driving sales through strategic pricing across multiple platforms.
                     </p>
-                    <div style="text-align: center;">
-                        <a download="" href="Ravinder Rawal - Professional Resume.pdf" class="button button--flex">
-                            Download CV <i class="ri-download-2-line button__icon"></i>
-                        </a>
+                    <div class="about__info">
+                        <div class="about__info-box">
+                            <i class="ri-award-line about__info-icon"></i>
+                            <h3 class="about__info-title">Experience</h3>
+                            <span class="about__info-subtitle">7+ Years</span>
+                        </div>
+                        <div class="about__info-box">
+                            <i class="ri-briefcase-4-line about__info-icon"></i>
+                            <h3 class="about__info-title">Projects</h3>
+                            <span class="about__info-subtitle">10+ Completed</span>
+                        </div>
+                        <div class="about__info-box">
+                            <i class="ri-building-4-line about__info-icon"></i>
+                            <h3 class="about__info-title">Companies</h3>
+                            <span class="about__info-subtitle">2+ Worked</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1035,338 +726,113 @@
 
         <!--==================== SKILLS ====================-->
         <section class="skills section" id="skills">
-            <h2 class="section__title">My Expertise</h2>
+            <h2 class="section__title">My <span>Skills</span></h2>
             <div class="skills__container container grid">
-                <div>
-                    <!--======== SKILLS 1 ========-->
-                    <div class="skills__content skills__active" data-content id="platform-skills">
-                        <div class="skills__header">
-                            <i class="ri-store-2-line skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Platform Management</h1>
-                                <span class="skills__subtitle">Managing core eCommerce systems</span>
-                            </div>
-                            <i class="ri-arrow-down-s-line skills__arrow"></i>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Vendor & Seller Central</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 95%;"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">A+ Content Creation</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 90%;"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Multi-Platform Sync</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 85%;"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--======== SKILLS 2 ========-->
-                    <div class="skills__content" data-content id="operational-skills">
-                        <div class="skills__header">
-                            <i class="ri-settings-3-line skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Operational Excellence</h1>
-                                <span class="skills__subtitle">Optimizing retail operations</span>
-                            </div>
-                            <i class="ri-arrow-down-s-line skills__arrow"></i>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Inventory Management</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 95%;"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Order Management (OMS)</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 90%;"></span></div>
-                            </div>
-                             <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Process Optimization</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 88%;"></span></div>
-                            </div>
-                        </div>
+                <div class="skills__content">
+                    <h3 class="skills__title">Platform & Operations</h3>
+                    <div class="skills__box">
+                        <div class="skills__data"><i class="ri-store-2-line skills__icon"></i><h4 class="skills__name">Seller Central</h4></div>
+                        <div class="skills__data"><i class="ri-archive-line skills__icon"></i><h4 class="skills__name">Inventory Mgmt</h4></div>
+                        <div class="skills__data"><i class="ri-file-list-3-line skills__icon"></i><h4 class="skills__name">A+ Content</h4></div>
+                        <div class="skills__data"><i class="ri-truck-line skills__icon"></i><h4 class="skills__name">Order Mgmt</h4></div>
                     </div>
                 </div>
-                <div>
-                    <!--======== SKILLS 3 ========-->
-                    <div class="skills__content" data-content id="analytical-skills">
-                        <div class="skills__header">
-                            <i class="ri-bar-chart-box-line skills__icon"></i>
-                            <div>
-                                <h1 class="skills__title">Analytical & Financial</h1>
-                                <span class="skills__subtitle">Data-driven decision making</span>
-                            </div>
-                            <i class="ri-arrow-down-s-line skills__arrow"></i>
-                        </div>
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Pricing Strategies</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 95%;"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Data Analysis (Looker, Power BI)</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 85%;"></span></div>
-                            </div>
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Payment Reconciliation</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 90%;"></span></div>
-                            </div>
-                             <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">SQL & HTML</h3>
-                                </div>
-                                <div class="skills__bar"><span class="skills__percentage" style="width: 70%;"></span></div>
-                            </div>
-                        </div>
+                <div class="skills__content">
+                    <h3 class="skills__title">Analytical & Technical</h3>
+                    <div class="skills__box">
+                        <div class="skills__data"><i class="ri-price-tag-3-line skills__icon"></i><h4 class="skills__name">Pricing Strategy</h4></div>
+                        <div class="skills__data"><i class="ri-bar-chart-box-line skills__icon"></i><h4 class="skills__name">Data Analysis</h4></div>
+                        <div class="skills__data"><i class="ri-database-2-line skills__icon"></i><h4 class="skills__name">SQL</h4></div>
+                        <div class="skills__data"><i class="ri-google-line skills__icon"></i><h4 class="skills__name">Looker / Power BI</h4></div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!--==================== QUALIFICATION ====================-->
-        <section class="qualification section" id="qualification">
-            <h2 class="section__title">Qualification</h2>
-            
-            <div class="qualification__container container">
-                <div class="qualification__tabs">
-                    <div class="qualification__button button--flex qualification__active" data-target="#work">
-                        <i class="ri-briefcase-4-line qualification__icon"></i>
-                        Work
-                    </div>
-
-                    <div class="qualification__button button--flex" data-target="#education">
-                        <i class="ri-book-open-line qualification__icon"></i>
-                        Education
-                    </div>
-                </div>
-
-                <div class="qualification__sections">
-                    <!--==================== QUALIFICATION CONTENT 1 ====================-->
-                    <div class="qualification__content qualification__content-active" data-content id="work">
-                        <!--==================== QUALIFICATION 1 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Catalogue & Pricing Executive</h3>
-                                <span class="qualification__subtitle">Citymall</span>
-                                <div class="qualification__calendar">
-                                    <i class="ri-calendar-2-line"></i>
-                                    2020 - Present
-                                </div>
-                            </div>
-    
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-                        
-                        <!--==================== QUALIFICATION 2 ====================-->
-                        <div class="qualification__data">
-                            <div></div>
-    
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">eCommerce Specialist</h3>
-                                <span class="qualification__subtitle">Previous Company</span>
-                                <div class="qualification__calendar">
-                                    <i class="ri-calendar-2-line"></i>
-                                    2018 - 2020
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--==================== QUALIFICATION CONTENT 2 ====================-->
-                    <div class="qualification__content" data-content id="education">
-                        <!--==================== QUALIFICATION 1 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Bachelor in Science</h3>
-                                <span class="qualification__subtitle">Indira Gandhi National Open University</span>
-                                <div class="qualification__calendar">
-                                    <i class="ri-calendar-2-line"></i>
-                                    2022 - Present
-                                </div>
-                            </div>
-    
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-                        
-                        <!--==================== QUALIFICATION 2 ====================-->
-                        <div class="qualification__data">
-                            <div></div>
-    
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">Diploma Pharmacy</h3>
-                                <span class="qualification__subtitle">Janta College of Pharmacy</span>
-                                <div class="qualification__calendar">
-                                    <i class="ri-calendar-2-line"></i>
-                                    2014 - 2020
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--==================== QUALIFICATION 3 ====================-->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">Senior Secondary</h3>
-                                <span class="qualification__subtitle">Govt. Senior Secondary School</span>
-                                <div class="qualification__calendar">
-                                    <i class="ri-calendar-2-line"></i>
-                                    2014
-                                </div>
-                            </div>
-    
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== PLATFORM EXPERTISE ====================-->
-        <section class="skills section" id="platforms">
-            <h2 class="section__title">Platform Expertise</h2>
-            <div class="skills__container container grid">
-                <div class="skills__data">
-                    <i class="fab fa-amazon fa-3x" style="color: #FF9900;"></i>
-                    <h3 class="skills__name" style="margin-top: 1rem;">Amazon</h3>
-                </div>
-                <div class="skills__data">
-                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png" style="height: 48px; margin: 0 auto;" alt="Myntra">
-                    <h3 class="skills__name" style="margin-top: 1rem;">Myntra</h3>
-                </div>
-                 <div class="skills__data">
-                    <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/flipkart-logo-095e08.svg" style="height: 48px; margin: 0 auto;" alt="Flipkart">
-                    <h3 class="skills__name" style="margin-top: 1rem;">Flipkart</h3>
-                </div>
-                 <div class="skills__data">
-                    <img src="https://media.licdn.com/dms/image/C560BAQG23V3p2PE2qQ/company-logo_200_200/0/1630651394052/ajio_logo?e=2147483647&v=beta&t=k6c2yY88Ied5H5n2aV2O0YgX1Jd2y4Y5JzJ7b8r8c9g" style="height: 48px; margin: 0 auto;" alt="AJIO">
-                    <h3 class="skills__name" style="margin-top: 1rem;">AJIO</h3>
-                </div>
-                 <div class="skills__data">
-                    <img src="https://www.jiomart.com/assets/ds2web/images/jiomart_beta_logo.svg" style="height: 48px; margin: 0 auto;" alt="JioMart">
-                    <h3 class="skills__name" style="margin-top: 1rem;">JioMart</h3>
-                </div>
-            </div>
-        </section>
-
 
         <!--==================== PORTFOLIO ====================-->
         <section class="portfolio section" id="portfolio">
-            <h2 class="section__title">Key Projects & Accomplishments</h2>
+            <h2 class="section__title">My <span>Projects</span></h2>
             <div class="portfolio__container container swiper">
                 <div class="swiper-wrapper">
-                    <!--======== PORTFOLIO 1 ========-->
+                    <!-- Project 1 -->
                     <div class="portfolio__content grid swiper-slide">
-                        <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Inventory+System" alt="" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Inventory+System" alt="Inventory Optimization System" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Inventory Optimization System</h3>
-                            <p class="portfolio__description">Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
+                            <p id="project-desc-1">Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
+                            <button class="button button--ai" onclick="enhanceDescription(this, 'project-desc-1')">✨ Enhance with AI</button>
                         </div>
                     </div>
-                    <!--======== PORTFOLIO 2 ========-->
+                    <!-- Project 2 -->
                     <div class="portfolio__content grid swiper-slide">
-                        <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Catalog+Standardization" alt="" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Catalog+Standardization" alt="Catalog Standardization" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Catalog Standardization</h3>
-                            <p class="portfolio__description">Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
+                            <p id="project-desc-2">Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
+                             <button class="button button--ai" onclick="enhanceDescription(this, 'project-desc-2')">✨ Enhance with AI</button>
                         </div>
                     </div>
-                    <!--======== PORTFOLIO 3 ========-->
+                    <!-- Project 3 -->
                     <div class="portfolio__content grid swiper-slide">
-                        <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Automated+Pricing" alt="" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Automated+Pricing" alt="Automated Price Monitoring" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Automated Price Monitoring</h3>
-                            <p class="portfolio__description">Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
+                            <p id="project-desc-3">Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
+                             <button class="button button--ai" onclick="enhanceDescription(this, 'project-desc-3')">✨ Enhance with AI</button>
                         </div>
                     </div>
-                     <!--======== TESTIMONIAL ========-->
+                    <!-- Testimonial -->
                     <div class="portfolio__content grid swiper-slide">
-                        <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Testimonial" alt="" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Testimonial" alt="Testimonial" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Transformed Our Online Presence</h3>
-                            <p class="portfolio__description">"Ravinder's attention to detail and expertise... directly contributed to a 30% increase in our online revenue." <br>- <strong>Rahul Pawa, Category Manager at Citymall</strong></p>
+                            <p>"Ravinder's attention to detail and expertise... directly contributed to a 30% increase in our online revenue." <br>- <strong>Rahul Pawa, Category Manager at Citymall</strong></p>
                         </div>
                     </div>
                 </div>
-                <!-- Add Arrows -->
                 <div class="swiper-button-next"><i class="ri-arrow-right-s-line"></i></div>
                 <div class="swiper-button-prev"><i class="ri-arrow-left-s-line"></i></div>
-                <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
         </section>
 
         <!--==================== CONTACT ME ====================-->
         <section class="contact section" id="contact">
-            <h2 class="section__title">Contact Me</h2>
+            <h2 class="section__title">Contact <span>Me</span></h2>
             <div class="contact__container container grid">
-                <div class="contact__content">
+                <div class="contact__info">
                     <div class="contact__card">
                         <i class="ri-mail-line contact__card-icon"></i>
                         <h3 class="contact__card-title">Email</h3>
                         <span class="contact__card-data">rvndrrwl@gmail.com</span>
-                        <a href="mailto:rvndrrwl@gmail.com" class="contact__button">
-                            Write me <i class="ri-arrow-right-s-line contact__button-icon"></i>
-                        </a>
                     </div>
-                </div>
-                <div class="contact__content">
-                    <div class="contact__card">
-                        <i class="ri-linkedin-box-line contact__card-icon"></i>
-                        <h3 class="contact__card-title">LinkedIn</h3>
-                        <span class="contact__card-data">in/rvndrrwi</span>
-                        <a href="https://www.linkedin.com/in/rvndrrwi" target="_blank" class="contact__button">
-                            Write me <i class="ri-arrow-right-s-line contact__button-icon"></i>
-                        </a>
-                    </div>
-                </div>
-                 <div class="contact__content">
                     <div class="contact__card">
                         <i class="ri-whatsapp-line contact__card-icon"></i>
                         <h3 class="contact__card-title">Whatsapp</h3>
                         <span class="contact__card-data">+91 78910 10967</span>
-                        <a href="https://api.whatsapp.com/send?phone=917891010967&text=Hello, I saw your portfolio!" target="_blank" class="contact__button">
-                            Write me <i class="ri-arrow-right-s-line contact__button-icon"></i>
-                        </a>
+                    </div>
+                     <div class="contact__card">
+                        <i class="ri-linkedin-line contact__card-icon"></i>
+                        <h3 class="contact__card-title">LinkedIn</h3>
+                        <span class="contact__card-data">in/rvndrrwi</span>
                     </div>
                 </div>
+
+                <form action="" class="contact__form">
+                    <div class="contact__form-group">
+                        <label for="name" class="contact__form-tag">Name</label>
+                        <input type="text" name="name" id="name" class="contact__form-input" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <label for="email" class="contact__form-tag">Email</label>
+                        <input type="email" name="email" id="email" class="contact__form-input" required>
+                    </div>
+                    <div class="contact__form-group contact__form-area">
+                        <label for="message" class="contact__form-tag">Message</label>
+                        <textarea name="message" id="message" class="contact__form-input" required></textarea>
+                    </div>
+                    <button class="button">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
@@ -1374,23 +840,18 @@
     <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Ravinder Rawal</h1>
-            <ul class="footer__list">
-                <li><a href="#about" class="footer__link">About</a></li>
-                <li><a href="#portfolio" class="footer__link">Projects</a></li>
-                <li><a href="#skills" class="footer__link">Skills</a></li>
-            </ul>
+            <h2 class="footer__title">Ravinder <span>Rawal</span></h2>
             <div class="footer__social">
-                <a href="https://www.linkedin.com/in/rvndrrwi" class="footer__social-link"><i class="ri-linkedin-fill"></i></a>
-                <a href="https://github.com/Smart-rwl" class="footer__social-link"><i class="ri-github-fill"></i></a>
+                <a href="https://www.linkedin.com/in/rvndrrwi" target="_blank"><i class="ri-linkedin-fill"></i></a>
+                <a href="https://github.com/Smart-rwl" target="_blank"><i class="ri-github-fill"></i></a>
             </div>
-            <span class="footer__copy">&#169; Ravinder Rawal. All rights reserved</span>
+            <p class="footer__copy">&#169; Ravinder Rawal. All rights reserved</p>
         </div>
     </footer>
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-s-line scrollup__icon"></i>
+        <i class="ri-arrow-up-line"></i>
     </a>
 
     <!--=============== SCROLLREVEAL ===============-->
@@ -1398,79 +859,25 @@
 
     <!--=============== SWIPER JS ===============-->
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    
+    <!--=============== TYPED JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <!--=============== MAIN JS ===============-->
     <script>
-        /*=============== SHOW MENU ===============*/
-        const navMenu = document.getElementById('nav-menu'),
-              navToggle = document.getElementById('nav-toggle'),
-              navClose = document.getElementById('nav-close')
-
-        if(navToggle){
-            navToggle.addEventListener('click', () =>{
-                navMenu.classList.add('show-menu')
-            })
-        }
-
-        if(navClose){
-            navClose.addEventListener('click', () =>{
-                navMenu.classList.remove('show-menu')
-            })
-        }
-
-        /*=============== REMOVE MENU MOBILE ===============*/
-        const navLink = document.querySelectorAll('.nav__link')
-
-        function linkAction(){
-            const navMenu = document.getElementById('nav-menu')
-            navMenu.classList.remove('show-menu')
-        }
-        navLink.forEach(n => n.addEventListener('click', linkAction))
-
-        /*=============== SKILLS ACCORDION ===============*/
-        const skillsContent = document.getElementsByClassName('skills__content'),
-              skillsHeader = document.querySelectorAll('.skills__header')
-
-        function toggleSkills(){
-            let itemClass = this.parentNode.className
-
-            for(i = 0; i < skillsContent.length; i++){
-                skillsContent[i].className = 'skills__content'
-            }
-            
-            if(itemClass === 'skills__content'){
-                this.parentNode.className = 'skills__content skills__active'
-            }
-        }
-
-        skillsHeader.forEach((el) =>{
-            el.addEventListener('click', toggleSkills)
-        })
-
-        /*=============== QUALIFICATION TABS ===============*/
-        const tabs = document.querySelectorAll('[data-target]'),
-              tabContents = document.querySelectorAll('[data-content]')
-
-        tabs.forEach(tab =>{
-            tab.addEventListener('click', () =>{
-                const target = document.querySelector(tab.dataset.target)
-
-                tabContents.forEach(tabContent =>{
-                    tabContent.classList.remove('qualification__content-active')
-                })
-                target.classList.add('qualification__content-active')
-
-                tabs.forEach(tab =>{
-                    tab.classList.remove('qualification__active')
-                })
-                tab.classList.add('qualification__active')
-            })
-        })
+        /*=============== TYPING ANIMATION ===============*/
+        var typed = new Typed('.typing-text', {
+            strings: ['eCommerce Specialist', 'Catalogue Expert', 'Pricing Strategist'],
+            loop: true,
+            typeSpeed: 70,
+            backSpeed: 50,
+            backDelay: 1500,
+        });
 
         /*=============== PORTFOLIO SWIPER  ===============*/
         let swiperPortfolio = new Swiper('.portfolio__container', {
-            cssMode: true,
             loop: true,
+            spaceBetween: 24,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -1479,55 +886,144 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 48,
+                },
+            },
         });
 
         /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
         const sections = document.querySelectorAll('section[id]')
-
-        function scrollActive(){
+        
+        const scrollActive = () =>{
             const scrollY = window.pageYOffset
 
             sections.forEach(current =>{
                 const sectionHeight = current.offsetHeight,
                       sectionTop = current.offsetTop - 58,
-                      sectionId = current.getAttribute('id')
+                      sectionId = current.getAttribute('id'),
+                      sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']'),
+                      sidebarClass = document.querySelector('.sidebar__menu a[href*=' + sectionId + ']')
 
-                if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-                }else{
-                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-                }
+                if(sectionsClass && sidebarClass) {
+                    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                        sectionsClass.classList.add('active-link')
+                        sidebarClass.classList.add('sidebar-active-link')
+                    }else{
+                        sectionsClass.classList.remove('active-link')
+                        sidebarClass.classList.remove('sidebar-active-link')
+                    }
+                }                                                    
             })
         }
         window.addEventListener('scroll', scrollActive)
 
-        /*=============== CHANGE BACKGROUND HEADER ===============*/ 
-        function scrollHeader(){
-            const header = document.getElementById('header')
-            if(this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
-        }
-        window.addEventListener('scroll', scrollHeader)
-
         /*=============== SHOW SCROLL UP ===============*/ 
-        function scrollUp(){
-            const scrollUp = document.getElementById('scroll-up');
-            if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+        const scrollUp = () =>{
+            const scrollUp = document.getElementById('scroll-up')
+            this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+                                : scrollUp.classList.remove('show-scroll')
         }
         window.addEventListener('scroll', scrollUp)
 
+        /*=============== THEME/DISPLAY CUSTOMIZATION ===============*/
+        const themeButton = document.getElementById('theme-button')
+        const lightTheme = 'light-theme'
+        const iconTheme = 'ri-sun-line'
+
+        // Previously selected topic (if user selected)
+        const selectedTheme = localStorage.getItem('selected-theme')
+        const selectedIcon = localStorage.getItem('selected-icon')
+
+        // We obtain the current theme that the interface has by validating the light-theme class
+        const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'dark' : 'light'
+        const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
+
+        // We validate if the user previously chose a topic
+        if (selectedTheme) {
+          // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
+          document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](lightTheme)
+          themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
+        }
+
+        // Activate / deactivate the theme manually with the button
+        themeButton.addEventListener('click', () => {
+            // Add or remove the light / icon theme
+            document.body.classList.toggle(lightTheme)
+            themeButton.classList.toggle(iconTheme)
+            // We save the theme and the current icon that the user chose
+            localStorage.setItem('selected-theme', getCurrentTheme())
+            localStorage.setItem('selected-icon', getCurrentIcon())
+        })
+
+        /*=============== GEMINI API: ENHANCE PROJECT DESCRIPTION ===============*/
+        async function enhanceDescription(button, descriptionId) {
+            const descriptionElement = document.getElementById(descriptionId);
+            const originalText = descriptionElement.textContent;
+            
+            // Show loading state
+            button.textContent = 'Enhancing...';
+            button.classList.add('loading');
+            button.disabled = true;
+
+            const prompt = `You are an expert resume writer for eCommerce professionals. Take the following project accomplishment and expand it into a more detailed and impactful narrative for a portfolio. Focus on the business results and strategic value. Make it 2-3 sentences long. Original accomplishment: "${originalText}"`;
+
+            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const enhancedText = result.candidates[0].content.parts[0].text;
+                    descriptionElement.textContent = enhancedText;
+                    button.textContent = 'Enhanced!'; // Final state
+                } else {
+                    throw new Error('Unexpected API response structure');
+                }
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                descriptionElement.textContent = originalText; // Revert on error
+                button.textContent = '✨ Enhance with AI';
+                button.classList.remove('loading');
+                button.disabled = false;
+                // Optionally show an error message to the user
+                alert("Sorry, the AI enhancement failed. Please try again later.");
+            }
+        }
+
         /*=============== SCROLL REVEAL ANIMATION ===============*/
         const sr = ScrollReveal({
+            origin: 'top',
             distance: '60px',
             duration: 2500,
             delay: 400,
-            // reset: true
         })
 
-        sr.reveal(`.home__data, .home__social, .contact__container, .footer__container`)
-        sr.reveal(`.home__img`, {origin: 'bottom'})
-        sr.reveal(`.about__img, .skills__content, .qualification__content`, {origin: 'left'})
-        sr.reveal(`.about__data, .skills__data`, {origin: 'right'})
-        sr.reveal(`.portfolio__container`, {origin: 'top'})
+        sr.reveal(`.home__data, .footer__container`)
+        sr.reveal(`.home__img`, {delay: 700, origin: 'bottom'})
+        sr.reveal(`.about__img, .skills__content:nth-child(2)`, {origin: 'left'})
+        sr.reveal(`.about__description, .about__info, .skills__content:nth-child(1)`, {origin: 'right'})
+        sr.reveal(`.portfolio__container, .contact__container`, {origin: 'bottom'})
 
     </script>
 </body>
