@@ -124,12 +124,12 @@
             transition: .15s;
             z-index: var(--z-modal);
         }
-        a:hover ~ .cursor, button:hover ~ .cursor {
+        a:hover ~ .cursor, button:hover ~ .cursor, .theme__toggle:hover ~ .cursor {
             transform: translate(-50%, -50%) scale(1.5);
             background-color: var(--first-color);
             opacity: .5;
         }
-        a:hover ~ .cursor2, button:hover ~ .cursor2 {
+        a:hover ~ .cursor2, button:hover ~ .cursor2, .theme__toggle:hover ~ .cursor2 {
             opacity: 0;
         }
 
@@ -189,7 +189,7 @@
         }
 
         .section {
-            padding: 4.5rem 0 2.5rem;
+            padding: 7rem 0 2.5rem;
         }
 
         .section__title {
@@ -211,6 +211,7 @@
             width: 100%;
             background-color: transparent;
             z-index: var(--z-fixed);
+            transition: .4s;
         }
 
         .nav {
@@ -224,135 +225,77 @@
             color: var(--title-color);
             font-weight: var(--font-medium);
         }
-
-        .nav__toggle {
-            display: none;
-        }
-
-        @media screen and (max-width: 1023px) {
-            .nav__menu {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background-color: var(--body-color);
-                box-shadow: 0 -1px 12px hsla(var(--hue), 24%, 15%, 0.15);
-                padding: 1rem 3rem;
-                border-radius: 2rem 2rem 0 0;
-            }
-            .nav__list {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .nav__link {
-                color: var(--text-color);
-                font-size: 1.5rem;
-                display: grid;
-                place-items: center;
-            }
-            .nav__link:hover, .active-link {
-                color: var(--first-color);
-            }
-        }
-
-        /*=============== SIDEBAR ===============*/
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100px;
-            height: 100vh;
-            background-color: var(--container-color);
-            backdrop-filter: blur(10px);
-            border-right: 1px solid var(--border-color);
+        
+        .nav__menu {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-            padding: 2.5rem 0;
-            transition: background-color .4s;
+            column-gap: 2rem;
         }
 
-        .sidebar__logo {
-            font-weight: var(--font-semi-bold);
-            font-size: 1.5rem;
-            color: var(--title-color);
-            writing-mode: vertical-rl;
-            transform: rotate(-180deg);
-        }
-
-        .sidebar__nav {
-            writing-mode: vertical-rl;
-            transform: rotate(-180deg);
-        }
-
-        .sidebar__menu {
+        .nav__list {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            row-gap: 3.5rem;
+            column-gap: 2rem;
         }
 
-        .sidebar__link {
+        .nav__link {
             color: var(--text-color);
             font-weight: var(--font-medium);
-            position: relative;
             transition: .3s;
         }
 
-        .sidebar__link:hover, .sidebar-active-link {
-            color: var(--first-color);
-        }
-
-        .sidebar-active-link::before {
-            content: '';
-            position: absolute;
-            right: -1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background-color: var(--first-color);
-            border-radius: 50%;
-        }
-
-        .sidebar__bottom {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            row-gap: 1.5rem;
-        }
-
-        .sidebar__social {
-            display: grid;
-            row-gap: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .sidebar__social a {
-            color: var(--text-color);
-        }
-        .sidebar__social a:hover {
+        .nav__link:hover, .active-link {
             color: var(--first-color);
         }
 
         .theme__toggle {
-            font-size: 1.5rem;
-            color: var(--text-color);
+            font-size: 1.25rem;
+            color: var(--title-color);
             cursor: pointer;
         }
-        .theme__toggle:hover {
-            color: var(--first-color);
+
+        .nav__toggle {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            display: none;
         }
 
-        .main {
-            padding-left: 100px;
+        /* Change background header */
+        .scroll-header {
+            background-color: var(--container-color);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px hsla(var(--hue), 28%, 12%, .1);
+        }
+
+        @media screen and (max-width: 1023px) {
+            .nav__toggle {
+                display: inline-flex;
+            }
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--container-color);
+                backdrop-filter: blur(10px);
+                padding: 4rem 0 3rem;
+                border-radius: 0 0 1.5rem 1.5rem;
+                box-shadow: 0 4px 20px hsla(var(--hue), 28%, 12%, .1);
+                transition: .4s;
+            }
+            .show-menu {
+                top: 0;
+            }
+            .nav__list {
+                flex-direction: column;
+                align-items: center;
+                row-gap: 1.5rem;
+            }
         }
 
         /*=============== HOME ===============*/
         .home__container {
-            padding: 3.5rem 0 2rem;
+            padding-top: 3.5rem;
             grid-template-columns: repeat(2, 1fr);
             align-items: center;
             gap: 2rem;
@@ -752,9 +695,6 @@
 
         /*=============== MEDIA QUERIES ===============*/
         @media screen and (max-width: 1023px) {
-            .sidebar {
-                display: none;
-            }
             .main {
                 padding-left: 0;
             }
@@ -809,49 +749,33 @@
     <div class="cursor"></div>
     <div class="cursor2"></div>
 
-    <!--==================== SIDEBAR ====================-->
-    <div class="sidebar">
-        <a href="#" class="sidebar__logo">R.</a>
-
-        <nav class="sidebar__nav">
-            <div class="sidebar__menu">
-                <a href="#home" class="sidebar__link sidebar-active-link">Home</a>
-                <a href="#about" class="sidebar__link">About</a>
-                <a href="#services" class="sidebar__link">Services</a>
-                <a href="#skills" class="sidebar__link">Skills</a>
-                <a href="#portfolio" class="sidebar__link">Portfolio</a>
-                <a href="#contact" class="sidebar__link">Contact</a>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Ravinder</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav__buttons">
+                <i class="ri-moon-line theme__toggle" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-apps-2-line"></i>
+                </div>
             </div>
         </nav>
-
-        <div class="sidebar__bottom">
-            <div class="sidebar__social">
-                <a href="https://www.linkedin.com/in/rvndrrwi" target="_blank"><i class="ri-linkedin-fill"></i></a>
-                <a href="https://github.com/Smart-rwl" target="_blank"><i class="ri-github-fill"></i></a>
-            </div>
-            <i class="ri-moon-line theme__toggle" id="theme-button"></i>
-        </div>
-    </div>
+    </header>
 
     <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== HEADER (for mobile) ====================-->
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo">Ravinder Rawal</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="ri-home-5-line"></i></a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link"><i class="ri-user-line"></i></a></li>
-                        <li class="nav__item"><a href="#services" class="nav__link"><i class="ri-briefcase-line"></i></a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line"></i></a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link"><i class="ri-image-line"></i></a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link"><i class="ri-message-3-line"></i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
         <!--==================== HOME ====================-->
         <section class="home section" id="home">
             <div class="home__container container grid">
@@ -1153,16 +1077,13 @@
                 const sectionHeight = current.offsetHeight,
                       sectionTop = current.offsetTop - 58,
                       sectionId = current.getAttribute('id'),
-                      sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']'),
-                      sidebarClass = document.querySelector('.sidebar__menu a[href*=' + sectionId + ']')
+                      sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
-                if(sectionsClass && sidebarClass) {
+                if(sectionsClass) {
                     if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
                         sectionsClass.classList.add('active-link')
-                        sidebarClass.classList.add('sidebar-active-link')
                     }else{
                         sectionsClass.classList.remove('active-link')
-                        sidebarClass.classList.remove('sidebar-active-link')
                     }
                 }                                                    
             })
@@ -1199,6 +1120,22 @@
             localStorage.setItem('selected-theme', getCurrentTheme())
             localStorage.setItem('selected-icon', getCurrentIcon())
         })
+        
+        /*=============== MOBILE NAV ===============*/
+        const navMenu = document.getElementById('nav-menu'),
+              navToggle = document.getElementById('nav-toggle'),
+              navClose = document.querySelectorAll('.nav__link')
+
+        if(navToggle){
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show-menu')
+            })
+        }
+        
+        function linkAction(){
+            navMenu.classList.remove('show-menu')
+        }
+        navClose.forEach(n => n.addEventListener('click', linkAction))
 
         /*=============== PROJECT MODAL ===============*/
         const modal = document.getElementById('project-modal');
