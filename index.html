@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="https://placehold.co/32x32/1ABC9C/FFFFFF?text=RR" type="image/x-icon">
+    <link rel="shortcut icon" href="https://placehold.co/32x32/8A2BE2/FFFFFF?text=RR" type="image/x-icon">
 
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -23,13 +23,13 @@
             --header-height: 3.5rem;
 
             /*========== Colors (Default Dark Theme) ==========*/
-            --hue: 174;
-            --first-color: hsl(var(--hue), 63%, 40%);
-            --first-color-alt: hsl(var(--hue), 63%, 36%);
+            --hue: 250; /* Changed from 174 to 250 for a violet theme */
+            --first-color: hsl(var(--hue), 69%, 61%);
+            --first-color-alt: hsl(var(--hue), 57%, 53%);
             --title-color: hsl(var(--hue), 8%, 95%);
             --text-color: hsl(var(--hue), 8%, 75%);
-            --body-color: hsl(var(--hue), 40%, 12%);
-            --container-color: hsl(var(--hue), 24%, 16%);
+            --body-color: hsl(var(--hue), 28%, 12%);
+            --container-color: hsl(var(--hue), 29%, 16%);
             --border-color: hsl(var(--hue), 8%, 20%);
             
             /*========== Font and typography ==========*/
@@ -55,7 +55,7 @@
         body.light-theme {
             --title-color: hsl(var(--hue), 8%, 15%);
             --text-color: hsl(var(--hue), 8%, 35%);
-            --body-color: hsl(var(--hue), 100%, 99%);
+            --body-color: hsl(var(--hue), 60%, 99%);
             --container-color: #FFF;
             --border-color: hsl(var(--hue), 8%, 80%);
         }
@@ -305,7 +305,9 @@
             object-fit: cover;
             border-radius: 50%;
             justify-self: center;
-            border: 5px solid var(--first-color);
+            border: 5px solid transparent;
+            background: linear-gradient(var(--body-color), var(--body-color)) padding-box,
+                        linear-gradient(45deg, var(--first-color-alt), var(--first-color)) border-box;
         }
         .home__name {
             font-size: var(--h1-font-size);
@@ -325,7 +327,7 @@
         }
         .button {
             display: inline-block;
-            background-color: var(--first-color);
+            background: linear-gradient(45deg, var(--first-color-alt), var(--first-color));
             color: var(--title-color);
             padding: 1rem 2rem;
             border-radius: .5rem;
@@ -333,7 +335,7 @@
             transition: .3s;
         }
         .button:hover {
-            background-color: var(--first-color-alt);
+            box-shadow: 0 10px 20px hsla(var(--hue), 69%, 40%, .4);
         }
         .button--ai {
             padding: .75rem 1.5rem;
@@ -386,6 +388,33 @@
         }
         .about__info-subtitle {
             font-size: var(--smaller-font-size);
+        }
+
+        /*=============== SERVICES ===============*/
+        .services__container {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        .services__card {
+            background-color: var(--container-color);
+            padding: 2.5rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: background-color .4s, transform .3s;
+            border: 2px solid transparent;
+        }
+        .services__card:hover {
+            transform: translateY(-.5rem);
+            border: 2px solid var(--first-color);
+        }
+        .services__icon {
+            font-size: 3rem;
+            color: var(--first-color);
+            margin-bottom: 1rem;
+        }
+        .services__title {
+            font-size: var(--h3-font-size);
+            margin-bottom: .75rem;
         }
 
         /*=============== SKILLS ===============*/
@@ -676,7 +705,8 @@
                 height: 250px;
                 margin-bottom: 2rem;
             }
-            .about__container {
+            .about__container,
+            .services__container {
                 grid-template-columns: 1fr;
                 justify-items: center;
                 text-align: center;
@@ -714,6 +744,7 @@
             <div class="sidebar__menu">
                 <a href="#home" class="sidebar__link sidebar-active-link">Home</a>
                 <a href="#about" class="sidebar__link">About</a>
+                <a href="#services" class="sidebar__link">Services</a>
                 <a href="#skills" class="sidebar__link">Skills</a>
                 <a href="#portfolio" class="sidebar__link">Portfolio</a>
                 <a href="#contact" class="sidebar__link">Contact</a>
@@ -739,8 +770,9 @@
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="ri-home-5-line"></i></a></li>
                         <li class="nav__item"><a href="#about" class="nav__link"><i class="ri-user-line"></i></a></li>
+                        <li class="nav__item"><a href="#services" class="nav__link"><i class="ri-briefcase-line"></i></a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line"></i></a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link"><i class="ri-briefcase-4-line"></i></a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link"><i class="ri-image-line"></i></a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link"><i class="ri-message-3-line"></i></a></li>
                     </ul>
                 </div>
@@ -758,7 +790,7 @@
                     </p>
                     <a download="" href="Ravinder Rawal - Professional Resume.pdf" class="button">Download CV</a>
                 </div>
-                <img src="https://placehold.co/400x400/1a2e39/ffffff?text=Your+Photo" alt="Ravinder Rawal" class="home__img">
+                <img src="https://placehold.co/400x400/2c2a4a/ffffff?text=Your+Photo" alt="Ravinder Rawal" class="home__img">
             </div>
         </section>
 
@@ -766,7 +798,7 @@
         <section class="about section" id="about">
             <h2 class="section__title">About <span>Me</span></h2>
             <div class="about__container container grid">
-                <img src="https://placehold.co/500x750/1a2e39/ffffff?text=Professional+Photo" alt="About Ravinder Rawal" class="about__img">
+                <img src="https://placehold.co/500x750/2c2a4a/ffffff?text=Professional+Photo" alt="About Ravinder Rawal" class="about__img">
                 <div>
                     <p class="about__description">
                         Results-driven Catalogue & Pricing Executive with 7+ years of eCommerce expertise. Adept at inventory management, data analysis, and cross-functional collaboration. Proven track record in optimizing workflows and driving sales through strategic pricing across multiple platforms.
@@ -788,6 +820,34 @@
                             <span class="about__info-subtitle">2+ Worked</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== SERVICES ====================-->
+        <section class="services section" id="services">
+            <h2 class="section__title">What I <span>Offer</span></h2>
+            <div class="services__container container grid">
+                <div class="services__card">
+                    <i class="ri-store-3-line services__icon"></i>
+                    <h3 class="services__title">Catalogue Management</h3>
+                    <p class="services__description">
+                        Expert management of product listings across multiple platforms to ensure consistency and brand integrity.
+                    </p>
+                </div>
+                <div class="services__card">
+                    <i class="ri-price-tag-3-line services__icon"></i>
+                    <h3 class="services__title">Pricing Strategy</h3>
+                    <p class="services__description">
+                        Implementing data-driven, automated pricing strategies to maximize conversion rates and profitability.
+                    </p>
+                </div>
+                <div class="services__card">
+                    <i class="ri-line-chart-line services__icon"></i>
+                    <h3 class="services__title">Growth Optimization</h3>
+                    <p class="services__description">
+                        Analyzing performance data to identify and execute on opportunities for sales growth and process optimization.
+                    </p>
                 </div>
             </div>
         </section>
@@ -828,7 +888,7 @@
                          data-challenge="The company faced frequent stockouts on popular items and overstocking of slow-moving products, leading to lost sales and increased holding costs."
                          data-solution="I designed and implemented a centralized inventory tracking system using Google Sheets. This system aggregated real-time sales and stock data from all marketplaces, providing a single source of truth for inventory levels."
                          data-result="This initiative successfully reduced stockouts by 35% and cut overstock situations by 40%, directly protecting revenue and improving capital efficiency.">
-                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Inventory+System" alt="Inventory Optimization System" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Inventory+System" alt="Inventory Optimization System" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Inventory Optimization System</h3>
                             <p>Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
@@ -841,7 +901,7 @@
                          data-challenge="Inconsistent product listings across 8+ different eCommerce platforms were causing brand dilution and significantly slowing down the time-to-market for new products."
                          data-solution="I created and enforced standardized templates for all product information, including titles, descriptions, images, and specifications. This ensured a uniform and professional brand presentation everywhere."
                          data-result="The new standardized process dramatically reduced the average product listing time by 60%, allowing for faster campaign launches and a more cohesive brand identity across all digital channels.">
-                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Catalog+Standardization" alt="Catalog Standardization" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Catalog+Standardization" alt="Catalog Standardization" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Catalog Standardization</h3>
                             <p>Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
@@ -854,7 +914,7 @@
                          data-challenge="The market pricing was highly dynamic, and manually tracking competitor prices was inefficient and often too slow to react, leading to lost sales opportunities."
                          data-solution="Using SQL, I implemented an automated system to monitor key competitor pricing in real-time. The tool was programmed to automatically adjust our own product listings within predefined strategic parameters."
                          data-result="This data-driven pricing strategy led to a direct increase in the product conversion rate by 22%, capturing more sales during peak demand and maintaining a competitive edge.">
-                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Automated+Pricing" alt="Automated Price Monitoring" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Automated+Pricing" alt="Automated Price Monitoring" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Automated Price Monitoring</h3>
                             <p>Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
@@ -863,7 +923,7 @@
                     </div>
                     <!-- Testimonial -->
                     <div class="portfolio__content grid swiper-slide">
-                        <img src="https://placehold.co/600x400/1a2e39/5eead4?text=Testimonial" alt="Testimonial" class="portfolio__img">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Testimonial" alt="Testimonial" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Transformed Our Online Presence</h3>
                             <p>"Ravinder's attention to detail and expertise... directly contributed to a 30% increase in our online revenue." <br>- <strong>Rahul Pawa, Category Manager at Citymall</strong></p>
@@ -1202,4 +1262,4 @@
 
     </script>
 </body>
-</html>
+</ht
