@@ -3,1282 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="https://placehold.co/32x32/8A2BE2/FFFFFF?text=RR" type="image/x-icon">
-
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-
-    <!--=============== CSS ===============-->
-    <style>
-        /*=============== GOOGLE FONTS ===============*/
-        @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
-        /*=============== VARIABLES CSS ===============*/
-        :root {
-            --header-height: 3.5rem;
-
-            /*========== Colors (Default Dark Theme) ==========*/
-            --hue: 250; /* Changed from 174 to 250 for a violet theme */
-            --first-color: hsl(var(--hue), 69%, 61%);
-            --first-color-alt: hsl(var(--hue), 57%, 53%);
-            --title-color: hsl(var(--hue), 8%, 95%);
-            --text-color: hsl(var(--hue), 8%, 75%);
-            --body-color: hsl(var(--hue), 28%, 12%);
-            --container-color: hsla(var(--hue), 29%, 16%, .8); /* Added transparency for glass effect */
-            --border-color: hsl(var(--hue), 8%, 20%);
-            
-            /*========== Font and typography ==========*/
-            --body-font: 'Space Grotesk', sans-serif;
-            --h1-font-size: 2.25rem;
-            --h2-font-size: 1.5rem;
-            --h3-font-size: 1.25rem;
-            --normal-font-size: 1rem;
-            --small-font-size: .875rem;
-            --smaller-font-size: .813rem;
-
-            --font-medium: 500;
-            --font-semi-bold: 600;
-            --font-bold: 700;
-
-            /*========== z index ==========*/
-            --z-tooltip: 10;
-            --z-fixed: 100;
-            --z-modal: 1000;
-        }
-
-        /*=============== Light Theme Variables ===============*/
-        body.light-theme {
-            --title-color: hsl(var(--hue), 8%, 15%);
-            --text-color: hsl(var(--hue), 8%, 35%);
-            --body-color: hsl(var(--hue), 60%, 99%);
-            --container-color: hsla(0, 0%, 100%, .8); /* Added transparency for glass effect */
-            --border-color: hsl(var(--hue), 8%, 80%);
-        }
-
-        @media screen and (min-width: 1024px) {
-            :root {
-                --h1-font-size: 3.5rem;
-                --h2-font-size: 1.75rem;
-                --h3-font-size: 1.5rem;
-                --normal-font-size: 1.125rem;
-                --small-font-size: .938rem;
-                --smaller-font-size: .875rem;
-            }
-        }
-
-        /*=============== BASE ===============*/
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body,
-        button,
-        input,
-        textarea {
-            font-family: var(--body-font);
-            font-size: var(--normal-font-size);
-        }
-
-        body {
-            background-color: var(--body-color);
-            color: var(--text-color);
-            transition: background-color .4s;
-            overflow-x: hidden;
-        }
-        
-        /*=============== CUSTOM CURSOR ===============*/
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--first-color);
-            border-radius: 50%;
-            left: 0;
-            top: 0;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: .1s;
-            z-index: var(--z-modal);
-        }
-        .cursor2 {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background-color: var(--first-color);
-            border-radius: 50%;
-            left: 0;
-            top: 0;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: .15s;
-            z-index: var(--z-modal);
-        }
-        a:hover ~ .cursor, button:hover ~ .cursor, .theme__toggle:hover ~ .cursor {
-            transform: translate(-50%, -50%) scale(1.5);
-            background-color: var(--first-color);
-            opacity: .5;
-        }
-        a:hover ~ .cursor2, button:hover ~ .cursor2, .theme__toggle:hover ~ .cursor2 {
-            opacity: 0;
-        }
-
-        /*=============== ANIMATED BACKGROUND ===============*/
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 20%, hsla(var(--hue), 69%, 61%, 0.2), transparent 40%),
-                        radial-gradient(circle at 80% 70%, hsla(var(--hue), 57%, 53%, 0.2), transparent 40%);
-            animation: animate-background 15s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes animate-background {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        h1, h2, h3, h4 {
-            color: var(--title-color);
-            font-weight: var(--font-semi-bold);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            outline: none;
-        }
-
-        /*=============== REUSABLE CSS CLASSES ===============*/
-        .container {
-            max-width: 1120px;
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
-        }
-
-        .grid {
-            display: grid;
-        }
-
-        .section {
-            padding: 7rem 0 2.5rem;
-        }
-
-        .section__title {
-            font-size: var(--h1-font-size);
-            font-weight: var(--font-bold);
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .section__title span {
-            color: var(--first-color);
-        }
-
-        /*=============== HEADER & NAV ===============*/
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: transparent;
-            z-index: var(--z-fixed);
-            transition: .4s;
-        }
-
-        .nav {
-            height: var(--header-height);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav__logo {
-            color: var(--title-color);
-            font-weight: var(--font-medium);
-        }
-        
-        .nav__menu {
-            display: flex;
-            align-items: center;
-            column-gap: 2rem;
-        }
-
-        .nav__list {
-            display: flex;
-            column-gap: 2rem;
-        }
-
-        .nav__link {
-            color: var(--text-color);
-            font-weight: var(--font-medium);
-            transition: .3s;
-        }
-
-        .nav__link:hover, .active-link {
-            color: var(--first-color);
-        }
-
-        .theme__toggle {
-            font-size: 1.25rem;
-            color: var(--title-color);
-            cursor: pointer;
-        }
-
-        .nav__toggle {
-            font-size: 1.25rem;
-            color: var(--title-color);
-            cursor: pointer;
-            display: none;
-        }
-
-        /* Change background header */
-        .scroll-header {
-            background-color: var(--container-color);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px hsla(var(--hue), 28%, 12%, .1);
-        }
-
-        @media screen and (max-width: 1023px) {
-            .nav__toggle {
-                display: inline-flex;
-            }
-            .nav__menu {
-                position: fixed;
-                top: -100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--container-color);
-                backdrop-filter: blur(10px);
-                padding: 4rem 0 3rem;
-                border-radius: 0 0 1.5rem 1.5rem;
-                box-shadow: 0 4px 20px hsla(var(--hue), 28%, 12%, .1);
-                transition: .4s;
-            }
-            .show-menu {
-                top: 0;
-            }
-            .nav__list {
-                flex-direction: column;
-                align-items: center;
-                row-gap: 1.5rem;
-            }
-        }
-
-        /*=============== HOME ===============*/
-        .home__container {
-            padding-top: 3.5rem;
-            grid-template-columns: repeat(2, 1fr);
-            align-items: center;
-            gap: 2rem;
-        }
-        .home__img {
-            width: 350px;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 50%;
-            justify-self: center;
-            border: 5px solid transparent;
-            background: linear-gradient(var(--body-color), var(--body-color)) padding-box,
-                        linear-gradient(45deg, var(--first-color-alt), var(--first-color)) border-box;
-        }
-        .home__name {
-            font-size: var(--h1-font-size);
-            font-weight: var(--font-bold);
-        }
-        .home__profession {
-            font-size: var(--h3-font-size);
-            margin-bottom: .75rem;
-        }
-        .home__profession .typing-text {
-            color: var(--first-color);
-            font-weight: var(--font-semi-bold);
-        }
-        .home__description {
-            max-width: 550px;
-            margin-bottom: 2.5rem;
-        }
-        .button {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--first-color-alt), var(--first-color));
-            color: var(--title-color);
-            padding: 1rem 2rem;
-            border-radius: .5rem;
-            font-weight: var(--font-medium);
-            transition: .3s;
-        }
-        .button:hover {
-            box-shadow: 0 10px 20px hsla(var(--hue), 69%, 40%, .4);
-            transform: translateY(-3px);
-        }
-        .button--ai {
-            padding: .75rem 1.5rem;
-            font-size: var(--small-font-size);
-            margin-top: 1rem;
-        }
-        .button--ai.loading {
-            cursor: not-allowed;
-            opacity: .7;
-        }
-
-
-        /*=============== ABOUT ===============*/
-        .about__container {
-            grid-template-columns: repeat(2, 1fr);
-            align-items: center;
-            gap: 4rem;
-        }
-        .about__img {
-            width: 350px;
-            border-radius: 1rem;
-            justify-self: center;
-        }
-        .about__description {
-            margin-bottom: 2rem;
-        }
-        .about__info {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-        .about__info-box {
-            background-color: var(--container-color);
-            padding: 1rem;
-            border-radius: .75rem;
-            text-align: center;
-            transition: background-color .4s, transform .3s;
-            backdrop-filter: blur(10px);
-        }
-        .about__info-box:hover {
-            transform: translateY(-.25rem);
-        }
-        .about__info-icon {
-            font-size: 1.5rem;
-            color: var(--first-color);
-            margin-bottom: .75rem;
-        }
-        .about__info-title {
-            font-size: var(--small-font-size);
-        }
-        .about__info-subtitle {
-            font-size: var(--smaller-font-size);
-        }
-
-        /*=============== SERVICES ===============*/
-        .services__container {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-        .services__card {
-            background-color: var(--container-color);
-            padding: 2.5rem 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            transition: background-color .4s, transform .3s;
-            border: 2px solid transparent;
-            backdrop-filter: blur(10px);
-        }
-        .services__card:hover {
-            transform: translateY(-.5rem);
-            border: 2px solid var(--first-color);
-        }
-        .services__icon {
-            font-size: 3rem;
-            color: var(--first-color);
-            margin-bottom: 1rem;
-        }
-        .services__title {
-            font-size: var(--h3-font-size);
-            margin-bottom: .75rem;
-        }
-
-        /*=============== SKILLS ===============*/
-        .skills__container {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-        }
-        .skills__content {
-            background-color: var(--container-color);
-            padding: 2rem;
-            border-radius: 1rem;
-            transition: background-color .4s;
-            backdrop-filter: blur(10px);
-        }
-        .skills__title {
-            font-size: var(--h3-font-size);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .skills__box {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-        }
-        .skills__data {
-            text-align: center;
-            transition: transform .3s;
-        }
-        .skills__data:hover {
-            transform: translateY(-.25rem);
-        }
-        .skills__icon {
-            font-size: 3rem;
-            color: var(--first-color);
-        }
-        .skills__name {
-            margin-top: .5rem;
-            font-size: var(--small-font-size);
-        }
-
-        /*=============== PORTFOLIO ===============*/
-        .portfolio__container {
-            padding-top: 1rem;
-        }
-        .portfolio__content {
-            background-color: var(--container-color);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: background-color .4s;
-            backdrop-filter: blur(10px);
-        }
-        .portfolio__img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .portfolio__data {
-            padding: 1.5rem;
-        }
-        .portfolio__title {
-            font-size: var(--h3-font-size);
-            margin-bottom: .75rem;
-        }
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-            content: '';
-        }
-        .swiper-button-next,
-        .swiper-button-prev {
-            font-size: 2rem;
-            color: var(--first-color);
-        }
-        .swiper-button-next { right: 1rem; }
-        .swiper-button-prev { left: 1rem; }
-        .swiper-pagination-bullet-active {
-            background-color: var(--first-color);
-        }
-
-        /*=============== PROJECT MODAL ===============*/
-        .portfolio__modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: hsla(var(--hue), 24%, 16%, 0.7);
-            z-index: var(--z-modal);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 1rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s;
-        }
-        .portfolio__modal-content {
-            position: relative;
-            background-color: var(--body-color);
-            padding: 2.5rem;
-            border-radius: 1rem;
-            max-width: 600px;
-            width: 100%;
-        }
-        .portfolio__modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--first-color);
-            cursor: pointer;
-        }
-        .portfolio__modal-title {
-            font-size: var(--h3-font-size);
-            margin-bottom: 1rem;
-        }
-        .portfolio__modal-description {
-            margin-bottom: 1.5rem;
-        }
-        .portfolio__modal-list {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            row-gap: .75rem;
-        }
-        .portfolio__modal-list-item {
-            margin-bottom: .5rem;
-        }
-        .portfolio__modal-list-item strong {
-            color: var(--title-color);
-        }
-        .active-modal {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /*=============== CONTACT ===============*/
-        .contact__container {
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-        }
-        .contact__info {
-            display: grid;
-            row-gap: 2rem;
-        }
-        .contact__card {
-            background-color: var(--container-color);
-            padding: 1.5rem;
-            border-radius: .75rem;
-            text-align: center;
-            transition: background-color .4s;
-            backdrop-filter: blur(10px);
-        }
-        .contact__card-icon {
-            font-size: 2rem;
-            color: var(--first-color);
-            margin-bottom: .5rem;
-        }
-        .contact__form-group {
-            position: relative;
-            margin-bottom: 2rem;
-            height: 4rem;
-        }
-        .contact__form-input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--border-color);
-            background: none;
-            color: var(--text-color);
-            padding: 1.5rem;
-            border-radius: .75rem;
-            outline: none;
-            z-index: 1;
-            transition: border-color .4s;
-        }
-        .contact__form-tag {
-            position: absolute;
-            top: -.75rem;
-            left: 1.25rem;
-            font-size: var(--smaller-font-size);
-            padding: .25rem;
-            background-color: var(--body-color);
-            z-index: 10;
-            transition: background-color .4s;
-        }
-        .contact__form-area {
-            height: 11rem;
-        }
-        .contact__form-area textarea {
-            resize: none;
-        }
-        .contact__status-message {
-            margin-top: 1rem;
-            font-size: var(--small-font-size);
-        }
-
-        /*=============== FOOTER ===============*/
-        .footer {
-            background-color: var(--container-color);
-            padding: 4rem 0 2rem;
-            transition: background-color .4s;
-            backdrop-filter: blur(10px);
-        }
-        .footer__container {
-            text-align: center;
-        }
-        .footer__title {
-            font-size: var(--h1-font-size);
-            font-weight: var(--font-bold);
-            margin-bottom: 1rem;
-        }
-        .footer__title span {
-            color: var(--first-color);
-        }
-        .footer__social {
-            display: flex;
-            justify-content: center;
-            column-gap: 1.5rem;
-            font-size: 1.5rem;
-            margin-top: 2rem;
-        }
-        .footer__social a {
-            color: var(--text-color);
-        }
-        .footer__social a:hover {
-            color: var(--first-color);
-        }
-        .footer__copy {
-            margin-top: 4rem;
-            font-size: var(--smaller-font-size);
-        }
-
-        /*=============== SCROLL UP ===============*/
-        .scrollup {
-            position: fixed;
-            right: 1rem;
-            bottom: -30%;
-            background-color: var(--container-color);
-            box-shadow: 0 4px 12px hsla(var(--hue), 24%, 15%, 0.15);
-            display: inline-flex;
-            padding: .35rem;
-            border-radius: .25rem;
-            font-size: 1.25rem;
-            color: var(--first-color);
-            z-index: var(--z-tooltip);
-            transition: .3s;
-            backdrop-filter: blur(10px);
-        }
-        .scrollup:hover {
-            transform: translateY(-.25rem);
-        }
-        .show-scroll {
-            bottom: 3rem;
-        }
-
-        /*=============== SCROLL BAR ===============*/
-        ::-webkit-scrollbar {
-            width: .6rem;
-            background-color: hsl(var(--hue), 8%, 20%);
-            border-radius: .5rem;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: hsl(var(--hue), 8%, 30%);
-            border-radius: .5rem;
-        }
-        body.light-theme::-webkit-scrollbar {
-            background-color: hsl(var(--hue), 8%, 85%);
-        }
-        body.light-theme::-webkit-scrollbar-thumb {
-            background-color: hsl(var(--hue), 8%, 70%);
-        }
-
-        /*=============== MEDIA QUERIES ===============*/
-        @media screen and (max-width: 1023px) {
-            .main {
-                padding-left: 0;
-            }
-        }
-
-        @media screen and (max-width: 767px) {
-            .home__container {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                text-align: center;
-            }
-            .home__img {
-                width: 250px;
-                height: 250px;
-                margin-bottom: 2rem;
-            }
-            .about__container,
-            .services__container {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                text-align: center;
-            }
-            .about__img {
-                margin-bottom: 2rem;
-            }
-            .skills__container {
-                grid-template-columns: 1fr;
-            }
-            .contact__container {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media screen and (max-width: 576px) {
-            .about__info {
-                grid-template-columns: 1fr;
-            }
-            .cursor, .cursor2 {
-                display: none;
-            }
-        }
-        @media screen and (max-width: 350px) {
-            .container {
-                margin-left: 1rem;
-                margin-right: 1rem;
-            }
-        }
-    </style>
-    <title>Ravinder Rawal</title>
+    <title>Ravinder Rawal - eCommerce Expert & Pricing Strategy Professional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!--==================== CUSTOM CURSOR ====================-->
-    <div class="cursor"></div>
-    <div class="cursor2"></div>
-
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Ravinder</a>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">RR</span>
             </div>
-            
-            <div class="nav__buttons">
-                <i class="ri-moon-line theme__toggle" id="theme-button"></i>
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-apps-2-line"></i>
-                </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <!--==================== MAIN ====================-->
-    <main class="main">
-        <main class="main">
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__data">
-                    <h1 class="home__name">Ravinder Rawal</h1>
-                    <h3 class="home__profession">I'm a <span class="typing-text"></span></h3>
-                    <p class="home__description">
-                        Over 7 years of experience in managing and scaling online retail operations, with expertise in inventory, pricing, and data analysis.
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Ravinder Rawal</span>
+                        <span class="typing-text">
+                            <span id="typed-text"></span>
+                            <span class="cursor">|</span>
+                        </span>
+                    </h1>
+                    <p class="hero-description">
+                        Results-driven Catalogue & Pricing Executive with 7+ years of eCommerce expertise. 
+                        I specialize in inventory management, data analysis, and cross-functional collaboration, 
+                        driving sales through strategic pricing across multiple platforms.
                     </p>
-                    <a download="" href="Ravinder Rawal - Professional Resume.pdf" class="button">Download CV</a>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">7+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Companies Worked</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="Ravinder Rawal - Professional Resume.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
                 </div>
-                <img src="https://www.dropbox.com/scl/fi/i8x49zkf4t2ivznkg3rqr/Untitled-design.gif?rlkey=o1qx0du058kkllj42adaaapbk&raw=1" alt="Ravinder Rawal" class="home__img">
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="https://www.dropbox.com/scl/fi/i8x49zkf4t2ivznkg3rqr/Untitled-design.gif?rlkey=o1qx0du058kkllj42adaaapbk&raw=1" alt="Ravinder Rawal" class="profile-image">
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <!--==================== ABOUT ====================-->
-        <section class="about section" id="about">
-            <h2 class="section__title">About <span>Me</span></h2>
-            <div class="about__container container grid">
-                <img src="https://placehold.co/500x750/2c2a4a/ffffff?text=Professional+Photo" alt="About Ravinder Rawal" class="about__img">
-                <div>
-                    <p class="about__description">
-                        Results-driven Catalogue & Pricing Executive with 7+ years of eCommerce expertise. Adept at inventory management, data analysis, and cross-functional collaboration. Proven track record in optimizing workflows and driving sales through strategic pricing across multiple platforms.
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get to know me</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://placehold.co/500x750/2c2a4a/ffffff?text=Professional+Photo" alt="Professional Photo" class="about-img">
+                    <div class="image-bg"></div>
+                </div>
+                <div class="about-text">
+                    <h3>Results-driven Catalogue & Pricing Executive</h3>
+                    <p>
+                        With over 7 years of experience in managing and scaling online retail operations, 
+                        I bring expertise in inventory management, data analysis, and cross-functional collaboration. 
+                        I have a proven track record in optimizing workflows and driving sales through strategic 
+                        pricing across multiple platforms.
                     </p>
-                    <div class="about__info">
-                        <div class="about__info-box">
-                            <i class="ri-award-line about__info-icon"></i>
-                            <h3 class="about__info-title">Experience</h3>
-                            <span class="about__info-subtitle">7+ Years</span>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data-Driven Decision Making</span>
                         </div>
-                        <div class="about__info-box">
-                            <i class="ri-briefcase-4-line about__info-icon"></i>
-                            <h3 class="about__info-title">Projects</h3>
-                            <span class="about__info-subtitle">10+ Completed</span>
+                        <div class="highlight">
+                            <i class="fas fa-users"></i>
+                            <span>Cross-Functional Leadership</span>
                         </div>
-                        <div class="about__info-box">
-                            <i class="ri-building-4-line about__info-icon"></i>
-                            <h3 class="about__info-title">Companies</h3>
-                            <span class="about__info-subtitle">2+ Worked</span>
+                        <div class="highlight">
+                            <i class="fas fa-rocket"></i>
+                            <span>Growth Optimization</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Strategic Planning</span>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>rvndrrwl@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/rvndrrwl</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!--==================== SERVICES ====================-->
-        <section class="services section" id="services">
-            <h2 class="section__title">What I <span>Offer</span></h2>
-            <div class="services__container container grid">
-                <div class="services__card">
-                    <i class="ri-store-3-line services__icon"></i>
-                    <h3 class="services__title">Catalogue Management</h3>
-                    <p class="services__description">
-                        Expert management of product listings across multiple platforms to ensure consistency and brand integrity.
-                    </p>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What I Offer</span>
+                <h2 class="section-title">My Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Catalogue Management</h3>
+                    <p>Expert management of product listings across multiple platforms to ensure consistency and brand integrity.</p>
+                    <ul class="service-features">
+                        <li>Multi-platform listing optimization</li>
+                        <li>Brand consistency enforcement</li>
+                        <li>Product information standardization</li>
+                    </ul>
                 </div>
-                <div class="services__card">
-                    <i class="ri-price-tag-3-line services__icon"></i>
-                    <h3 class="services__title">Pricing Strategy</h3>
-                    <p class="services__description">
-                        Implementing data-driven, automated pricing strategies to maximize conversion rates and profitability.
-                    </p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Pricing Strategy</h3>
+                    <p>Implementing data-driven, automated pricing strategies to maximize conversion rates and profitability.</p>
+                    <ul class="service-features">
+                        <li>Competitive analysis</li>
+                        <li>Automated price monitoring</li>
+                        <li>Profit margin optimization</li>
+                    </ul>
                 </div>
-                <div class="services__card">
-                    <i class="ri-line-chart-line services__icon"></i>
-                    <h3 class="services__title">Growth Optimization</h3>
-                    <p class="services__description">
-                        Analyzing performance data to identify and execute on opportunities for sales growth and process optimization.
-                    </p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Growth Optimization</h3>
+                    <p>Analyzing performance data to identify and execute on opportunities for sales growth and process optimization.</p>
+                    <ul class="service-features">
+                        <li>Performance analytics</li>
+                        <li>Growth opportunity identification</li>
+                        <li>Process improvement strategies</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">My <span>Skills</span></h2>
-            <div class="skills__container container grid">
-                <div class="skills__content">
-                    <h3 class="skills__title">Platform & Operations</h3>
-                    <div class="skills__box">
-                        <div class="skills__data"><i class="ri-store-2-line skills__icon"></i><h4 class="skills__name">Seller Central</h4></div>
-                        <div class="skills__data"><i class="ri-archive-line skills__icon"></i><h4 class="skills__name">Inventory Mgmt</h4></div>
-                        <div class="skills__data"><i class="ri-file-list-3-line skills__icon"></i><h4 class="skills__name">A+ Content</h4></div>
-                        <div class="skills__data"><i class="ri-truck-line skills__icon"></i><h4 class="skills__name">Order Mgmt</h4></div>
-                    </div>
-                </div>
-                <div class="skills__content">
-                    <h3 class="skills__title">Analytical & Technical</h3>
-                    <div class="skills__box">
-                        <div class="skills__data"><i class="ri-price-tag-3-line skills__icon"></i><h4 class="skills__name">Pricing Strategy</h4></div>
-                        <div class="skills__data"><i class="ri-bar-chart-box-line skills__icon"></i><h4 class="skills__name">Data Analysis</h4></div>
-                        <div class="skills__data"><i class="ri-database-2-line skills__icon"></i><h4 class="skills__name">SQL</h4></div>
-                        <div class="skills__data"><i class="ri-google-line skills__icon"></i><h4 class="skills__name">Looker / Power BI</h4></div>
-                    </div>
-                </div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My Expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
             </div>
-        </section>
-
-        <!--==================== PORTFOLIO ====================-->
-        <section class="portfolio section" id="portfolio">
-            <h2 class="section__title">My <span>Projects</span></h2>
-            <div class="portfolio__container container swiper">
-                <div class="swiper-wrapper">
-                    <!-- Project 1 -->
-                    <div class="portfolio__content grid swiper-slide" 
-                         data-title="Inventory Optimization System"
-                         data-challenge="The company faced frequent stockouts on popular items and overstocking of slow-moving products, leading to lost sales and increased holding costs."
-                         data-solution="I designed and implemented a centralized inventory tracking system using Google Sheets. This system aggregated real-time sales and stock data from all marketplaces, providing a single source of truth for inventory levels."
-                         data-result="This initiative successfully reduced stockouts by 35% and cut overstock situations by 40%, directly protecting revenue and improving capital efficiency.">
-                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Inventory+System" alt="Inventory Optimization System" class="portfolio__img">
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Inventory Optimization System</h3>
-                            <p>Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
-                            <button class="button button--ai" onclick="openProjectModal(this)">View Details</button>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3>Platform Operations</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <span class="skill-name">Seller Central</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="portfolio__content grid swiper-slide"
-                         data-title="Catalog Standardization Process"
-                         data-challenge="Inconsistent product listings across 8+ different eCommerce platforms were causing brand dilution and significantly slowing down the time-to-market for new products."
-                         data-solution="I created and enforced standardized templates for all product information, including titles, descriptions, images, and specifications. This ensured a uniform and professional brand presentation everywhere."
-                         data-result="The new standardized process dramatically reduced the average product listing time by 60%, allowing for faster campaign launches and a more cohesive brand identity across all digital channels.">
-                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Catalog+Standardization" alt="Catalog Standardization" class="portfolio__img">
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Catalog Standardization</h3>
-                            <p>Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
-                            <button class="button button--ai" onclick="openProjectModal(this)">View Details</button>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <span class="skill-name">Inventory Management</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Project 3 -->
-                    <div class="portfolio__content grid swiper-slide"
-                         data-title="Automated Price Monitoring Tool"
-                         data-challenge="The market pricing was highly dynamic, and manually tracking competitor prices was inefficient and often too slow to react, leading to lost sales opportunities."
-                         data-solution="Using SQL, I implemented an automated system to monitor key competitor pricing in real-time. The tool was programmed to automatically adjust our own product listings within predefined strategic parameters."
-                         data-result="This data-driven pricing strategy led to a direct increase in the product conversion rate by 22%, capturing more sales during peak demand and maintaining a competitive edge.">
-                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Automated+Pricing" alt="Automated Price Monitoring" class="portfolio__img">
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Automated Price Monitoring</h3>
-                            <p>Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
-                            <button class="button button--ai" onclick="openProjectModal(this)">View Details</button>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <span class="skill-name">A+ Content</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Testimonial -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Testimonial" alt="Testimonial" class="portfolio__img">
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Transformed Our Online Presence</h3>
-                            <p>"Ravinder's attention to detail and expertise... directly contributed to a 30% increase in our online revenue." <br>- <strong>Rahul Pawa, Category Manager at Citymall</strong></p>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <span class="skill-name">Order Management</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next"><i class="ri-arrow-right-s-line"></i></div>
-                <div class="swiper-button-prev"><i class="ri-arrow-left-s-line"></i></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-
-        <!--==================== CONTACT ME ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact <span>Me</span></h2>
-            <div class="contact__container container grid">
-                <div class="contact__info">
-                    <div class="contact__card">
-                        <i class="ri-mail-line contact__card-icon"></i>
-                        <h3 class="contact__card-title">Email</h3>
-                        <span class="contact__card-data">rvndrrwl@gmail.com</span>
-                    </div>
-                    <div class="contact__card">
-                        <i class="ri-whatsapp-line contact__card-icon"></i>
-                        <h3 class="contact__card-title">Whatsapp</h3>
-                        <span class="contact__card-data">+91 78910 10967</span>
-                    </div>
-                     <div class="contact__card">
-                        <i class="ri-linkedin-line contact__card-icon"></i>
-                        <h3 class="contact__card-title">LinkedIn</h3>
-                        <span class="contact__card-data">in/rvndrrwl</span>
+                <div class="skills-category">
+                    <h3>Analytical & Technical</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <span class="skill-name">Pricing Strategy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="93%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span class="skill-name">Data Analysis</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="89%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <span class="skill-name">Looker / Power BI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="87%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <form action="https://formspree.io/f/xovldylw" method="POST" class="contact__form" id="contact-form">
-                    <div class="contact__form-group">
-                        <label for="name" class="contact__form-tag">Name</label>
-                        <input type="text" name="name" id="name" class="contact__form-input" required>
-                    </div>
-                    <div class="contact__form-group">
-                        <label for="email" class="contact__form-tag">Email</label>
-                        <input type="email" name="email" id="email" class="contact__form-input" required>
-                    </div>
-                    <div class="contact__form-group contact__form-area">
-                        <label for="message" class="contact__form-tag">Message</label>
-                        <textarea name="message" id="message" class="contact__form-input" required></textarea>
-                    </div>
-                    <p class="contact__status-message" id="contact-status"></p>
-                    <button type="submit" class="button">Send Message</button>
-                </form>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!--==================== FOOTER ====================-->
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Automated+Pricing" alt="Automated Pricing System">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Automated Price Monitoring</h3>
+                                <p>SQL-based competitive pricing tool with automated adjustments</p>
+                                <div class="result-badge">+22% Conversion Rate</div>
+                                <button class="view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card testimonial-card">
+                    <div class="portfolio-image">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Client+Testimonial" alt="Client Testimonial">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="testimonial-quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"Ravinder's attention to detail and expertise in eCommerce optimization directly contributed to a 30% increase in our online revenue."</p>
+                                    <div class="testimonial-author">
+                                        <strong>Rahul Pawa</strong>
+                                        <span>Category Manager, Citymall</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Inventory+System" alt="Inventory Optimization">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Inventory Optimization System</h3>
+                                <p>Google Sheets-based synchronization across all marketplaces</p>
+                                <div class="result-badges">
+                                    <span class="result-badge">-35% Stockouts</span>
+                                    <span class="result-badge">-40% Overstock</span>
+                                </div>
+                                <button class="view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://placehold.co/600x400/2c2a4a/9400D3?text=Catalog+Standardization" alt="Catalog Standardization">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Catalog Standardization</h3>
+                                <p>Templates for product information across 8+ platforms</p>
+                                <div class="result-badges">
+                                    <span class="result-badge">-60% Listing Time</span>
+                                    <span class="result-badge">8+ Platforms</span>
+                                </div>
+                                <button class="view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Let's Connect</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to optimize your eCommerce operations? Let's discuss how I can help drive your business growth.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:rvndrrwl@gmail.com">rvndrrwl@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/917891010967">+91 78910 10967</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/rvndrrwl" target="_blank">linkedin.com/in/rvndrrwl</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer__container container">
-            <h2 class="footer__title">Ravinder <span>Rawal</span></h2>
-            <div class="footer__social">
-                <a href="https://www.linkedin.com/in/rvndrrwi" target="_blank"><i class="ri-linkedin-fill"></i></a>
-                <a href="https://github.com/Smart-rwl" target="_blank"><i class="ri-github-fill"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Ravinder Rawal. All rights reserved.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:rvndrrwl@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/rvndrrwl" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://wa.me/917891010967" class="social-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
-            <p class="footer__copy">&#169; Ravinder Rawal. All rights reserved</p>
         </div>
     </footer>
 
-    <!--==================== PROJECT MODAL ====================-->
-    <div class="portfolio__modal" id="project-modal">
-        <div class="portfolio__modal-content">
-            <i class="ri-close-line portfolio__modal-close" id="modal-close-button"></i>
-            <h3 class="portfolio__modal-title" id="modal-title"></h3>
-            <ul class="portfolio__modal-list">
-                <li class="portfolio__modal-list-item">
-                    <strong>The Challenge:</strong> <span id="modal-challenge"></span>
-                </li>
-                <li class="portfolio__modal-list-item">
-                    <strong>My Solution:</strong> <span id="modal-solution"></span>
-                </li>
-                <li class="portfolio__modal-list-item">
-                    <strong>Key Results:</strong> <span id="modal-result"></span>
-                </li>
-            </ul>
-            <p id="modal-ai-description" class="portfolio__modal-description"></p>
-            <button class="button button--ai" id="modal-ai-button">✨ Enhance with AI</button>
-        </div>
-    </div>
-
-
-    <!--========== SCROLL UP ==========-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-line"></i>
-    </a>
-
-    <!--=============== SCROLLREVEAL ===============-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!--=============== SWIPER JS ===============-->
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    
-    <!--=============== TYPED JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-    <!--=============== MAIN JS ===============-->
-    <script>
-        /*=============== CUSTOM CURSOR ===============*/
-        const cursor = document.querySelector('.cursor');
-        const cursor2 = document.querySelector('.cursor2');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursor2.style.left = e.clientX + 'px';
-            cursor2.style.top = e.clientY + 'px';
-        });
-
-        /*=============== TYPING ANIMATION ===============*/
-        var typed = new Typed('.typing-text', {
-            strings: ['eCommerce Specialist', 'Catalogue Expert', 'Pricing Strategist'],
-            loop: true,
-            typeSpeed: 70,
-            backSpeed: 50,
-            backDelay: 1500,
-        });
-
-        /*=============== PORTFOLIO SWIPER  ===============*/
-        let swiperPortfolio = new Swiper('.portfolio__container', {
-            loop: true,
-            spaceBetween: 24,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 48,
-                },
-            },
-        });
-
-        /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-        const sections = document.querySelectorAll('section[id]')
-        
-        const scrollActive = () =>{
-            const scrollY = window.pageYOffset
-
-            sections.forEach(current =>{
-                const sectionHeight = current.offsetHeight,
-                      sectionTop = current.offsetTop - 58,
-                      sectionId = current.getAttribute('id'),
-                      sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-
-                if(sectionsClass) {
-                    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                        sectionsClass.classList.add('active-link')
-                    }else{
-                        sectionsClass.classList.remove('active-link')
-                    }
-                }                                                    
-            })
-        }
-        window.addEventListener('scroll', scrollActive)
-
-        /*=============== SHOW SCROLL UP ===============*/ 
-        const scrollUp = () =>{
-            const scrollUp = document.getElementById('scroll-up')
-            this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
-                                : scrollUp.classList.remove('show-scroll')
-        }
-        window.addEventListener('scroll', scrollUp)
-
-        /*=============== THEME/DISPLAY CUSTOMIZATION ===============*/
-        const themeButton = document.getElementById('theme-button')
-        const lightTheme = 'light-theme'
-        const iconTheme = 'ri-sun-line'
-
-        const selectedTheme = localStorage.getItem('selected-theme')
-        const selectedIcon = localStorage.getItem('selected-icon')
-
-        const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'dark' : 'light'
-        const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
-
-        if (selectedTheme) {
-          document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](lightTheme)
-          themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
-        }
-
-        themeButton.addEventListener('click', () => {
-            document.body.classList.toggle(lightTheme)
-            themeButton.classList.toggle(iconTheme)
-            localStorage.setItem('selected-theme', getCurrentTheme())
-            localStorage.setItem('selected-icon', getCurrentIcon())
-        })
-        
-        /*=============== MOBILE NAV ===============*/
-        const navMenu = document.getElementById('nav-menu'),
-              navToggle = document.getElementById('nav-toggle'),
-              navClose = document.querySelectorAll('.nav__link')
-
-        if(navToggle){
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('show-menu')
-            })
-        }
-        
-        function linkAction(){
-            navMenu.classList.remove('show-menu')
-        }
-        navClose.forEach(n => n.addEventListener('click', linkAction))
-
-        /*=============== PROJECT MODAL ===============*/
-        const modal = document.getElementById('project-modal');
-        const modalCloseButton = document.getElementById('modal-close-button');
-        const modalTitle = document.getElementById('modal-title');
-        const modalChallenge = document.getElementById('modal-challenge');
-        const modalSolution = document.getElementById('modal-solution');
-        const modalResult = document.getElementById('modal-result');
-        const modalAiDescription = document.getElementById('modal-ai-description');
-        const modalAiButton = document.getElementById('modal-ai-button');
-        let currentProjectDescription = '';
-
-        function openProjectModal(buttonElement) {
-            const projectContent = buttonElement.closest('.portfolio__content');
-            
-            modalTitle.textContent = projectContent.dataset.title;
-            modalChallenge.textContent = projectContent.dataset.challenge;
-            modalSolution.textContent = projectContent.dataset.solution;
-            modalResult.textContent = projectContent.dataset.result;
-            
-            // Store original description for AI enhancement
-            currentProjectDescription = projectContent.querySelector('p').textContent;
-            modalAiDescription.textContent = ''; // Clear previous AI text
-            
-            modalAiButton.textContent = '✨ Enhance with AI';
-            modalAiButton.disabled = false;
-            modalAiButton.classList.remove('loading');
-
-            modal.classList.add('active-modal');
-        }
-
-        modalCloseButton.addEventListener('click', () => {
-            modal.classList.remove('active-modal');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active-modal');
-            }
-        });
-        
-        modalAiButton.addEventListener('click', () => {
-            enhanceDescription(modalAiButton, modalAiDescription, currentProjectDescription);
-        });
-
-        /*=============== GEMINI API: ENHANCE PROJECT DESCRIPTION ===============*/
-        async function enhanceDescription(button, descriptionElement, originalText) {
-            // Show loading state
-            button.textContent = 'Enhancing...';
-            button.classList.add('loading');
-            button.disabled = true;
-
-            const prompt = `You are an expert resume writer for eCommerce professionals. Take the following project accomplishment and expand it into a more detailed and impactful narrative for a portfolio. Focus on the business results and strategic value. Make it 2-3 sentences long. Original accomplishment: "${originalText}"`;
-
-            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // API key is handled by the environment
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-            
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    throw new Error(`API request failed with status ${response.status}`);
-                }
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const enhancedText = result.candidates[0].content.parts[0].text;
-                    descriptionElement.textContent = enhancedText;
-                    button.textContent = 'Enhanced!'; // Final state
-                } else {
-                    throw new Error('Unexpected API response structure');
-                }
-            } catch (error) {
-                console.error("Gemini API Error:", error);
-                descriptionElement.textContent = "Sorry, the AI enhancement failed. Please try again later.";
-                button.textContent = '✨ Enhance with AI';
-                button.classList.remove('loading');
-                button.disabled = false;
-            }
-        }
-
-        /*=============== CONTACT FORM ===============*/
-        const contactForm = document.getElementById('contact-form');
-        const contactStatus = document.getElementById('contact-status');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const data = new FormData(form);
-            
-            contactStatus.textContent = 'Sending...';
-            contactStatus.style.color = 'hsl(var(--hue), 8%, 75%)';
-
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    contactStatus.textContent = "Thanks for your message!";
-                    contactStatus.style.color = 'hsl(var(--hue), 63%, 40%)';
-                    form.reset();
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            contactStatus.textContent = data["errors"].map(error => error["message"]).join(", ")
-                        } else {
-                            contactStatus.textContent = "Oops! There was a problem submitting your form";
-                            contactStatus.style.color = 'hsl(0, 63%, 40%)';
-                        }
-                    })
-                }
-            }).catch(error => {
-                contactStatus.textContent = "Oops! There was a problem submitting your form";
-                contactStatus.style.color = 'hsl(0, 63%, 40%)';
-            });
-        });
-
-
-        /*=============== SCROLL REVEAL ANIMATION ===============*/
-        const sr = ScrollReveal({
-            origin: 'top',
-            distance: '60px',
-            duration: 2500,
-            delay: 400,
-        })
-
-        sr.reveal(`.home__data, .footer__container`)
-        sr.reveal(`.home__img`, {delay: 700, origin: 'bottom'})
-        sr.reveal(`.about__img, .skills__content:nth-child(2)`, {origin: 'left'})
-        sr.reveal(`.about__description, .about__info, .skills__content:nth-child(1)`, {origin: 'right'})
-        sr.reveal(`.portfolio__container, .contact__container`, {origin: 'bottom'})
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
