@@ -73,24 +73,41 @@ body.light-theme {
 .section__title { font-size: var(--h2-font-size); color: var(--first-color); margin-bottom: 2rem; text-align: center; }
 .section__subtitle { display: block; font-size: var(--small-font-size); color: var(--text-color-light); text-align: center; margin-bottom: .25rem; }
 
-/*=============== HEADER & NAV ===============*/
+/*=============== HEADER & NAV (MOBILE FIRST) ===============*/
 .header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--body-color); z-index: var(--z-fixed); transition: .4s; }
 .nav { height: var(--header-height); display: flex; justify-content: space-between; align-items: center; }
 .nav__logo { color: var(--first-color); font-weight: var(--font-medium); transition: .4s; }
 .nav__logo:hover { color: var(--first-color-alt); }
-.nav__menu { position: fixed; bottom: 2rem; background-color: hsla(var(--second-hue), 32%, 16%, .8); width: 90%; border-radius: 4rem; padding: 1rem 2.25rem; backdrop-filter: blur(10px); left: 0; right: 0; margin: 0 auto; transition: .4s; z-index: var(--z-fixed); }
+
+/* Mobile Menu Styles */
+.nav__menu { 
+  position: fixed; 
+  bottom: 2rem; 
+  background-color: hsla(var(--second-hue), 32%, 16%, .8); 
+  width: 90%; 
+  border-radius: 4rem; 
+  padding: 1rem 2.25rem; 
+  backdrop-filter: blur(10px); 
+  left: 0; 
+  right: 0; 
+  margin: 0 auto; 
+  transition: .4s; 
+  z-index: var(--z-fixed); 
+}
 .light-theme .nav__menu { background-color: hsla(var(--second-hue), 32%, 90%, .8); }
+
 .nav__list { display: flex; justify-content: space-between; align-items: center; }
 .nav__link { color: var(--text-color); font-size: 1.25rem; padding: .4rem; display: flex; border-radius: 5rem; transition: .3s; }
 .active-link { background: linear-gradient(180deg, hsla(var(--first-hue), var(--sat), var(--lig), 1), hsla(var(--first-hue), var(--sat), var(--lig), .2)); box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), .4); color: var(--title-color); }
+
+/* Hide Contact Button on Mobile Bar (Icon only or hidden) */
+.nav__item:last-child .nav__link { display: none; } 
+
 .nav__close { display: none; }
 .nav__toggle { font-size: 1.25rem; color: var(--title-color); cursor: pointer; }
 .nav__btns { display: flex; align-items: center; gap: 1rem; }
 .change-theme { font-size: 1.25rem; color: var(--title-color); cursor: pointer; transition: .3s; }
 .change-theme:hover { color: var(--first-color); }
-
-/* Custom Contact Button in Nav (UX Fix) */
-.nav__item:last-child .nav__link { display: none; } /* Hidden on mobile bottom bar */
 
 /*=============== HOME ===============*/
 .home__container { position: relative; row-gap: 4.5rem; padding-top: 2rem; }
@@ -130,7 +147,7 @@ body.light-theme {
 .about__text-block h3 { text-align: center; margin-bottom: 1rem; font-size: var(--normal-font-size); color: var(--first-color); }
 .about__text-block p { margin-bottom: 1rem; }
 
-/*=============== EXPERIENCE SECTION (NEW) ===============*/
+/*=============== EXPERIENCE SECTION ===============*/
 .experience__container { justify-content: center; }
 .experience__content { background-color: var(--container-color); padding: 1.5rem; border-radius: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: .4s; }
 .experience__content:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
@@ -212,7 +229,7 @@ body.light-theme {
 .services__modal-icon { color: var(--first-color); margin-right: 0.25rem; }
 .active-modal { opacity: 1; visibility: visible; }
 
-/*=============== MEDIA QUERIES ===============*/
+/*=============== MEDIA QUERIES (FIXED FOR NAVBAR) ===============*/
 /* Small devices */
 @media screen and (max-width: 320px) {
   .nav__menu { padding: 1rem 1.5rem; }
@@ -242,153 +259,46 @@ body.light-theme {
   .contact__container { grid-template-columns: repeat(2, max-content); justify-content: center; column-gap: 3rem; }
 }
 
-/* Large devices */
+/* Large devices (Desktop) - NAVBAR FIX HERE */
 @media screen and (min-width: 968px) {
   .container { margin-left: auto; margin-right: auto; }
   .section { padding: 6.5rem 0 1rem; }
   .section__title { margin-bottom: 3.5rem; }
+  
+  /* FIXED NAV BAR STYLES */
   .nav { height: calc(var(--header-height) + 1rem); }
-  .nav__item:last-child .nav__link { display: inline-block; background-color: var(--first-color); color: #fff; padding: 0.5rem 1.25rem; border-radius: 2rem; }
-  .nav__item:last-child .nav__link:hover { background-color: var(--first-color-alt); }
+  .nav__menu { width: initial; background: transparent; padding: 0; backdrop-filter: none; position: static; box-shadow: none; border-radius: 0; }
+  .nav__list { display: flex; gap: 2.5rem; } /* Increased gap for better spacing */
+  .nav__link { font-size: var(--normal-font-size); color: var(--text-color); padding: 0; background: transparent; box-shadow: none; }
+  .active-link { background: transparent; box-shadow: none; color: var(--first-color); position: relative; }
+  /* Underline effect for active link on Desktop */
+  .active-link::after { content: ''; position: absolute; bottom: -.5rem; left: 0; width: 100%; height: 2px; background-color: var(--first-color); }
+  
+  /* Contact Button Visibility on Desktop */
+  .nav__item:last-child .nav__link { display: inline-block; background-color: var(--first-color); color: #fff; padding: 0.75rem 1.5rem; border-radius: 3rem; box-shadow: 0 4px 8px hsla(var(--first-hue), var(--sat), var(--lig), .4); }
+  .nav__item:last-child .nav__link:hover { background-color: var(--first-color-alt); transform: translateY(-2px); }
+
   .home__handle { width: 290px; height: 400px; }
   .home__img { width: 220px; }
   .home__social-link { padding: .4rem; font-size: 1.25rem; }
   .home__social::after { transform: rotate(90deg) translate(16px, 0); }
   .home__scroll-icon { font-size: 2rem; }
+  
   .about__container { grid-template-columns: repeat(2, 1fr); align-items: center; column-gap: 4rem; }
   .about__img { width: 350px; }
   .about__data { text-align: initial; }
   .about__info { justify-content: initial; }
   .about__box { text-align: center; padding: 1rem 1.25rem; }
   .about__text-block h3 { text-align: left; }
+  
   .skills__container { grid-template-columns: repeat(2, 350px); column-gap: 3rem; }
+  
   .work__container { grid-template-columns: repeat(3, max-content); gap: 3rem; }
   .work__card { padding: 1.25rem; }
   .work__img { margin-bottom: 1rem; }
   .work__title { margin-bottom: .5rem; }
+  
   .contact__container { column-gap: 6rem; }
   .footer__social-link { font-size: 1.25rem; padding: .4rem; border-radius: .5rem; }
   .scrollup { right: 3rem; }
-}
-
-
-/* --- Paste this at the VERY BOTTOM of your styles.css --- */
-
-/* Highlight the "Contact Me" button in Navigation */
-.nav__item:last-child .nav__link {
-    background-color: var(--first-color);
-    color: #fff;
-    padding: 0.5rem 1.25rem;
-    border-radius: 2rem;
-    transition: 0.3s;
-}
-
-.nav__item:last-child .nav__link:hover {
-    background-color: var(--first-color-alt);
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-/* Typewriter Cursor Effect */
-.typewriter-text {
-    border-right: 2px solid var(--first-color);
-    padding-right: 5px;
-    animation: blinkCursor 0.7s steps(1) infinite;
-}
-
-@keyframes blinkCursor {
-    50% { border-color: transparent; }
-}
-
-/*=============== CONTACT FORM STYLES ===============*/
-.contact__form-div {
-  position: relative;
-  margin-bottom: 2rem;
-  height: 4rem;
-}
-.contact__form-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid var(--text-color-light);
-  background: none;
-  color: var(--text-color);
-  outline: none;
-  padding: 1.5rem;
-  border-radius: .75rem;
-  z-index: 1;
-  transition: .3s;
-}
-.contact__form-tag {
-  position: absolute;
-  top: -.75rem;
-  left: 1.25rem;
-  font-size: var(--smaller-font-size);
-  padding: .25rem;
-  background-color: var(--body-color);
-  z-index: 10;
-  transition: .3s;
-}
-.contact__form-area {
-  height: 11rem;
-}
-.contact__form-area textarea {
-  resize: none;
-}
-/* Focus effects */
-.contact__form-input:focus {
-  border-color: var(--first-color);
-}
-
-/*=============== MODAL STYLES ===============*/
-.services__modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
-  z-index: var(--z-modal);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-}
-.services__modal-content {
-  width: 500px;
-  position: relative;
-  background-color: var(--container-color);
-  padding: 4.5rem 2.5rem 2.5rem;
-  border-radius: 1.5rem;
-}
-.services__modal-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  color: var(--first-color);
-  cursor: pointer;
-}
-.services__modal-title {
-  font-size: var(--h3-font-size);
-  color: var(--first-color);
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.services__modal-info {
-  font-size: var(--small-font-size);
-}
-.services__modal-icon {
-  color: var(--first-color);
-  margin-right: 0.25rem;
-}
-/* Active State */
-.active-modal {
-  opacity: 1;
-  visibility: visible;
 }
