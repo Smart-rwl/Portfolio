@@ -236,3 +236,31 @@ body.light-theme {
   .footer__social-link { font-size: 1.25rem; padding: .4rem; border-radius: .5rem; }
   .scrollup { right: 3rem; }
 }
+
+/* --- Paste this at the VERY BOTTOM of your styles.css --- */
+
+/* Highlight the "Contact Me" button in Navigation */
+.nav__item:last-child .nav__link {
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    transition: 0.3s;
+}
+
+.nav__item:last-child .nav__link:hover {
+    background-color: var(--first-color-alt);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Typewriter Cursor Effect */
+.typewriter-text {
+    border-right: 2px solid var(--first-color);
+    padding-right: 5px;
+    animation: blinkCursor 0.7s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+    50% { border-color: transparent; }
+}

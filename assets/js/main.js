@@ -68,3 +68,32 @@ const sr = ScrollReveal({
 sr.reveal(`.home__data`)
 sr.reveal(`.home__handle`, {delay: 700})
 sr.reveal(`.home__social, .home__scroll`, {delay: 900, origin: 'bottom'})
+
+/* --- Paste this at the VERY BOTTOM of your main.js --- */
+
+/*=============== TYPEWRITER EFFECT ===============*/
+const textElement = document.getElementById("typewriter");
+const texts = ["eCommerce Specialist", "Pricing Analyst", "Data Enthusiast"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type() {
+    if (count === texts.length) {
+        count = 0;
+    }
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+
+    if(textElement){
+        textElement.textContent = letter;
+        if (letter.length === currentText.length) {
+            count++;
+            index = 0;
+            setTimeout(type, 2000); // Wait 2 seconds before typing next
+        } else {
+            setTimeout(type, 100); // Typing speed
+        }
+    }
+})();
