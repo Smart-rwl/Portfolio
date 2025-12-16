@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="https://i.imgur.com/K4d2p7A.png" type="image/x-icon">
 
-    <!--=============== REMIXICONS & FONT AWESOME ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-
-    <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 
-    <!--=============== CSS ===============-->
     <style>
         /*=============== GOOGLE FONTS ===============*/
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
@@ -36,18 +31,16 @@
 
             /*========== Font and typography ==========*/
             --body-font: 'Poppins', sans-serif;
-
             --h1-font-size: 2.25rem;
             --h2-font-size: 1.5rem;
             --h3-font-size: 1.25rem;
             --normal-font-size: 1rem;
             --small-font-size: .875rem;
             --smaller-font-size: .813rem;
-
             --font-medium: 500;
             --font-semi-bold: 600;
 
-            /*========== Margenes Bottom ==========*/
+            /*========== Margins ==========*/
             --mb-0-25: .25rem;
             --mb-0-5: .5rem;
             --mb-0-75: .75rem;
@@ -83,9 +76,7 @@
             scroll-behavior: smooth;
         }
 
-        body,
-        button,
-        input {
+        body, button, input {
             font-family: var(--body-font);
             font-size: var(--normal-font-size);
         }
@@ -142,10 +133,6 @@
             display: grid;
         }
 
-        .main {
-            padding-left: 0;
-        }
-
         .header {
             width: 100%;
             position: fixed;
@@ -163,8 +150,7 @@
             align-items: center;
         }
 
-        .nav__logo,
-        .nav__toggle {
+        .nav__logo, .nav__toggle {
             color: var(--title-color);
             font-weight: var(--font-medium);
         }
@@ -915,7 +901,6 @@
     <title>Ravinder Rawal - Portfolio</title>
 </head>
 <body>
-    <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">Ravinder Rawal</a>
@@ -960,9 +945,7 @@
         </nav>
     </header>
 
-    <!--==================== MAIN ====================-->
     <main class="main">
-        <!--==================== HOME ====================-->
         <section class="home section" id="home">
             <div class="home__container container grid">
                 <div class="home__content grid">
@@ -1012,7 +995,6 @@
             </div>
         </section>
 
-        <!--==================== ABOUT ====================-->
         <section class="about section" id="about">
             <h2 class="section__title">About Me</h2>
             <div class="about__container container grid">
@@ -1030,12 +1012,10 @@
             </div>
         </section>
 
-        <!--==================== SKILLS ====================-->
         <section class="skills section" id="skills">
             <h2 class="section__title">My Expertise</h2>
             <div class="skills__container container grid">
                 <div>
-                    <!--======== SKILLS 1 ========-->
                     <div class="skills__content skills__active" data-content id="platform-skills">
                         <div class="skills__header">
                             <i class="ri-store-2-line skills__icon"></i>
@@ -1066,7 +1046,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--======== SKILLS 2 ========-->
                     <div class="skills__content" data-content id="operational-skills">
                         <div class="skills__header">
                             <i class="ri-settings-3-line skills__icon"></i>
@@ -1099,7 +1078,6 @@
                     </div>
                 </div>
                 <div>
-                    <!--======== SKILLS 3 ========-->
                     <div class="skills__content" data-content id="analytical-skills">
                         <div class="skills__header">
                             <i class="ri-bar-chart-box-line skills__icon"></i>
@@ -1140,7 +1118,6 @@
             </div>
         </section>
 
-        <!--==================== QUALIFICATION ====================-->
         <section class="qualification section" id="qualification">
             <h2 class="section__title">Qualification</h2>
             
@@ -1158,9 +1135,7 @@
                 </div>
 
                 <div class="qualification__sections">
-                    <!--==================== QUALIFICATION CONTENT 1 ====================-->
                     <div class="qualification__content qualification__content-active" data-content id="work">
-                        <!--==================== QUALIFICATION 1 ====================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Catalogue & Pricing Executive</h3>
@@ -1177,14 +1152,12 @@
                             </div>
                         </div>
                         
-                        <!--==================== QUALIFICATION 2 ====================-->
                         <div class="qualification__data">
                             <div></div>
     
                             <div>
                                 <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
+                                </div>
 
                             <div>
                                 <h3 class="qualification__title">eCommerce Specialist</h3>
@@ -1197,9 +1170,7 @@
                         </div>
                     </div>
                     
-                    <!--==================== QUALIFICATION CONTENT 2 ====================-->
                     <div class="qualification__content" data-content id="education">
-                        <!--==================== QUALIFICATION 1 ====================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Bachelor in Science</h3>
@@ -1216,7 +1187,6 @@
                             </div>
                         </div>
                         
-                        <!--==================== QUALIFICATION 2 ====================-->
                         <div class="qualification__data">
                             <div></div>
     
@@ -1235,7 +1205,6 @@
                             </div>
                         </div>
 
-                        <!--==================== QUALIFICATION 3 ====================-->
                         <div class="qualification__data">
                             <div>
                                 <h3 class="qualification__title">Senior Secondary</h3>
@@ -1248,15 +1217,13 @@
     
                             <div>
                                 <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--==================== PLATFORM EXPERTISE ====================-->
         <section class="skills section" id="platforms">
             <h2 class="section__title">Platform Expertise</h2>
             <div class="skills__container container grid">
@@ -1284,12 +1251,10 @@
         </section>
 
 
-        <!--==================== PORTFOLIO ====================-->
         <section class="portfolio section" id="portfolio">
             <h2 class="section__title">Key Projects & Accomplishments</h2>
             <div class="portfolio__container container swiper">
                 <div class="swiper-wrapper">
-                    <!--======== PORTFOLIO 1 ========-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Inventory+System" alt="" class="portfolio__img">
                         <div class="portfolio__data">
@@ -1297,7 +1262,6 @@
                             <p class="portfolio__description">Developed a Google Sheets-based system to sync data across all marketplaces, reducing stockouts by 35% and overstock by 40%.</p>
                         </div>
                     </div>
-                    <!--======== PORTFOLIO 2 ========-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Catalog+Standardization" alt="" class="portfolio__img">
                         <div class="portfolio__data">
@@ -1305,7 +1269,6 @@
                             <p class="portfolio__description">Created templates for product info management across 8+ platforms, cutting listing time by 60% and ensuring brand consistency.</p>
                         </div>
                     </div>
-                    <!--======== PORTFOLIO 3 ========-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Automated+Pricing" alt="" class="portfolio__img">
                         <div class="portfolio__data">
@@ -1313,8 +1276,7 @@
                             <p class="portfolio__description">Implemented an SQL-based tool to monitor competitor pricing and automate adjustments, boosting the conversion rate by 22%.</p>
                         </div>
                     </div>
-                     <!--======== TESTIMONIAL ========-->
-                    <div class="portfolio__content grid swiper-slide">
+                     <div class="portfolio__content grid swiper-slide">
                         <img src="https://placehold.co/600x400/F0F8FF/1f293b?text=Testimonial" alt="" class="portfolio__img">
                         <div class="portfolio__data">
                             <h3 class="portfolio__title">Transformed Our Online Presence</h3>
@@ -1322,15 +1284,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add Arrows -->
                 <div class="swiper-button-next"><i class="ri-arrow-right-s-line"></i></div>
                 <div class="swiper-button-prev"><i class="ri-arrow-left-s-line"></i></div>
-                <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
         </section>
 
-        <!--==================== CONTACT ME ====================-->
         <section class="contact section" id="contact">
             <h2 class="section__title">Contact Me</h2>
             <div class="contact__container container grid">
@@ -1368,7 +1327,6 @@
         </section>
     </main>
 
-    <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__container container">
             <h1 class="footer__title">Ravinder Rawal</h1>
@@ -1385,18 +1343,14 @@
         </div>
     </footer>
 
-    <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-s-line scrollup__icon"></i>
     </a>
 
-    <!--=============== SCROLLREVEAL ===============-->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!--=============== SWIPER JS ===============-->
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-    <!--=============== MAIN JS ===============-->
     <script>
         /*=============== SHOW MENU ===============*/
         const navMenu = document.getElementById('nav-menu'),
@@ -1420,7 +1374,7 @@
 
         function linkAction(){
             const navMenu = document.getElementById('nav-menu')
-            navMenu.classList.remove('show-menu')
+            if(navMenu) navMenu.classList.remove('show-menu')
         }
         navLink.forEach(n => n.addEventListener('click', linkAction))
 
@@ -1431,7 +1385,8 @@
         function toggleSkills(){
             let itemClass = this.parentNode.className
 
-            for(i = 0; i < skillsContent.length; i++){
+            // FIXED: Added 'let' to declare the variable properly
+            for(let i = 0; i < skillsContent.length; i++){
                 skillsContent[i].className = 'skills__content'
             }
             
@@ -1455,7 +1410,7 @@
                 tabContents.forEach(tabContent =>{
                     tabContent.classList.remove('qualification__content-active')
                 })
-                target.classList.add('qualification__content-active')
+                if(target) target.classList.add('qualification__content-active')
 
                 tabs.forEach(tab =>{
                     tab.classList.remove('qualification__active')
@@ -1482,17 +1437,22 @@
         const sections = document.querySelectorAll('section[id]')
 
         function scrollActive(){
-            const scrollY = window.pageYOffset
+            // FIXED: Changed pageYOffset to scrollY (modern standard)
+            const scrollY = window.scrollY
 
             sections.forEach(current =>{
                 const sectionHeight = current.offsetHeight,
                       sectionTop = current.offsetTop - 58,
                       sectionId = current.getAttribute('id')
+                
+                const navItem = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
 
-                if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-                }else{
-                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+                if(navItem){
+                    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                        navItem.classList.add('active-link')
+                    }else{
+                        navItem.classList.remove('active-link')
+                    }
                 }
             })
         }
@@ -1501,14 +1461,18 @@
         /*=============== CHANGE BACKGROUND HEADER ===============*/ 
         function scrollHeader(){
             const header = document.getElementById('header')
-            if(this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+            if(!header) return;
+            // FIXED: Changed this.scrollY to window.scrollY
+            if(window.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
         }
         window.addEventListener('scroll', scrollHeader)
 
         /*=============== SHOW SCROLL UP ===============*/ 
         function scrollUp(){
             const scrollUp = document.getElementById('scroll-up');
-            if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+            if(!scrollUp) return;
+            // FIXED: Changed this.scrollY to window.scrollY
+            if(window.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
         }
         window.addEventListener('scroll', scrollUp)
 
