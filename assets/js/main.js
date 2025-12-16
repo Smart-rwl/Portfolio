@@ -97,3 +97,14 @@ let letter = "";
         }
     }
 })();
+
+/*=============== SERVICES MODAL ===============*/
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if(modal) modal.classList.add('active-modal');
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if(modal) modal.classList.remove('active-modal');
+}

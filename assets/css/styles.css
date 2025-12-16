@@ -264,3 +264,96 @@ body.light-theme {
 @keyframes blinkCursor {
     50% { border-color: transparent; }
 }
+
+/*=============== CONTACT FORM STYLES ===============*/
+.contact__form-div {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 4rem;
+}
+.contact__form-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--text-color-light);
+  background: none;
+  color: var(--text-color);
+  outline: none;
+  padding: 1.5rem;
+  border-radius: .75rem;
+  z-index: 1;
+  transition: .3s;
+}
+.contact__form-tag {
+  position: absolute;
+  top: -.75rem;
+  left: 1.25rem;
+  font-size: var(--smaller-font-size);
+  padding: .25rem;
+  background-color: var(--body-color);
+  z-index: 10;
+  transition: .3s;
+}
+.contact__form-area {
+  height: 11rem;
+}
+.contact__form-area textarea {
+  resize: none;
+}
+/* Focus effects */
+.contact__form-input:focus {
+  border-color: var(--first-color);
+}
+
+/*=============== MODAL STYLES ===============*/
+.services__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: var(--z-modal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+.services__modal-content {
+  width: 500px;
+  position: relative;
+  background-color: var(--container-color);
+  padding: 4.5rem 2.5rem 2.5rem;
+  border-radius: 1.5rem;
+}
+.services__modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  cursor: pointer;
+}
+.services__modal-title {
+  font-size: var(--h3-font-size);
+  color: var(--first-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.services__modal-info {
+  font-size: var(--small-font-size);
+}
+.services__modal-icon {
+  color: var(--first-color);
+  margin-right: 0.25rem;
+}
+/* Active State */
+.active-modal {
+  opacity: 1;
+  visibility: visible;
+}

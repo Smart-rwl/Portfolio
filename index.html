@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    
+    
     <meta name="description" content="Portfolio of Ravinder Rawal, an eCommerce Specialist expert in Amazon, Flipkart, Pricing Strategy, and Data Analytics.">
     <meta name="keywords" content="eCommerce, Pricing Analyst, Data Analysis, Amazon Vendor Central, Flipkart, Ravinder Rawal">
+    <meta property="og:type" content="website">
+<meta property="og:url" content="https://rvndrrwl.vercel.app/">
+<meta property="og:title" content="Ravinder Rawal - eCommerce Specialist">
+<meta property="og:description" content="Portfolio of Ravinder Rawal. Expert in Amazon Vendor Central, Pricing Strategy, and Catalog Optimization.">
+<meta property="og:image" content="https://rvndrrwl.vercel.app/assets/img/perfil.png"> <meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://rvndrrwl.vercel.app/">
+<meta property="twitter:title" content="Ravinder Rawal - eCommerce Specialist">
+<meta property="twitter:description" content="Portfolio of Ravinder Rawal. Expert in Amazon Vendor Central, Pricing Strategy, and Catalog Optimization.">
+<meta property="twitter:image" content="https://rvndrrwl.vercel.app/assets/img/perfil.png">
 
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
@@ -91,7 +102,7 @@
                     <a href="https://github.com/Smart-rwl" target="_blank" class="home__social-link">
                         <i class="ri-github-line"></i>
                     </a>
-                    </div>
+                </div>
 
                 <a href="#about" class="home__scroll">
                     <i class="ri-mouse-line home__scroll-icon"></i>
@@ -213,9 +224,9 @@
                     <p style="font-size: var(--small-font-size); margin-bottom: 1rem; color: var(--text-color);">
                         Custom system that reduced stockouts by <strong>35%</strong> and overstock by <strong>40%</strong>.
                     </p>
-                    <a href="#contact" class="work__button">
-                        Ask for Details <i class="ri-arrow-right-short-line"></i>
-                    </a>
+                    <span class="work__button" onclick="openModal('modal-1')" style="cursor: pointer;">
+                        Details <i class="ri-arrow-right-short-line"></i>
+                    </span>
                 </div>
 
                 <div class="work__card">
@@ -224,9 +235,9 @@
                     <p style="font-size: var(--small-font-size); margin-bottom: 1rem; color: var(--text-color);">
                         Standardized templates across 8 platforms, cutting listing time by <strong>60%</strong>.
                     </p>
-                    <a href="#contact" class="work__button">
-                        Ask for Details <i class="ri-arrow-right-short-line"></i>
-                    </a>
+                    <span class="work__button" onclick="openModal('modal-2')" style="cursor: pointer;">
+                        Details <i class="ri-arrow-right-short-line"></i>
+                    </span>
                 </div>
 
                 <div class="work__card">
@@ -266,6 +277,29 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="contact__content">
+                    <h3 class="contact__title">Write me your project</h3>
+
+                    <form action="https://formspree.io/f/xovldylw" method="POST" class="contact__form">
+                        <div class="contact__form-div">
+                            <label class="contact__form-tag">Name</label>
+                            <input type="text" name="name" placeholder="Insert your name" class="contact__form-input">
+                        </div>
+
+                        <div class="contact__form-div">
+                            <label class="contact__form-tag">Mail</label>
+                            <input type="email" name="email" placeholder="Insert your email" class="contact__form-input">
+                        </div>
+
+                        <div class="contact__form-div contact__form-area">
+                            <label class="contact__form-tag">Project</label>
+                            <textarea name="message" cols="30" rows="10" placeholder="Write your project" class="contact__form-input"></textarea>
+                        </div>
+
+                        <button class="button">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -289,10 +323,47 @@
         </div>
     </footer>
 
+    <div class="services__modal" id="modal-1">
+        <div class="services__modal-content">
+            <h4 class="services__modal-title">Inventory <br> Optimization</h4>
+            <i class="ri-close-line services__modal-close" onclick="closeModal('modal-1')"></i>
+
+            <ul class="services__modal-services grid">
+                <li class="services__modal-service">
+                    <i class="ri-check-fill services__modal-icon"></i>
+                    <p class="services__modal-info"><strong>Problem:</strong> Frequent stockouts causing 15% revenue loss.</p>
+                </li>
+                <li class="services__modal-service">
+                    <i class="ri-check-fill services__modal-icon"></i>
+                    <p class="services__modal-info"><strong>Solution:</strong> Built automated Google Sheets tracker synced with Vendor Central.</p>
+                </li>
+                <li class="services__modal-service">
+                    <i class="ri-check-fill services__modal-icon"></i>
+                    <p class="services__modal-info"><strong>Result:</strong> Reduced stockouts by 35% in 3 months.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="services__modal" id="modal-2">
+        <div class="services__modal-content">
+            <h4 class="services__modal-title">Catalog <br> Standardization</h4>
+            <i class="ri-close-line services__modal-close" onclick="closeModal('modal-2')"></i>
+            <ul class="services__modal-services grid">
+                <li class="services__modal-service">
+                    <i class="ri-check-fill services__modal-icon"></i>
+                    <p class="services__modal-info"><strong>Problem:</strong> Inconsistent product data across 8 platforms.</p>
+                </li>
+                <li class="services__modal-service">
+                    <i class="ri-check-fill services__modal-icon"></i>
+                    <p class="services__modal-info"><strong>Result:</strong> Cut listing time by 60% using master templates.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <script src="assets/js/scrollreveal.min.js"></script>
-
     <script src="assets/js/swiper-bundle.min.js"></script>
-
     <script src="assets/js/main.js"></script>
 </body>
 </html>
