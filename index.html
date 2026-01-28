@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="description" content="Portfolio of Ravinder Rawal, an eCommerce Specialist expert in Amazon, Flipkart, Pricing Strategy, and Data Analytics.">
-    <meta name="keywords" content="eCommerce, Pricing Analyst, Data Analysis, Amazon Vendor Central, Flipkart, Ravinder Rawal, Smartrwl, Smart-rwl>
+    <meta name="keywords" content="eCommerce, Pricing Analyst, Data Analysis, Amazon Vendor Central, Flipkart, Ravinder Rawal, Smartrwl, Smart-rwl">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rvndrrwl.vercel.app/">
@@ -25,6 +25,44 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <title>Ravinder Rawal - eCommerce Specialist</title>
+
+    <style>
+        /* Container ensuring the box stays within the image area */
+        .home__handle {
+            position: relative; /* Necessary for the absolute box to stay inside */
+            z-index: 1;
+            overflow: hidden; /* Keeps icons from flying out */
+            border-radius: 1.5rem; /* Matches your theme rounded corners */
+        }
+
+        /* The Box Background */
+        .bouncing-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, hsla(var(--hue), var(--sat), var(--lig), 0.1), hsla(var(--hue), var(--sat), var(--lig), 0));
+            z-index: -1; /* Puts it BEHIND your profile photo */
+        }
+
+        /* The Moving Icons */
+        .bouncer {
+            position: absolute;
+            width: 35px; /* Adjust icon size here */
+            height: 35px;
+            object-fit: contain;
+            opacity: 0.7;
+            will-change: transform;
+            pointer-events: none; /* Allows clicking through them */
+        }
+        
+        /* Optional: Makes profile photo float slightly above */
+        .home__img {
+            position: relative;
+            z-index: 2; 
+        }
+    </style>
 </head>
 <body>
     <header class="header" id="header">
@@ -77,6 +115,19 @@
                 </div>
 
                 <div class="home__handle">
+                    
+                    <div id="bouncing-box" class="bouncing-box">
+                        <img src="assets/img/icon1.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon2.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon3.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon4.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon5.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon6.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon7.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon8.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon9.png" class="bouncer" alt="icon">
+                        <img src="assets/img/icon10.png" class="bouncer" alt="icon">
+                    </div>
                     <img src="assets/img/perfil.png" alt="Ravinder Rawal Headshot" class="home__img">
                 </div>
 
@@ -399,5 +450,73 @@
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById('bouncing-box');
+        if (!container) return; // Guard clause
+        
+        const bouncers = container.querySelectorAll('.bouncer');
+        
+        // Speed configuration
+        const speed = 1.5; 
+        
+        // Store position and velocity
+        let iconsData = [];
+
+        // Initialize positions
+        bouncers.forEach((el) => {
+            // Wait for image to load to get dimensions, or assume size
+            // Random start
+            let x = Math.random() * (container.clientWidth - 40);
+            let y = Math.random() * (container.clientHeight - 40);
+            
+            // Random direction
+            let vx = (Math.random() < 0.5 ? -1 : 1) * speed;
+            let vy = (Math.random() < 0.5 ? -1 : 1) * speed;
+            
+            // Random variation
+            vx += (Math.random() - 0.5); 
+            vy += (Math.random() - 0.5);
+
+            iconsData.push({ el, x, y, vx, vy, width: 35, height: 35 });
+        });
+
+        function animate() {
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            iconsData.forEach(item => {
+                // Move
+                item.x += item.vx;
+                item.y += item.vy;
+
+                // Collision: Walls
+                if (item.x + item.width >= containerWidth) {
+                    item.x = containerWidth - item.width;
+                    item.vx *= -1;
+                } else if (item.x <= 0) {
+                    item.x = 0;
+                    item.vx *= -1;
+                }
+
+                if (item.y + item.height >= containerHeight) {
+                    item.y = containerHeight - item.height;
+                    item.vy *= -1;
+                } else if (item.y <= 0) {
+                    item.y = 0;
+                    item.vy *= -1;
+                }
+
+                // Apply
+                item.el.style.transform = `translate(${item.x}px, ${item.y}px)`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    });
+    </script>
 </body>
 </html>
