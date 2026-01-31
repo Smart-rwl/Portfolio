@@ -19,6 +19,7 @@
         .container {
             max-width: 850px;
             margin: 0 auto;
+            position: relative; /* Necessary to position the QR code */
         }
         header {
             text-align: center;
@@ -39,6 +40,23 @@
             margin: 0;
             font-weight: 500;
             letter-spacing: 1px;
+        }
+        /* QR Code Styling */
+        .qr-code {
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+        }
+        .qr-code img {
+            width: 60px;
+            height: 60px;
+        }
+        .qr-code p {
+            font-size: 10px;
+            margin: 0;
+            color: #888;
+            font-weight: 600;
         }
         .contact-info {
             display: flex;
@@ -102,13 +120,17 @@
         @media print {
             body { padding: 20px; }
             .container { width: 100%; }
-            /* Hides any browser-added headers/footers */
             @page { margin: 0.5cm; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rvndrrwl.vercel.app/" alt="Website QR Code">
+            <p>Scan to view portfolio</p>
+        </div>
+
         <header>
             <h1>Ravinder Rawal</h1>
             <h2>E-commerce Specialist | Performance Marketer</h2>
@@ -176,8 +198,8 @@
                 <span class="skill-tag">Inventory Optimization</span>
                 <span class="skill-tag">SQL & HTML</span>
                 <span class="skill-tag">Looker & Power BI</span>
-                <span class="skill-tag">Performance Marketing</span>
                 <span class="skill-tag">Backend Operations</span>
+                <span class="skill-tag">Performance Marketing</span>
                 <span class="skill-tag">A+ Content</span>
                 <span class="skill-tag">Payment Reconciliation</span>
             </div>
@@ -204,9 +226,7 @@
     </div>
 
     <script>
-        // Triggers the system print/save dialog as soon as the page loads
         window.onload = function() {
-            // Small delay ensures fonts are fully rendered before print dialog appears
             setTimeout(function() {
                 window.print();
             }, 500);
