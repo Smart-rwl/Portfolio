@@ -102,6 +102,8 @@
         @media print {
             body { padding: 20px; }
             .container { width: 100%; }
+            /* Hides any browser-added headers/footers */
+            @page { margin: 0.5cm; }
         }
     </style>
 </head>
@@ -200,5 +202,15 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        // Triggers the system print/save dialog as soon as the page loads
+        window.onload = function() {
+            // Small delay ensures fonts are fully rendered before print dialog appears
+            setTimeout(function() {
+                window.print();
+            }, 500);
+        };
+    </script>
 </body>
 </html>
