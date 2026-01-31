@@ -29,10 +29,13 @@
     <style>
         /* Container ensuring the box stays within the image area */
         .home__handle {
-            position: relative; /* Necessary for the absolute box to stay inside */
+            position: relative; 
             z-index: 1;
-            overflow: hidden; /* Keeps icons from flying out */
-            border-radius: 1.5rem; /* Matches your theme rounded corners */
+            overflow: hidden; 
+            border-radius: 1.5rem;
+            /* Fix for box sizing issues */
+            display: inline-block; 
+            max-width: 100%;
         }
 
         /* The Box Background */
@@ -43,24 +46,35 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(180deg, hsla(var(--hue), var(--sat), var(--lig), 0.1), hsla(var(--hue), var(--sat), var(--lig), 0));
-            z-index: -1; /* Puts it BEHIND your profile photo */
+            z-index: -1; 
         }
 
-        /* The Moving Icons */
+        /* The Moving Icons - DEFAULT (Desktop) */
         .bouncer {
             position: absolute;
-            width: 35px; /* Adjust icon size here */
-            height: 35px;
+            width: 65px; 
+            height: 65px;
             object-fit: contain;
-            opacity: 0.7;
+            opacity: 0.6;
             will-change: transform;
-            pointer-events: none; /* Allows clicking through them */
+            pointer-events: none; 
+        }
+
+        /* RESPONSIVE FIX: Smaller icons for Mobile Devices */
+        @media screen and (max-width: 768px) {
+            .bouncer {
+                width: 35px;
+                height: 35px;
+                opacity: 0.5; /* Slightly more transparent on mobile */
+            }
         }
         
-        /* Optional: Makes profile photo float slightly above */
         .home__img {
             position: relative;
             z-index: 2; 
+            display: block; /* Removes bottom gap in some browsers */
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -463,15 +477,18 @@
         // Speed configuration
         const speed = 1.5; 
         
+        // CHECK SCREEN WIDTH TO SET SIZE
+        const isMobile = window.innerWidth < 768;
+        const iconSize = isMobile ? 35 : 65; // Matches the CSS media query
+        
         // Store position and velocity
         let iconsData = [];
 
         // Initialize positions
         bouncers.forEach((el) => {
-            // Wait for image to load to get dimensions, or assume size
             // Random start
-            let x = Math.random() * (container.clientWidth - 40);
-            let y = Math.random() * (container.clientHeight - 40);
+            let x = Math.random() * (container.clientWidth - iconSize);
+            let y = Math.random() * (container.clientHeight - iconSize);
             
             // Random direction
             let vx = (Math.random() < 0.5 ? -1 : 1) * speed;
@@ -481,7 +498,7 @@
             vx += (Math.random() - 0.5); 
             vy += (Math.random() - 0.5);
 
-            iconsData.push({ el, x, y, vx, vy, width: 65, height: 65 });
+            iconsData.push({ el, x, y, vx, vy, width: iconSize, height: iconSize });
         });
 
         function animate() {
@@ -519,17 +536,12 @@
 
         animate();
     });
-    </script>
-</body>
-</html>
-<script>
-    
-    // Disable Right Click
+
+    // Disable Right Click & Inspect Shortcuts
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
     });
 
-    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
     document.onkeydown = function (e) {
         if (event.keyCode == 123) { // F12
             return false;
@@ -541,4 +553,6 @@
             return false;
         }
     }
-</script>
+    </script>
+</body>
+</html>
