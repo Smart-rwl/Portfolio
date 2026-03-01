@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # 1. Update npm dependencies (Even for simple JS, this keeps your build tools fresh)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      frontend-assets:
+        patterns:
+          - "bootstrap"
+          - "font-awesome"
+          - "jquery" # If applicable
+
+  # 2. Update GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
