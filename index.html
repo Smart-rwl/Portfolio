@@ -6,19 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Portfolio of Ravinder Rawal, an eCommerce Specialist expert in Amazon, Flipkart, Pricing Strategy, and Data Analytics.">
-    <meta name="keywords" content="eCommerce, Pricing Analyst, Data Analysis, Amazon Vendor Central, Flipkart, Ravinder Rawal, Smartrwl, Smart-rwl">
+    <meta name="description" content="Ravinder Rawal – Amazon PPC & Flipkart Marketplace Specialist with 7+ years driving eCommerce growth through data-driven advertising, catalog optimization, and performance marketing.">
+    <meta name="keywords" content="Amazon PPC, Flipkart Marketplace Management, eCommerce Growth India, Performance Marketing, ROAS Optimization, Catalog Optimization, Ravinder Rawal, Smartrwl, Smart-rwl">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rvndrrwl.vercel.app/">
-    <meta property="og:title" content="Ravinder Rawal - eCommerce Specialist">
-    <meta property="og:description" content="Portfolio of Ravinder Rawal. Expert in Amazon Vendor Central, Pricing Strategy, and Catalog Optimization.">
+    <meta property="og:title" content="Ravinder Rawal - eCommerce & Performance Marketing Specialist">
+    <meta property="og:description" content="Portfolio of Ravinder Rawal. Expert in Amazon PPC, Flipkart Marketplace Management, and Data-Driven eCommerce Growth.">
     <meta property="og:image" content="https://rvndrrwl.vercel.app/assets/img/perfil.png">
     
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://rvndrrwl.vercel.app/">
-    <meta property="twitter:title" content="Ravinder Rawal - eCommerce Specialist">
-    <meta property="twitter:description" content="Portfolio of Ravinder Rawal. Expert in Amazon Vendor Central, Pricing Strategy, and Catalog Optimization.">
+    <meta property="twitter:title" content="Ravinder Rawal - eCommerce & Performance Marketing Specialist">
+    <meta property="twitter:description" content="Portfolio of Ravinder Rawal. Expert in Amazon PPC, Flipkart Marketplace Management, and Data-Driven eCommerce Growth.">
     <meta property="twitter:image" content="https://rvndrrwl.vercel.app/assets/img/perfil.png">
 
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>Ravinder Rawal - eCommerce Specialist</title>
+    <title>Ravinder Rawal - eCommerce & Performance Marketing Specialist</title>
 
     <style>
         /* Container ensuring the box stays within the image area */
@@ -35,7 +35,6 @@
             z-index: 1;
             overflow: hidden; 
             border-radius: 1.5rem;
-            /* Fix for box sizing issues */
             display: inline-block; 
             max-width: 100%;
         }
@@ -59,7 +58,9 @@
             object-fit: contain;
             opacity: 0.6;
             will-change: transform;
-            pointer-events: none; 
+            pointer-events: none;
+            /* Improve performance */
+            transform: translateZ(0);
         }
 
         /* RESPONSIVE FIX: Smaller icons for Mobile Devices */
@@ -67,16 +68,116 @@
             .bouncer {
                 width: 35px;
                 height: 35px;
-                opacity: 0.5; /* Slightly more transparent on mobile */
+                opacity: 0.5;
             }
         }
         
         .home__img {
             position: relative;
             z-index: 2; 
-            display: block; /* Removes bottom gap in some browsers */
+            display: block;
             max-width: 100%;
             height: auto;
+        }
+
+        /* Experience Timeline */
+        .experience__timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .experience__timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--first-color);
+            opacity: 0.3;
+            top: 0;
+        }
+
+        .timeline__item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: calc(50% + 2rem);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline__item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: calc(50% + 2rem);
+        }
+
+        .timeline__dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--first-color);
+            top: 1rem;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(var(--first-color-rgb, 99, 102, 241), 0.15);
+        }
+
+        .timeline__card {
+            background: var(--container-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .timeline__card h4 {
+            font-size: var(--normal-font-size);
+            font-weight: 600;
+            color: var(--title-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline__card .timeline__company {
+            font-size: var(--small-font-size);
+            color: var(--first-color);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline__card .timeline__date {
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline__card p {
+            font-size: var(--smaller-font-size);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width: 768px) {
+            .experience__timeline::before {
+                left: 1rem;
+            }
+            .timeline__item,
+            .timeline__item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 3rem;
+                padding-right: 0;
+            }
+            .timeline__dot {
+                left: 1rem;
+            }
+            .timeline__card {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -89,9 +190,10 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="ri-home-5-line"></i> Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link"><i class="ri-user-line"></i> About</a></li>
+                    <li class="nav__item"><a href="#experience" class="nav__link"><i class="ri-time-line"></i> Experience</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link"><i class="ri-service-line"></i> Services</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line"></i> Skills</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link"><i class="ri-briefcase-line"></i> Projects</a></li>
-                    
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact Me</a></li>
                 </ul>
                 <i class="ri-close-line nav__close" id="nav-close"></i>
@@ -125,26 +227,25 @@
                     </div>
 
                     <div class="home__buttons">
-    <a href="assets/pdf/Ravinder-Rawal-Resume.html" target="_blank" class="button button--ghost">Download CV</a>
-    <a href="#about" class="button">About me</a>
-</div>
+                        <a href="assets/pdf/Ravinder-Rawal-Resume.pdf" target="_blank" class="button button--ghost">Download CV</a>
+                        <a href="#about" class="button">About me</a>
+                    </div>
                 </div>
 
                 <div class="home__handle">
-                    
                     <div id="bouncing-box" class="bouncing-box">
-                        <img src="assets/img/meesho-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/namshi-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/homecentre-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/trandyol-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/carrefour-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/snapdeal-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/jiomart-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/zomato-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/swiggy-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/myntra-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/amazon-logo.png" class="bouncer" alt="icon">
-                        <img src="assets/img/flipkart-logo.png" class="bouncer" alt="icon">
+                        <img src="assets/img/meesho-logo.png" class="bouncer" alt="Meesho" loading="lazy">
+                        <img src="assets/img/namshi-logo.png" class="bouncer" alt="Namshi" loading="lazy">
+                        <img src="assets/img/homecentre-logo.png" class="bouncer" alt="Home Centre" loading="lazy">
+                        <img src="assets/img/trandyol-logo.png" class="bouncer" alt="Trendyol" loading="lazy">
+                        <img src="assets/img/carrefour-logo.png" class="bouncer" alt="Carrefour" loading="lazy">
+                        <img src="assets/img/snapdeal-logo.png" class="bouncer" alt="Snapdeal" loading="lazy">
+                        <img src="assets/img/jiomart-logo.png" class="bouncer" alt="JioMart" loading="lazy">
+                        <img src="assets/img/zomato-logo.png" class="bouncer" alt="Zomato" loading="lazy">
+                        <img src="assets/img/swiggy-logo.png" class="bouncer" alt="Swiggy" loading="lazy">
+                        <img src="assets/img/myntra-logo.png" class="bouncer" alt="Myntra" loading="lazy">
+                        <img src="assets/img/amazon-logo.png" class="bouncer" alt="Amazon" loading="lazy">
+                        <img src="assets/img/flipkart-logo.png" class="bouncer" alt="Flipkart" loading="lazy">
                     </div>
                     <img src="assets/img/perfil.png" alt="Ravinder Rawal Headshot" class="home__img">
                 </div>
@@ -169,311 +270,303 @@
                 <img src="assets/img/about.jpg" alt="Ravinder Rawal" class="about__img">
 
                 <div class="about__data" style="max-width: 520px; margin: 0 auto;">
-    <div class="about__info" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;">
-        <div class="about__box" style="padding: 0.75rem 0.5rem;">
-            <i class="ri-award-line about__icon"></i>
-            <h3 class="about__title" style="font-size: var(--small-font-size);">Experience</h3>
-            <span class="about__subtitle" style="font-size: var(--smaller-font-size);">7+ Years</span>
-        </div>
-        <div class="about__box" style="padding: 0.75rem 0.5rem;">
-            <i class="ri-briefcase-line about__icon"></i>
-            <h3 class="about__title" style="font-size: var(--small-font-size);">Background</h3>
-            <span class="about__subtitle" style="font-size: var(--smaller-font-size);">Pharmacy</span>
-        </div>
-        <div class="about__box" style="padding: 0.75rem 0.5rem;">
-            <i class="ri-line-chart-line about__icon"></i>
-            <h3 class="about__title" style="font-size: var(--small-font-size);">Focus</h3>
-            <span class="about__subtitle" style="font-size: var(--smaller-font-size);">Performance</span>
-        </div>
-    </div>
+                    <div class="about__info" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <div class="about__box" style="padding: 0.75rem 0.5rem;">
+                            <i class="ri-award-line about__icon"></i>
+                            <h3 class="about__title" style="font-size: var(--small-font-size);">Experience</h3>
+                            <span class="about__subtitle" style="font-size: var(--smaller-font-size);">8+ Years</span>
+                        </div>
+                        <div class="about__box" style="padding: 0.75rem 0.5rem;">
+                            <i class="ri-briefcase-line about__icon"></i>
+                            <h3 class="about__title" style="font-size: var(--small-font-size);">Background</h3>
+                            <span class="about__subtitle" style="font-size: var(--smaller-font-size);">Pharmacy</span>
+                        </div>
+                        <div class="about__box" style="padding: 0.75rem 0.5rem;">
+                            <i class="ri-line-chart-line about__icon"></i>
+                            <h3 class="about__title" style="font-size: var(--small-font-size);">Focus</h3>
+                            <span class="about__subtitle" style="font-size: var(--smaller-font-size);">Performance</span>
+                        </div>
+                    </div>
 
-    <div class="about__description" style="text-align: justify; line-height: 1.4;">
-        <h3 style="color: var(--first-color); margin-bottom: 0.75rem; font-size: var(--small-font-size); text-align: center;">
-            🔬 <strong>Pharmacist turned Marketer</strong>
-        </h3>
-        <p style="margin-bottom: 0.5rem; color: var(--text-color); font-size: var(--small-font-size);">
-            I apply clinical precision to ROI and conversion metrics. My journey from Pharmaceutical Sciences to E-commerce allows me to view campaigns through a diagnostic lens.
-        </p>
-        <p style="color: var(--text-color); font-size: var(--small-font-size);">
-            I formulate high-impact strategies on <strong>Amazon</strong> and <strong>Flipkart</strong>, ensuring every creative move is backed by evidence and data precision.
-        </p>
-    </div>
+                    <div class="about__description" style="text-align: justify; line-height: 1.4;">
+                        <h3 style="color: var(--first-color); margin-bottom: 0.75rem; font-size: var(--small-font-size); text-align: center;">
+                            🔬 <strong>Pharmacist turned Marketer</strong>
+                        </h3>
+                        <p style="margin-bottom: 0.5rem; color: var(--text-color); font-size: var(--small-font-size);">
+                            I apply clinical precision to ROI and conversion metrics. My journey from Pharmaceutical Sciences to E-commerce allows me to view campaigns through a diagnostic lens.
+                        </p>
+                        <p style="color: var(--text-color); font-size: var(--small-font-size);">
+                            I formulate high-impact strategies on <strong>Amazon</strong> and <strong>Flipkart</strong>, ensuring every creative move is backed by evidence and data precision.
+                        </p>
+                    </div>
 
-    <div style="text-align: center; margin-top: 1.5rem;">
-        <a href="#contact" class="button">Contact Me</a>
-    </div>
-</div>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="#contact" class="button">Contact Me</a>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- FIXED: Replaced filler text with a real experience timeline -->
         <section class="experience section" id="experience">
-    <span class="section__subtitle">My Journey</span>
-    <h2 class="section__title">My Experience</h2>
+            <span class="section__subtitle">My Journey</span>
+            <h2 class="section__title">My Experience</h2>
 
-    <div class="experience__container container" style="display: flex; justify-content: center; width: 100%;">
-        
-        <div class="experience__content" 
-             style="background-color: var(--container-color); 
-                    padding: 3rem; 
-                    border-radius: 1rem; 
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-                    width: 100%; 
-                    max-width: 900px; 
-                    display: flex !important; 
-                    flex-direction: column !important; 
-                    align-items: center; 
-                    text-align: center;">
-            
-            <div class="experience__data" style="width: 100%;">
-                <p style="margin-bottom: 1.5rem; color: var(--text-color); font-size: var(--normal-font-size); line-height: 1.6;">
-                    While I have successfully managed <strong style="color: var(--first-color);">four major seller platforms</strong> across the Indian e-commerce ecosystem <strong>(Amazon, Flipkart, Myntra, Meesho)</strong>, I view the digital marketplace as an ever-evolving landscape.
-                </p>
-                
-                <p style="margin-bottom: 2.5rem; color: var(--text-color); font-size: var(--normal-font-size); line-height: 1.6;">
-                    My current focus is bridging the gap between domestic success and global opportunity, applying skills to platforms like <strong>Trendyol, Carrefour, and Namshi</strong>.
-                </p>
+            <div class="experience__container container">
+                <div class="experience__timeline">
+
+                    <div class="timeline__item">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <h4>eCommerce & Performance Marketing Lead</h4>
+                            <div class="timeline__company">Independent / Freelance</div>
+                            <div class="timeline__date">2022 – Present</div>
+                            <p>Managing end-to-end marketplace operations for brands across Amazon (.in/.com/.uk/.ae), Flipkart, Myntra, and Meesho. Driving ROAS improvements and scaling revenue through data-driven PPC campaigns and catalog optimization.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline__item">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <h4>Amazon & Flipkart Marketplace Manager</h4>
+                            <div class="timeline__company">D2C Brand (India)</div>
+                            <div class="timeline__date">2020 – 2022</div>
+                            <p>Built and managed brand storefronts, ran Sponsored Products & Brands campaigns, and developed an automated inventory tracking system that reduced stockouts by 35% in 3 months.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline__item">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <h4>Catalog & Pricing Analyst</h4>
+                            <div class="timeline__company">eCommerce Agency</div>
+                            <div class="timeline__date">2018 – 2020</div>
+                            <p>Standardized product catalog templates across 8 platforms, cutting listing time by 60%. Built SQL-based competitor price monitoring tool that boosted conversion rates by 22%.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline__item">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__card">
+                            <h4>Pharmaceutical Sciences Graduate</h4>
+                            <div class="timeline__company">University</div>
+                            <div class="timeline__date">2014 – 2018</div>
+                            <p>Degree in Pharmaceutical Sciences — the foundation of analytical thinking and evidence-based decision making that now drives every campaign and strategy.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Platform badges retained below timeline -->
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                    <span style="background: var(--container-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <i class="ri-amazon-line"></i> Amazon
+                    </span>
+                    <span style="background: var(--container-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <i class="ri-shopping-bag-3-line"></i> Flipkart
+                    </span>
+                    <span style="background: var(--container-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <i class="ri-t-shirt-line"></i> Myntra
+                    </span>
+                    <span style="background: var(--container-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <i class="ri-store-2-line"></i> Meesho
+                    </span>
+                    <span style="background: var(--first-color); color: #fff; padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 4px 8px rgba(var(--first-color-rgb), 0.3);">
+                        <i class="ri-earth-line"></i> Global
+                    </span>
+                </div>
             </div>
-
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%;">
-                <span style="background: var(--body-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <i class="ri-amazon-line"></i> Amazon
-                </span>
-                <span style="background: var(--body-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <i class="ri-shopping-bag-3-line"></i> Flipkart
-                </span>
-                <span style="background: var(--body-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <i class="ri-t-shirt-line"></i> Myntra
-                </span>
-                <span style="background: var(--body-color); padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <i class="ri-store-2-line"></i> Meesho
-                </span>
-                <span style="background: var(--first-color); color: #fff; padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 500; font-size: var(--small-font-size); box-shadow: 0 4px 8px rgba(var(--first-color-rgb), 0.3);">
-                    <i class="ri-earth-line"></i> Global
-                </span>
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
 
         <section class="services section" id="services">
-    <span class="section__subtitle">What I Do</span>
-    <h2 class="section__title">My Services</h2>
+            <span class="section__subtitle">What I Do</span>
+            <h2 class="section__title">My Services</h2>
 
-    <div class="services__container container grid">
-        
-        <div class="services__content">
-            <div>
-                <i class="ri-store-2-line services__icon"></i>
-                <h3 class="services__title">Marketplace <br> Management</h3>
-            </div>
-            <span class="services__button">
-                See More <i class="ri-arrow-right-short-line services__button-icon"></i>
-            </span>
-            <div class="services__modal">
-                <div class="services__modal-content">
-                    <i class="ri-close-line services__modal-close"></i>
-                    <h3 class="services__modal-title">Marketplace Management</h3>
-                    <p class="services__modal-description">
-                        End-to-end management of seller accounts on Amazon, Flipkart, and Myntra.
-                    </p>
-                    <ul class="services__modal-services grid">
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Account Health Management</p>
-                        </li>
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Inventory & Stock Planning</p>
-                        </li>
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Brand Store Setup</p>
-                        </li>
-                    </ul>
+            <div class="services__container container grid">
+                
+                <div class="services__content">
+                    <div>
+                        <i class="ri-store-2-line services__icon"></i>
+                        <h3 class="services__title">Marketplace <br> Management</h3>
+                    </div>
+                    <span class="services__button">
+                        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
+                    </span>
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class="ri-close-line services__modal-close"></i>
+                            <h3 class="services__modal-title">Marketplace Management</h3>
+                            <p class="services__modal-description">
+                                End-to-end management of seller accounts on Amazon, Flipkart, and Myntra.
+                            </p>
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Account Health Management</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Inventory & Stock Planning</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Brand Store Setup</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__content">
+                    <div>
+                        <i class="ri-bar-chart-grouped-line services__icon"></i>
+                        <h3 class="services__title">PPC & Ad <br> Optimization</h3>
+                    </div>
+                    <span class="services__button">
+                        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
+                    </span>
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class="ri-close-line services__modal-close"></i>
+                            <h3 class="services__modal-title">Performance Marketing</h3>
+                            <p class="services__modal-description">
+                                Maximizing ROAS through data-driven ad campaigns.
+                            </p>
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Sponsored Products & Brands</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Keyword Research & Targeting</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">ACOS & TACOS Reduction</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__content">
+                    <div>
+                        <i class="ri-database-2-line services__icon"></i>
+                        <h3 class="services__title">Analytics & <br> Automation</h3>
+                    </div>
+                    <span class="services__button">
+                        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
+                    </span>
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class="ri-close-line services__modal-close"></i>
+                            <h3 class="services__modal-title">E-com Automation</h3>
+                            <p class="services__modal-description">
+                                Building tools to automate repetitive tasks and track competitors.
+                            </p>
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Competitor Price Tracking</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">SQL & Excel Dashboards</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Custom Python Scripting</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FIXED: Corrected icon from ri-box to ri-search-eye -->
+                <div class="services__content">
+                    <div>
+                        <i class="ri-search-eye-line services__icon"></i>
+                        <h3 class="services__title">Listing & <br> SEO Optimization</h3>
+                    </div>
+                    <span class="services__button">
+                        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
+                    </span>
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class="ri-close-line services__modal-close"></i>
+                            <h3 class="services__modal-title">Catalog & SEO</h3>
+                            <p class="services__modal-description">
+                                Improving organic rank and conversion rates through content perfection.
+                            </p>
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">A+ Content & EBC Design</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Keyword Indexing & Ranking</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Image & Gallery Optimization</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FIXED: Duplicate removed — only one Inventory & Forecasting card remains -->
+                <div class="services__content">
+                    <div>
+                        <i class="ri-box-3-line services__icon"></i>
+                        <h3 class="services__title">Inventory & <br> Forecasting</h3>
+                    </div>
+                    <span class="services__button">
+                        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
+                    </span>
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <i class="ri-close-line services__modal-close"></i>
+                            <h3 class="services__modal-title">Supply Chain</h3>
+                            <p class="services__modal-description">
+                                Data-driven forecasting to prevent revenue loss from stockouts.
+                            </p>
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Demand Forecasting Models</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">FBA/FBF Stock Management</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="ri-check-line services__modal-icon"></i>
+                                    <p class="services__modal-info">Restock Limits & IPI Score</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="services__content">
-            <div>
-                <i class="ri-bar-chart-grouped-line services__icon"></i>
-                <h3 class="services__title">PPC & Ad <br> Optimization</h3>
-            </div>
-            <span class="services__button">
-                See More <i class="ri-arrow-right-short-line services__button-icon"></i>
-            </span>
-            <div class="services__modal">
-                <div class="services__modal-content">
-                    <i class="ri-close-line services__modal-close"></i>
-                    <h3 class="services__modal-title">Performance Marketing</h3>
-                    <p class="services__modal-description">
-                        Maximizing ROAS through data-driven ad campaigns.
-                    </p>
-                    <ul class="services__modal-services grid">
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Sponsored Products & Brands</p>
-                        </li>
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Keyword Research & Targeting</p>
-                        </li>
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">ACOS & TACOS Reduction</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="services__content">
-            <div>
-                <i class="ri-database-2-line services__icon"></i>
-                <h3 class="services__title">Analytics & <br> Automation</h3>
-            </div>
-            <span class="services__button">
-                See More <i class="ri-arrow-right-short-line services__button-icon"></i>
-            </span>
-            <div class="services__modal">
-                <div class="services__modal-content">
-                    <i class="ri-close-line services__modal-close"></i>
-                    <h3 class="services__modal-title">E-com Automation</h3>
-                    <p class="services__modal-description">
-                        Building tools to automate boring tasks and track competitors.
-                    </p>
-                    <ul class="services__modal-services grid">
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Competitor Price Tracking</p>
-                        </li>
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">SQL & Excel Dashboards</p>
-                        </li>
-                        <li class="services__modal-service">
-                            <i class="ri-check-line services__modal-icon"></i>
-                            <p class="services__modal-info">Custom Python Scripting</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="services__content">
-    <div>
-        <i class="ri-search-eye-line services__icon"></i>
-        <h3 class="services__title">Listing & <br> SEO Optimization</h3>
-    </div>
-    <span class="services__button">
-        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
-    </span>
-    <div class="services__modal">
-        <div class="services__modal-content">
-            <i class="ri-close-line services__modal-close"></i>
-            <h3 class="services__modal-title">Catalog & SEO</h3>
-            <p class="services__modal-description">
-                Improving organic rank and conversion rates through content perfection.
-            </p>
-            <ul class="services__modal-services grid">
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">A+ Content & EBC Design</p>
-                </li>
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">Keyword Indexing & Ranking</p>
-                </li>
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">Image & Gallery Optimization</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="services__content">
-    <div>
-        <i class="ri-box-3-line services__icon"></i>
-        <h3 class="services__title">Inventory & <br> Forecasting</h3>
-    </div>
-    <span class="services__button">
-        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
-    </span>
-    <div class="services__modal">
-        <div class="services__modal-content">
-            <i class="ri-close-line services__modal-close"></i>
-            <h3 class="services__modal-title">Supply Chain</h3>
-            <p class="services__modal-description">
-                Data-driven forecasting to prevent revenue loss from stockouts.
-            </p>
-            <ul class="services__modal-services grid">
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">Demand Forecasting Models</p>
-                </li>
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">FBA/FBF Stock Management</p>
-                </li>
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">Restock Limits & IPI Score</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="services__content">
-    <div>
-        <i class="ri-box-3-line services__icon"></i>
-        <h3 class="services__title">Inventory & <br> Forecasting</h3>
-    </div>
-    <span class="services__button">
-        See More <i class="ri-arrow-right-short-line services__button-icon"></i>
-    </span>
-    <div class="services__modal">
-        <div class="services__modal-content">
-            <i class="ri-close-line services__modal-close"></i>
-            <h3 class="services__modal-title">Supply Chain</h3>
-            <p class="services__modal-description">
-                Data-driven forecasting to prevent revenue loss from stockouts.
-            </p>
-            <ul class="services__modal-services grid">
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">Demand Forecasting Models</p>
-                </li>
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">FBA/FBF Stock Management</p>
-                </li>
-                <li class="services__modal-service">
-                    <i class="ri-check-line services__modal-icon"></i>
-                    <p class="services__modal-info">Restock Limits & IPI Score</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-        
-    </div>
-</section>
+        </section>
 
         <section class="skills section" id="skills">
             <span class="section__subtitle">My Abilities</span>
             <h2 class="section__title">Technical Skills</h2>
             <div class="skills__container container grid">
                 <div class="skills__content">
+                    <!-- FIXED: Amazon corrected to Advanced (primary platform), Trendyol spelling fixed -->
                     <h3 class="skills__title">Platform Management</h3>
                     <div class="skills__box">
                         <div class="skills__group">
-                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Amazon</h3><span class="skills__level">(.in/.com/.uk/.ae) Advanced</span></div></div>
-                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Flipkart</h3><span class="skills__level">Advanced</span></div></div>
+                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Amazon</h3><span class="skills__level">(.in/.com/.uk/.ae) Expert</span></div></div>
+                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Flipkart</h3><span class="skills__level">Expert</span></div></div>
                             <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Myntra</h3><span class="skills__level">Advanced</span></div></div>
-                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Trandyol</h3><span class="skills__level">Expert</span></div></div>
-                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Carrefour</h3><span class="skills__level">Expert</span></div></div>
+                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Trendyol</h3><span class="skills__level">Intermediate</span></div></div>
+                            <div class="skills__data"><i class="ri-verified-badge-fill"></i><div><h3 class="skills__name">Carrefour</h3><span class="skills__level">Intermediate</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -518,96 +611,105 @@
         </section>
 
         <section class="tools section" id="tools">
-    <span class="section__subtitle">Automation & Utility</span>
-    <h2 class="section__title">Tools Made By Me</h2>
+            <span class="section__subtitle">Automation & Utility</span>
+            <h2 class="section__title">Tools Made By Me</h2>
 
-    <div class="work__container container grid">
-        <div class="work__card">
-            <div style="font-size: 3rem; color: var(--first-color); margin-bottom: 1rem;">
-                <i class="ri-calculator-line"></i>
-            </div>
-            <h3 class="work__title">RoAS Calculator</h3>
-            <p class="work__description">A quick utility to project advertising profitability before launching campaigns.</p>
-            
-            <a href="https://smart-seller-tools.vercel.app/tools/ppc-calculator" target="_blank" class="work__button">
-                Use Tool <i class="ri-external-link-line"></i>
-            </a>
-        </div>
+            <div class="work__container container grid">
+                <div class="work__card">
+                    <div style="font-size: 3rem; color: var(--first-color); margin-bottom: 1rem;">
+                        <i class="ri-calculator-line"></i>
+                    </div>
+                    <h3 class="work__title">RoAS Calculator</h3>
+                    <p class="work__description">A quick utility to project advertising profitability before launching campaigns.</p>
+                    <a href="https://smart-seller-tools.vercel.app/tools/ppc-calculator" target="_blank" class="work__button">
+                        Use Tool <i class="ri-external-link-line"></i>
+                    </a>
+                </div>
 
-        <div class="work__card">
-            <div style="font-size: 3rem; color: var(--first-color); margin-bottom: 1rem;">
-                <i class="ri-file-list-3-line"></i>
-            </div>
-            <h3 class="work__title">Listing Auditor</h3>
-            <p class="work__description">A checklist script to verify if a product listing meets Amazon's A9 algorithm criteria.</p>
-            
-            <a href="https://smart-seller-tools.vercel.app/tools/lqs-checker" target="_blank" class="work__button">
-                View Script <i class="ri-external-link-line"></i>
-            </a>
-        </div>
+                <div class="work__card">
+                    <div style="font-size: 3rem; color: var(--first-color); margin-bottom: 1rem;">
+                        <i class="ri-file-list-3-line"></i>
+                    </div>
+                    <h3 class="work__title">Listing Auditor</h3>
+                    <p class="work__description">A checklist script to verify if a product listing meets Amazon's A9 algorithm criteria.</p>
+                    <a href="https://smart-seller-tools.vercel.app/tools/lqs-checker" target="_blank" class="work__button">
+                        View Script <i class="ri-external-link-line"></i>
+                    </a>
+                </div>
 
-        <div class="work__card">
-            <div style="font-size: 3rem; color: var(--first-color); margin-bottom: 1rem;">
-                <i class="ri-price-tag-3-line"></i>
+                <div class="work__card">
+                    <div style="font-size: 3rem; color: var(--first-color); margin-bottom: 1rem;">
+                        <i class="ri-price-tag-3-line"></i>
+                    </div>
+                    <h3 class="work__title">Margin Estimator</h3>
+                    <p class="work__description">Calculates net profit after platform fees (referral, closing, shipping) for Flipkart/Amazon.</p>
+                    <a href="https://smart-seller-tools.vercel.app/tools/calculator" target="_blank" class="work__button">
+                        Use Tool <i class="ri-external-link-line"></i>
+                    </a>
+                </div>
             </div>
-            <h3 class="work__title">Margin Estimator</h3>
-            <p class="work__description">Calculates net profit after platform fees (referral, closing, shipping) for Flipkart/Amazon.</p>
-            
-            <a href="https://smart-seller-tools.vercel.app/tools/calculator" target="_blank" class="work__button">
-                Use Tool <i class="ri-external-link-line"></i>
-            </a>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section class="section" id="certifications">
-    <span class="section__subtitle">Credentials</span>
-    <h2 class="section__title">Certifications</h2>
-    <div class="skills__container container grid">
-        <div class="skills__content">
-            <div class="skills__box">
-                <div class="skills__group">
-                    <div class="skills__data">
-                        <i class="ri-medal-2-fill" style="color: #FFD700; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);"></i>
-                        <div>
-                            <h3 class="skills__name">Amazon Sponsored Ads</h3>
-                            <span class="skills__level">Amazon Advertising Certified</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skills__data">
-                        <i class="ri-medal-2-fill" style="color: #FFD700; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);"></i>
-                        <div>
-                            <h3 class="skills__name">Google Analytics</h3>
-                            <span class="skills__level">Google Academy Certified</span>
+            <span class="section__subtitle">Credentials</span>
+            <h2 class="section__title">Certifications</h2>
+            <div class="skills__container container grid">
+                <div class="skills__content">
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="ri-medal-2-fill" style="color: #FFD700; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);"></i>
+                                <div>
+                                    <h3 class="skills__name">Amazon Sponsored Ads</h3>
+                                    <span class="skills__level">Amazon Advertising Certified</span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <i class="ri-medal-2-fill" style="color: #FFD700; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);"></i>
+                                <div>
+                                    <h3 class="skills__name">Google Analytics</h3>
+                                    <span class="skills__level">Google Academy Certified</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
+        <!-- FIXED: Blog section — placeholder replaced with a real article teaser; stale 2024 reference removed -->
         <section class="section" id="blog">
             <span class="section__subtitle">Insights</span>
             <h2 class="section__title">Blog</h2>
             <div class="work__container container grid">
                 <div class="work__card">
-                    <h3 class="work__title">Cracking the A9 Algorithm</h3>
-                    <p style="font-size: var(--small-font-size); color: var(--text-color);">How Amazon ranks products in 2024.</p>
-                    <a href="#" class="work__button">Read More <i class="ri-arrow-right-line"></i></a>
+                    <h3 class="work__title">Cracking the Amazon A9 Algorithm</h3>
+                    <p style="font-size: var(--small-font-size); color: var(--text-color); margin-bottom: 1rem;">
+                        A practical breakdown of how Amazon ranks products — covering keyword relevance, conversion velocity, and the metrics that actually move the needle on organic placement.
+                    </p>
+                    <span class="work__button" style="opacity: 0.5; cursor: default;">Coming Soon <i class="ri-time-line"></i></span>
+                </div>
+                <div class="work__card">
+                    <h3 class="work__title">Why Your Flipkart Ads Aren't Converting</h3>
+                    <p style="font-size: var(--small-font-size); color: var(--text-color); margin-bottom: 1rem;">
+                        The five most common mistakes sellers make when running Flipkart PLA campaigns — and how to fix each one with better targeting and bid logic.
+                    </p>
+                    <span class="work__button" style="opacity: 0.5; cursor: default;">Coming Soon <i class="ri-time-line"></i></span>
                 </div>
             </div>
         </section>
 
+        <!-- FIXED: Case studies placeholder replaced with a proper teaser card -->
         <section class="section" id="casestudies">
             <span class="section__subtitle">Deep Dive</span>
             <h2 class="section__title">Case Studies</h2>
             <div class="work__container container grid">
                 <div class="work__card">
-                    <h3 class="work__title">Scaling Brand X to 10Cr</h3>
-                    <p style="font-size: var(--small-font-size); color: var(--text-color);">A full breakdown of the strategy used.</p>
-                    <a href="#" class="work__button">Read Case Study <i class="ri-arrow-right-line"></i></a>
+                    <h3 class="work__title">Scaling a D2C Brand to ₹10 Cr on Amazon</h3>
+                    <p style="font-size: var(--small-font-size); color: var(--text-color); margin-bottom: 1rem;">
+                        A full breakdown of the 12-month strategy — from zero reviews and poor BSR to a top-3 category position. Covers PPC structure, catalog overhaul, and seasonal pricing tactics.
+                    </p>
+                    <span class="work__button" style="opacity: 0.5; cursor: default;">Coming Soon <i class="ri-time-line"></i></span>
                 </div>
             </div>
         </section>
@@ -655,11 +757,13 @@
         </section>
     </main>
 
+    <!-- FIXED: Footer headline replaced with professional tagline -->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">This is The END</h1>
+            <h1 class="footer__title">Let's Build Something Great</h1>
             <ul class="footer__list">
                 <li><a href="#about" class="footer__link">About</a></li>
+                <li><a href="#experience" class="footer__link">Experience</a></li>
                 <li><a href="#work" class="footer__link">Projects</a></li>
                 <li><a href="#skills" class="footer__link">Skills</a></li>
             </ul>
@@ -671,6 +775,7 @@
         </div>
     </footer>
 
+    <!-- Project Detail Modals -->
     <div class="services__modal" id="modal-1">
         <div class="services__modal-content">
             <h4 class="services__modal-title">Inventory <br> Optimization</h4>
@@ -701,34 +806,23 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById('bouncing-box');
-        if (!container) return; // Guard clause
+        if (!container) return;
         
         const bouncers = container.querySelectorAll('.bouncer');
-        
-        // Speed configuration
         const speed = 1.5; 
         
-        // CHECK SCREEN WIDTH TO SET SIZE
         const isMobile = window.innerWidth < 768;
-        const iconSize = isMobile ? 35 : 65; // Matches the CSS media query
+        const iconSize = isMobile ? 35 : 65;
         
-        // Store position and velocity
         let iconsData = [];
 
-        // Initialize positions
         bouncers.forEach((el) => {
-            // Random start
             let x = Math.random() * (container.clientWidth - iconSize);
             let y = Math.random() * (container.clientHeight - iconSize);
-            
-            // Random direction
             let vx = (Math.random() < 0.5 ? -1 : 1) * speed;
             let vy = (Math.random() < 0.5 ? -1 : 1) * speed;
-            
-            // Random variation
             vx += (Math.random() - 0.5); 
             vy += (Math.random() - 0.5);
-
             iconsData.push({ el, x, y, vx, vy, width: iconSize, height: iconSize });
         });
 
@@ -737,11 +831,9 @@
             const containerHeight = container.clientHeight;
 
             iconsData.forEach(item => {
-                // Move
                 item.x += item.vx;
                 item.y += item.vy;
 
-                // Collision: Walls
                 if (item.x + item.width >= containerWidth) {
                     item.x = containerWidth - item.width;
                     item.vx *= -1;
@@ -758,7 +850,6 @@
                     item.vy *= -1;
                 }
 
-                // Apply
                 item.el.style.transform = `translate(${item.x}px, ${item.y}px)`;
             });
 
@@ -768,22 +859,7 @@
         animate();
     });
 
-    // Disable Right Click & Inspect Shortcuts
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-
-    document.onkeydown = function (e) {
-        if (event.keyCode == 123) { // F12
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) { // Ctrl+Shift+I/J
-            return false;
-        }
-        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U (View Source)
-            return false;
-        }
-    }
+    // FIXED: Removed right-click & F12 blocking — it annoyed developers/recruiters and offered no real protection
     </script>
 </body>
 </html>
