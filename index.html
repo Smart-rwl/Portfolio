@@ -18,7 +18,6 @@
 <meta property="twitter:title" content="Ravinder Rawal – Amazon PPC & eCommerce Growth Specialist">
 <meta property="twitter:description" content="8+ years scaling brands on Amazon, Flipkart & global marketplaces. Expert in PPC, catalog SEO, inventory automation, and performance marketing.">
 <meta property="twitter:image" content="https://rvndrrwl.vercel.app/assets/img/perfil.png">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,16 +34,12 @@
   "knowsAbout": ["Amazon PPC","Flipkart Marketplace","eCommerce Marketing","Performance Marketing","Catalog Optimization","ROAS Optimization"]
 }
 </script>
-
 <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
 <title>Ravinder Rawal – Amazon PPC & eCommerce Growth Specialist</title>
-
 <style>
 /* ===== DESIGN TOKENS ===== */
 :root {
@@ -55,7 +50,6 @@
   --first-color-alt: hsl(var(--hue), var(--sat), 55%);
   --first-color-light: hsl(var(--hue), var(--sat), 75%);
   --first-color-glow: hsla(var(--hue), var(--sat), var(--lig), 0.18);
-
   --title-color: hsl(220, 15%, 97%);
   --text-color: hsl(220, 8%, 72%);
   --text-color-light: hsl(220, 6%, 48%);
@@ -63,10 +57,8 @@
   --container-color: hsl(220, 24%, 10%);
   --container-color-alt: hsl(220, 20%, 13%);
   --border-color: hsl(220, 20%, 16%);
-
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
-
   --biggest-font-size: clamp(2.5rem, 6vw, 4.5rem);
   --h1-font-size: clamp(1.75rem, 4vw, 2.5rem);
   --h2-font-size: clamp(1.25rem, 3vw, 1.75rem);
@@ -75,15 +67,12 @@
   --small-font-size: 0.84rem;
   --smaller-font-size: 0.76rem;
   --tiny-font-size: 0.66rem;
-
   --header-height: 4rem;
   --z-fixed: 100;
   --z-modal: 1000;
-
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* Light Theme */
 body.light-theme {
   --title-color: hsl(220, 15%, 10%);
@@ -94,11 +83,9 @@ body.light-theme {
   --container-color-alt: hsl(220, 15%, 94%);
   --border-color: hsl(220, 15%, 88%);
 }
-
 /* ===== BASE ===== */
 *, *::before, *::after { box-sizing: border-box; padding: 0; margin: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-
 body {
   font-family: var(--font-body);
   font-size: var(--normal-font-size);
@@ -107,19 +94,30 @@ body {
   transition: background-color 0.4s, color 0.4s;
   overflow-x: hidden;
 }
-
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   color: var(--title-color);
   font-weight: 700;
   line-height: 1.15;
 }
-
 ul { list-style: none; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
-button { cursor: pointer; border: none; outline: none; font-family: var(--font-body); }
-
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  background: none;
+  color: inherit;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
 /* ===== SCROLL PROGRESS BAR ===== */
 #scroll-progress {
   position: fixed;
@@ -130,7 +128,6 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
   z-index: 9999;
   transition: width 0.08s linear;
 }
-
 /* ===== BACK TO TOP ===== */
 #back-to-top {
   position: fixed;
@@ -150,7 +147,6 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
 }
 #back-to-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
 #back-to-top:hover { background: var(--first-color-alt); transform: translateY(-3px); }
-
 /* ===== REUSABLE ===== */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 .grid { display: grid; gap: 2rem; }
@@ -173,7 +169,6 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
   color: var(--title-color);
 }
 .section__title span { color: var(--first-color); }
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -203,7 +198,6 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
   color: var(--first-color-light);
   transform: translateY(-2px);
 }
-
 /* ===== HEADER ===== */
 .header {
   position: fixed;
@@ -221,7 +215,6 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
 body.light-theme .header.scroll-header {
   background: hsla(220, 20%, 97%, 0.92);
 }
-
 .nav {
   height: var(--header-height);
   display: flex;
@@ -236,7 +229,6 @@ body.light-theme .header.scroll-header {
   letter-spacing: -0.02em;
 }
 .nav__logo span { color: var(--first-color); }
-
 .nav__menu {
   position: fixed;
   bottom: 1.5rem;
@@ -253,7 +245,6 @@ body.light-theme .header.scroll-header {
 body.light-theme .nav__menu {
   background: hsla(220, 15%, 94%, 0.92);
 }
-
 .nav__list {
   display: flex;
   align-items: center;
@@ -271,24 +262,11 @@ body.light-theme .nav__menu {
   transition: var(--transition);
   position: relative;
 }
-.nav__link span {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: var(--transition);
-  position: absolute;
-  bottom: -1.2rem;
-  white-space: nowrap;
-}
 .nav__link.active-link {
   background: var(--first-color-glow);
   color: var(--first-color);
 }
 .nav__link:hover { color: var(--first-color); }
-
 .nav__btns {
   display: flex;
   align-items: center;
@@ -299,9 +277,12 @@ body.light-theme .nav__menu {
   color: var(--title-color);
   cursor: pointer;
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 .change-theme:hover { color: var(--first-color); transform: rotate(20deg); }
-
 /* Contact Me button in nav */
 .nav__item:last-child .nav__link {
   background: var(--first-color);
@@ -313,7 +294,6 @@ body.light-theme .nav__menu {
   font-weight: 600;
 }
 .nav__item:last-child .nav__link i { display: none; }
-
 /* ===== HOME ===== */
 .home {
   min-height: 100vh;
@@ -322,7 +302,6 @@ body.light-theme .nav__menu {
   position: relative;
   overflow: hidden;
 }
-
 /* Grid background */
 .home::before {
   content: '';
@@ -344,7 +323,6 @@ body.light-theme .nav__menu {
   background: radial-gradient(circle, var(--first-color-glow) 0%, transparent 70%);
   pointer-events: none;
 }
-
 .home__container {
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -353,7 +331,6 @@ body.light-theme .nav__menu {
   position: relative;
   z-index: 1;
 }
-
 .availability-badge {
   display: inline-flex;
   align-items: center;
@@ -378,7 +355,6 @@ body.light-theme .nav__menu {
   0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 hsla(150, 70%, 55%, 0.4); }
   50% { opacity: 0.8; transform: scale(0.9); box-shadow: 0 0 0 6px hsla(150, 70%, 55%, 0); }
 }
-
 .home__greeting {
   display: block;
   font-family: var(--font-body);
@@ -412,7 +388,6 @@ body.light-theme .nav__menu {
   animation: blink 0.8s infinite;
 }
 @keyframes blink { 50% { border-color: transparent; } }
-
 .home__description {
   max-width: 560px;
   line-height: 1.75;
@@ -422,14 +397,12 @@ body.light-theme .nav__menu {
 .home__description p { margin-bottom: 0.85rem; }
 .home__description p:last-child { margin-bottom: 0; }
 .home__description strong { color: var(--title-color); font-weight: 500; }
-
 .home__buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2.5rem;
 }
-
 .home__social {
   display: flex;
   gap: 0.75rem;
@@ -450,7 +423,6 @@ body.light-theme .nav__menu {
   background: var(--first-color-glow);
   transform: translateY(-3px);
 }
-
 /* Profile image container */
 .home__handle {
   position: relative;
@@ -482,6 +454,7 @@ body.light-theme .nav__menu {
   align-items: center;
   gap: 0.75rem;
   box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  z-index: 2;
 }
 .home__img-badge i { font-size: 1.5rem; color: var(--first-color); }
 .home__img-badge strong {
@@ -497,14 +470,15 @@ body.light-theme .nav__menu {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-
-/* Floating logo chips */
+/* Floating logo chips — repositioned to actually sit around the image
+   and given a positive z-index so they're visible (previously z-index: -1
+   plus left/right values like -160% pushed them off-screen behind the body). */
 .home__chips {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
 }
 .chip {
   position: absolute;
@@ -517,20 +491,21 @@ body.light-theme .nav__menu {
   color: var(--text-color-light);
   white-space: nowrap;
   animation: float-chip 4s ease-in-out infinite;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
-.chip:nth-child(1) { top: 10%; left: -160%; animation-delay: 0s; }
-.chip:nth-child(2) { top: 30%; left: -180%; animation-delay: 0.8s; }
-.chip:nth-child(3) { top: 55%; left: -160%; animation-delay: 1.6s; }
-.chip:nth-child(4) { top: 75%; left: -140%; animation-delay: 2.4s; }
-.chip:nth-child(5) { top: 12%; right: -170%; animation-delay: 0.4s; }
-.chip:nth-child(6) { top: 38%; right: -180%; animation-delay: 1.2s; }
-.chip:nth-child(7) { top: 60%; right: -160%; animation-delay: 2s; }
-.chip:nth-child(8) { top: 80%; right: -150%; animation-delay: 2.8s; }
+.chip i { color: var(--first-color); margin-right: 0.25rem; }
+.chip:nth-child(1) { top: 6%;  left: -38%; animation-delay: 0s; }
+.chip:nth-child(2) { top: 28%; left: -45%; animation-delay: 0.8s; }
+.chip:nth-child(3) { top: 56%; left: -40%; animation-delay: 1.6s; }
+.chip:nth-child(4) { top: 80%; left: -28%; animation-delay: 2.4s; }
+.chip:nth-child(5) { top: 8%;  right: -32%; animation-delay: 0.4s; }
+.chip:nth-child(6) { top: 32%; right: -42%; animation-delay: 1.2s; }
+.chip:nth-child(7) { top: 60%; right: -38%; animation-delay: 2s; }
+.chip:nth-child(8) { top: 82%; right: -26%; animation-delay: 2.8s; }
 @keyframes float-chip {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
-
 .home__scroll {
   position: absolute;
   bottom: 2rem;
@@ -551,7 +526,6 @@ body.light-theme .nav__menu {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(6px); }
 }
-
 /* ===== STATS STRIP ===== */
 .stats-strip {
   background: var(--container-color);
@@ -560,9 +534,10 @@ body.light-theme .nav__menu {
   padding: 2rem 0;
 }
 .stats-strip__container {
+  /* Removed invalid `divide-x: 1px solid ...` — that's a Tailwind utility name,
+     not real CSS. Real dividers are drawn with the ::after below. */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  divide-x: 1px solid var(--border-color);
   max-width: 900px;
   margin: 0 auto;
 }
@@ -595,7 +570,6 @@ body.light-theme .nav__menu {
   letter-spacing: 0.1em;
   font-weight: 500;
 }
-
 /* ===== ABOUT ===== */
 .about__container {
   grid-template-columns: 1fr 1.5fr;
@@ -624,7 +598,6 @@ body.light-theme .nav__menu {
   font-weight: 700;
   box-shadow: 0 8px 24px var(--first-color-glow);
 }
-
 .about__info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -661,7 +634,6 @@ body.light-theme .nav__menu {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-
 .about__description {
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -677,7 +649,6 @@ body.light-theme .nav__menu {
   font-size: var(--small-font-size);
 }
 .about__description .highlight-box strong { color: var(--title-color); }
-
 /* ===== EXPERIENCE TIMELINE ===== */
 .experience__timeline {
   position: relative;
@@ -693,7 +664,6 @@ body.light-theme .nav__menu {
   top: 0; height: 100%;
   background: linear-gradient(to bottom, transparent, var(--border-color) 10%, var(--border-color) 90%, transparent);
 }
-
 .timeline__item {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -705,7 +675,6 @@ body.light-theme .nav__menu {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .timeline__item.tl-visible { opacity: 1; transform: translateY(0); }
-
 .timeline__content-left { text-align: right; }
 .timeline__content-right { text-align: left; }
 .timeline__center {
@@ -733,7 +702,6 @@ body.light-theme .nav__menu {
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
-
 .timeline__card {
   background: var(--container-color);
   border: 1px solid var(--border-color);
@@ -764,10 +732,7 @@ body.light-theme .nav__menu {
   line-height: 1.65;
   color: var(--text-color);
 }
-
-/* Placeholder on opposite side */
 .timeline__empty { opacity: 0; pointer-events: none; }
-
 /* ===== SERVICES ===== */
 .services__container {
   grid-template-columns: repeat(3, 1fr);
@@ -798,11 +763,11 @@ body.light-theme .nav__menu {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px var(--first-color-glow);
 }
+/* Single display rule — original had `display: block` then `display: flex` */
 .services__icon {
   font-size: 2rem;
   color: var(--first-color);
   margin-bottom: 1.25rem;
-  display: block;
   background: var(--first-color-glow);
   width: 52px; height: 52px;
   border-radius: 0.75rem;
@@ -840,7 +805,6 @@ body.light-theme .nav__menu {
   margin-top: 0.1rem;
   flex-shrink: 0;
 }
-
 /* ===== SKILLS ===== */
 .skills__container {
   grid-template-columns: repeat(2, 1fr);
@@ -852,9 +816,10 @@ body.light-theme .nav__menu {
   border-radius: 1.25rem;
   padding: 1.75rem;
 }
+/* Single font-size declaration — original duplicated it */
 .skills__title {
   font-family: var(--font-display);
-  font-size: var(--normal-font-size);
+  font-size: var(--small-font-size);
   font-weight: 700;
   color: var(--first-color);
   margin-bottom: 1.5rem;
@@ -862,7 +827,6 @@ body.light-theme .nav__menu {
   border-bottom: 1px solid var(--border-color);
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  font-size: var(--small-font-size);
 }
 .skills__item {
   margin-bottom: 1.1rem;
@@ -903,7 +867,6 @@ body.light-theme .nav__menu {
   width: 0;
   transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* ===== PROJECTS ===== */
 .work__container {
   grid-template-columns: repeat(3, 1fr);
@@ -925,6 +888,7 @@ body.light-theme .nav__menu {
   position: relative;
   overflow: hidden;
   aspect-ratio: 16/9;
+  background: var(--container-color-alt);
 }
 .work__img {
   width: 100%;
@@ -987,9 +951,9 @@ body.light-theme .nav__menu {
   transition: var(--transition);
   margin-top: 0.75rem;
   cursor: pointer;
+  padding: 0;
 }
 .work__button:hover { gap: 0.6rem; }
-
 /* ===== TOOLS ===== */
 .tools__container {
   grid-template-columns: repeat(3, 1fr);
@@ -1051,7 +1015,6 @@ body.light-theme .nav__menu {
   background: var(--first-color-glow);
   transform: translateX(3px);
 }
-
 /* ===== CERTIFICATIONS ===== */
 .cert-grid {
   display: grid;
@@ -1094,7 +1057,6 @@ body.light-theme .nav__menu {
   font-size: var(--smaller-font-size);
   color: var(--text-color-light);
 }
-
 /* ===== TESTIMONIALS ===== */
 .testimonial-grid {
   display: grid;
@@ -1169,7 +1131,6 @@ body.light-theme .nav__menu {
   font-size: var(--smaller-font-size);
   color: var(--text-color-light);
 }
-
 /* ===== BLOG ===== */
 .blog-grid {
   display: grid;
@@ -1238,7 +1199,6 @@ body.light-theme .nav__menu {
   border: 1px dashed var(--border-color);
   border-radius: 0.5rem;
 }
-
 /* ===== CASE STUDIES ===== */
 .casestudies-grid {
   display: grid;
@@ -1268,7 +1228,6 @@ body.light-theme .nav__menu {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px var(--first-color-glow);
 }
-
 /* ===== FAQ ===== */
 .faq__container { max-width: 720px; margin: 0 auto; }
 .faq__item {
@@ -1311,7 +1270,7 @@ body.light-theme .nav__menu {
   transition: max-height 0.4s ease, padding 0.3s ease;
   padding: 0 1.5rem;
 }
-.faq__item.open .faq__answer { max-height: 300px; padding: 0 1.5rem 1.5rem; }
+.faq__item.open .faq__answer { max-height: 400px; padding: 0 1.5rem 1.5rem; }
 .faq__answer p {
   font-size: var(--small-font-size);
   color: var(--text-color);
@@ -1319,7 +1278,6 @@ body.light-theme .nav__menu {
   padding-top: 0.5rem;
   border-top: 1px solid var(--border-color);
 }
-
 /* ===== CONTACT ===== */
 .contact__container {
   grid-template-columns: 1fr 1.5fr;
@@ -1378,7 +1336,6 @@ body.light-theme .nav__menu {
   transition: var(--transition);
 }
 .contact__button:hover { gap: 0.55rem; }
-
 .contact__form-title {
   font-family: var(--font-display);
   font-size: var(--h3-font-size);
@@ -1432,7 +1389,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   border: 1px solid hsla(0, 60%, 40%, 0.4);
   display: block;
 }
-
 /* ===== PLATFORM BADGES ===== */
 .platform-badges {
   display: flex;
@@ -1464,7 +1420,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   color: var(--body-color);
   border-color: var(--first-color);
 }
-
 /* ===== FOOTER ===== */
 .footer {
   background: var(--container-color);
@@ -1491,7 +1446,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   text-align: center;
   max-width: 400px;
 }
-.footer__newsletter { text-align: center; }
+.footer__newsletter { text-align: center; width: 100%; }
 .footer__newsletter p {
   font-size: var(--small-font-size);
   color: var(--text-color-light);
@@ -1527,7 +1482,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   transition: var(--transition);
 }
 .newsletter-form button:hover { background: var(--first-color-alt); }
-
+.newsletter-form button:disabled { opacity: 0.85; cursor: default; }
 .footer__nav {
   display: flex;
   flex-wrap: wrap;
@@ -1567,7 +1522,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   width: 100%;
   padding-top: 1.5rem;
 }
-
 /* ===== MODALS ===== */
 .modal__overlay {
   position: fixed;
@@ -1603,6 +1557,10 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   transition: var(--transition);
   background: none;
   border: none;
+  width: 36px; height: 36px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  border-radius: 50%;
 }
 .modal__close:hover { color: var(--first-color); transform: rotate(90deg); }
 .modal__title {
@@ -1629,7 +1587,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   margin-bottom: 0.2rem;
 }
 .modal__item p { font-size: var(--small-font-size); color: var(--text-color); line-height: 1.6; }
-
 /* ===== SCROLL ANIMATIONS ===== */
 .fade-up {
   opacity: 0;
@@ -1641,10 +1598,8 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
 .fade-up:nth-child(3) { transition-delay: 0.2s; }
 .fade-up:nth-child(4) { transition-delay: 0.3s; }
 .fade-up:nth-child(5) { transition-delay: 0.4s; }
-
-/* ===== NAV CLOSE BUTTON ===== */
+/* ===== NAV CLOSE / TOGGLE (mobile only) ===== */
 .nav__close, .nav__toggle { display: none; }
-
 /* ===== RESPONSIVE ===== */
 @media screen and (max-width: 1100px) {
   .home__container { grid-template-columns: 1fr; text-align: center; }
@@ -1656,8 +1611,12 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   .about__info { justify-content: center; }
   .services__container { grid-template-columns: repeat(2, 1fr); }
   .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .work__container { grid-template-columns: repeat(2, 1fr); }
+  .tools__container { grid-template-columns: repeat(2, 1fr); }
+  /* Hide floating chips on narrower viewports — they crowd the centred layout */
+  .home__chips { display: none; }
 }
-
 @media screen and (max-width: 768px) {
   .nav__menu {
     position: fixed;
@@ -1670,25 +1629,45 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   }
   .nav__menu.show-menu { transform: translateY(0); }
   .nav__list { justify-content: space-around; }
-  .nav__toggle { display: flex; font-size: 1.3rem; color: var(--title-color); cursor: pointer; }
-  .nav__close {
-    display: block;
-    position: absolute;
-    top: 1rem; right: 1.5rem;
+  .nav__toggle {
+    display: inline-flex;
+    align-items: center; justify-content: center;
     font-size: 1.3rem;
     color: var(--title-color);
     cursor: pointer;
+    padding: 0.25rem;
   }
-
-  .experience__timeline::before { left: 1.25rem; }
-  .timeline__item { grid-template-columns: 1fr; gap: 0.75rem; padding-left: 2.5rem; }
-  .timeline__content-left { text-align: left; order: 2; }
-  .timeline__content-right { order: 2; }
-  .timeline__center { flex-direction: row; position: absolute; left: 0; order: 1; }
+  .nav__close {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    position: absolute;
+    top: 0.75rem; right: 1.25rem;
+    font-size: 1.3rem;
+    color: var(--title-color);
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+  /* Mobile timeline: single column, dot aligned with the 1.25rem vertical line */
+  .experience__timeline::before { left: 1.25rem; transform: none; }
+  .timeline__item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-left: 3rem;
+    position: relative;
+  }
+  .timeline__content-left,
+  .timeline__content-right { text-align: left; }
+  .timeline__center {
+    position: absolute;
+    left: 0; top: 0.5rem;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+    gap: 0.65rem;
+    /* Align dot center with line at 1.25rem (line width 1px, dot width 14px) */
+    transform: translateX(calc(1.25rem - 7px));
+  }
   .timeline__empty { display: none; }
-  .timeline__date-badge { font-size: var(--tiny-font-size); }
-  .timeline__item { position: relative; }
-
   .skills__container { grid-template-columns: 1fr; }
   .work__container { grid-template-columns: 1fr; }
   .tools__container { grid-template-columns: 1fr; }
@@ -1701,16 +1680,13 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   .stats-strip__item:nth-child(2)::after { display: none; }
   .stats-strip__item:nth-child(4)::after { display: none; }
   .about__info { grid-template-columns: repeat(3, 1fr); }
-  .home__chips { display: none; }
 }
-
 @media screen and (max-width: 480px) {
   .home__name { font-size: 2.5rem; }
   .about__info { grid-template-columns: 1fr; }
   .stats-strip__container { grid-template-columns: 1fr; }
   .stats-strip__item::after { display: none !important; }
 }
-
 /* ===== DESKTOP NAV OVERRIDE ===== */
 @media screen and (min-width: 769px) {
   .nav__menu {
@@ -1725,51 +1701,49 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   }
   .nav__list { gap: 0.5rem; }
   .nav__link { font-size: var(--small-font-size); flex-direction: row; }
-  .nav__link span { display: none; }
   .nav__item:last-child .nav__link { font-size: var(--smaller-font-size); }
+  /* On desktop, give icon nav links a bit more breathing room and size */
+  .nav__list > .nav__item:not(:last-child) > .nav__link {
+    font-size: 1.05rem;
+    padding: 0.4rem 0.7rem;
+  }
 }
 </style>
 </head>
 <body>
-
 <!-- Scroll Progress -->
-<div id="scroll-progress"></div>
+<div id="scroll-progress" aria-hidden="true"></div>
 <!-- Back to Top -->
-<button id="back-to-top" aria-label="Back to top"><i class="ri-arrow-up-line"></i></button>
-
+<button id="back-to-top" type="button" aria-label="Back to top"><i class="ri-arrow-up-line" aria-hidden="true"></i></button>
 <!-- ===== HEADER ===== -->
 <header class="header" id="header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="Primary">
     <a href="#" class="nav__logo">R<span>.</span>Rawal</a>
-
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list">
-        <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="ri-home-5-line"></i></a></li>
-        <li class="nav__item"><a href="#about" class="nav__link"><i class="ri-user-line"></i></a></li>
-        <li class="nav__item"><a href="#experience" class="nav__link"><i class="ri-time-line"></i></a></li>
-        <li class="nav__item"><a href="#services" class="nav__link"><i class="ri-service-line"></i></a></li>
-        <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line"></i></a></li>
-        <li class="nav__item"><a href="#work" class="nav__link"><i class="ri-briefcase-line"></i></a></li>
+        <li class="nav__item"><a href="#home" class="nav__link active-link" aria-label="Home"><i class="ri-home-5-line" aria-hidden="true"></i></a></li>
+        <li class="nav__item"><a href="#about" class="nav__link" aria-label="About"><i class="ri-user-line" aria-hidden="true"></i></a></li>
+        <li class="nav__item"><a href="#experience" class="nav__link" aria-label="Experience"><i class="ri-time-line" aria-hidden="true"></i></a></li>
+        <li class="nav__item"><a href="#services" class="nav__link" aria-label="Services"><i class="ri-service-line" aria-hidden="true"></i></a></li>
+        <li class="nav__item"><a href="#skills" class="nav__link" aria-label="Skills"><i class="ri-trophy-line" aria-hidden="true"></i></a></li>
+        <li class="nav__item"><a href="#work" class="nav__link" aria-label="Projects"><i class="ri-briefcase-line" aria-hidden="true"></i></a></li>
         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
-      <i class="ri-close-line nav__close" id="nav-close"></i>
+      <button class="nav__close" id="nav-close" type="button" aria-label="Close menu"><i class="ri-close-line" aria-hidden="true"></i></button>
     </div>
-
     <div class="nav__btns">
-      <i class="ri-moon-line change-theme" id="theme-button"></i>
-      <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+      <button class="change-theme" id="theme-button" type="button" aria-label="Toggle dark/light theme"><i class="ri-moon-line" aria-hidden="true"></i></button>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Open menu"><i class="ri-menu-line" aria-hidden="true"></i></button>
     </div>
   </nav>
 </header>
-
 <main>
-
 <!-- ===== HOME ===== -->
 <section class="home section" id="home">
   <div class="home__container container grid">
     <div class="home__data">
       <div class="availability-badge">
-        <span class="dot"></span>
+        <span class="dot" aria-hidden="true"></span>
         Available for new projects
       </div>
       <span class="home__greeting">Hello, I'm</span>
@@ -1782,55 +1756,53 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
       </div>
       <div class="home__buttons">
         <a href="assets/pdf/Ravinder-Rawal-Resume.pdf" target="_blank" rel="noopener" class="button button--ghost">
-          <i class="ri-download-line"></i> Download CV
+          <i class="ri-download-line" aria-hidden="true"></i> Download CV
         </a>
-        <a href="#about" class="button">About me <i class="ri-arrow-right-line"></i></a>
+        <a href="#about" class="button">About me <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
       </div>
       <div class="home__social">
         <a href="https://www.linkedin.com/in/rvndrrwl" target="_blank" rel="noopener" class="home__social-link" aria-label="LinkedIn">
-          <i class="ri-linkedin-box-line"></i>
+          <i class="ri-linkedin-box-line" aria-hidden="true"></i>
         </a>
         <a href="https://github.com/Smart-rwl" target="_blank" rel="noopener" class="home__social-link" aria-label="GitHub">
-          <i class="ri-github-line"></i>
+          <i class="ri-github-line" aria-hidden="true"></i>
         </a>
         <a href="mailto:rvndrrwl@gmail.com" class="home__social-link" aria-label="Email">
-          <i class="ri-mail-line"></i>
+          <i class="ri-mail-line" aria-hidden="true"></i>
         </a>
         <a href="https://api.whatsapp.com/send?phone=917891010967" target="_blank" rel="noopener" class="home__social-link" aria-label="WhatsApp">
-          <i class="ri-whatsapp-line"></i>
+          <i class="ri-whatsapp-line" aria-hidden="true"></i>
         </a>
       </div>
     </div>
-
     <div class="home__handle">
       <div class="home__img-frame">
         <img src="assets/img/perfil.png" alt="Ravinder Rawal – eCommerce Specialist" class="home__img">
       </div>
       <div class="home__img-badge">
-        <i class="ri-line-chart-line"></i>
+        <i class="ri-line-chart-line" aria-hidden="true"></i>
         <div>
           <strong>₹4 Cr+ Revenue</strong>
           <span>Generated for brands</span>
         </div>
       </div>
-      <div class="home__chips">
-        <span class="chip"><i class="ri-amazon-line"></i> Amazon Expert</span>
-        <span class="chip"><i class="ri-shopping-bag-line"></i> Flipkart Pro</span>
-        <span class="chip"><i class="ri-bar-chart-line"></i> PPC Specialist</span>
-        <span class="chip"><i class="ri-search-eye-line"></i> SEO & Catalog</span>
+      <div class="home__chips" aria-hidden="true">
+        <span class="chip"><i class="ri-amazon-line"></i> Amazon</span>
+        <span class="chip"><i class="ri-shopping-bag-line"></i> Flipkart</span>
+        <span class="chip"><i class="ri-bar-chart-line"></i> PPC</span>
+        <span class="chip"><i class="ri-search-eye-line"></i> SEO</span>
         <span class="chip"><i class="ri-t-shirt-line"></i> Myntra</span>
         <span class="chip"><i class="ri-store-2-line"></i> Meesho</span>
-        <span class="chip"><i class="ri-earth-line"></i> Global Markets</span>
-        <span class="chip"><i class="ri-database-2-line"></i> Data Analytics</span>
+        <span class="chip"><i class="ri-earth-line"></i> Global</span>
+        <span class="chip"><i class="ri-database-2-line"></i> Analytics</span>
       </div>
     </div>
   </div>
-  <a href="#about" class="home__scroll">
-    <i class="ri-mouse-line"></i>
+  <a href="#about" class="home__scroll" aria-label="Scroll to next section">
+    <i class="ri-mouse-line" aria-hidden="true"></i>
     <span>Scroll</span>
   </a>
 </section>
-
 <!-- ===== STATS STRIP ===== -->
 <div class="stats-strip">
   <div class="stats-strip__container container">
@@ -1852,30 +1824,29 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
     </div>
   </div>
 </div>
-
 <!-- ===== ABOUT ===== -->
 <section class="about section" id="about">
   <span class="section__subtitle">My Story</span>
   <h2 class="section__title">About <span>Me</span></h2>
   <div class="about__container container grid">
     <div class="about__img-wrap">
-      <img src="assets/img/about.jpg" alt="Ravinder Rawal" class="about__img">
+      <img src="assets/img/about.jpg" alt="Ravinder Rawal" class="about__img" loading="lazy">
       <div class="about__img-tag">8+ Yrs Experience</div>
     </div>
     <div class="about__data">
       <div class="about__info">
         <div class="about__box fade-up">
-          <i class="ri-award-line about__icon"></i>
+          <i class="ri-award-line about__icon" aria-hidden="true"></i>
           <h3 class="about__title">Experience</h3>
           <span class="about__subtitle">8+ Years</span>
         </div>
         <div class="about__box fade-up">
-          <i class="ri-briefcase-line about__icon"></i>
+          <i class="ri-briefcase-line about__icon" aria-hidden="true"></i>
           <h3 class="about__title">Background</h3>
           <span class="about__subtitle">Pharmacy</span>
         </div>
         <div class="about__box fade-up">
-          <i class="ri-line-chart-line about__icon"></i>
+          <i class="ri-line-chart-line about__icon" aria-hidden="true"></i>
           <h3 class="about__title">Focus</h3>
           <span class="about__subtitle">Performance</span>
         </div>
@@ -1888,18 +1859,16 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
         <p>I formulate high-impact strategies on <strong>Amazon</strong> and <strong>Flipkart</strong>, ensuring every creative move is backed by data precision. From granular keyword targeting to full supply-chain intelligence — I manage it all.</p>
         <p>Currently helping D2C brands scale on <strong>12+ platforms</strong> across India and global marketplaces including UAE, UK, Turkey, and the Middle East.</p>
       </div>
-      <a href="#contact" class="button">Let's Work Together <i class="ri-arrow-right-line"></i></a>
+      <a href="#contact" class="button">Let's Work Together <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
-
 <!-- ===== EXPERIENCE ===== -->
 <section class="experience section" id="experience">
   <span class="section__subtitle">My Journey</span>
   <h2 class="section__title">Work <span>Experience</span></h2>
   <div class="experience__container container">
     <div class="experience__timeline">
-
       <!-- Item 1 — Left -->
       <div class="timeline__item">
         <div class="timeline__content-left">
@@ -1915,7 +1884,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
         </div>
         <div class="timeline__empty"></div>
       </div>
-
       <!-- Item 2 — Right -->
       <div class="timeline__item">
         <div class="timeline__empty"></div>
@@ -1931,7 +1899,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           </div>
         </div>
       </div>
-
       <!-- Item 3 — Left -->
       <div class="timeline__item">
         <div class="timeline__content-left">
@@ -1947,7 +1914,6 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
         </div>
         <div class="timeline__empty"></div>
       </div>
-
       <!-- Item 4 — Right -->
       <div class="timeline__item">
         <div class="timeline__empty"></div>
@@ -1963,196 +1929,180 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           </div>
         </div>
       </div>
-
     </div>
-
     <div class="platform-badges">
-      <span class="platform-badge"><i class="ri-amazon-line"></i> Amazon</span>
-      <span class="platform-badge"><i class="ri-shopping-bag-3-line"></i> Flipkart</span>
-      <span class="platform-badge"><i class="ri-t-shirt-line"></i> Myntra</span>
-      <span class="platform-badge"><i class="ri-store-2-line"></i> Meesho</span>
-      <span class="platform-badge"><i class="ri-store-line"></i> JioMart</span>
-      <span class="platform-badge"><i class="ri-building-line"></i> Trendyol</span>
-      <span class="platform-badge"><i class="ri-building-2-line"></i> Carrefour</span>
-      <span class="platform-badge badge--highlight"><i class="ri-earth-line"></i> Global Expansion</span>
+      <span class="platform-badge"><i class="ri-amazon-line" aria-hidden="true"></i> Amazon</span>
+      <span class="platform-badge"><i class="ri-shopping-bag-3-line" aria-hidden="true"></i> Flipkart</span>
+      <span class="platform-badge"><i class="ri-t-shirt-line" aria-hidden="true"></i> Myntra</span>
+      <span class="platform-badge"><i class="ri-store-2-line" aria-hidden="true"></i> Meesho</span>
+      <span class="platform-badge"><i class="ri-store-line" aria-hidden="true"></i> JioMart</span>
+      <span class="platform-badge"><i class="ri-building-line" aria-hidden="true"></i> Trendyol</span>
+      <span class="platform-badge"><i class="ri-building-2-line" aria-hidden="true"></i> Carrefour</span>
+      <span class="platform-badge badge--highlight"><i class="ri-earth-line" aria-hidden="true"></i> Global Expansion</span>
     </div>
   </div>
 </section>
-
 <!-- ===== SERVICES ===== -->
 <section class="services section" id="services">
   <span class="section__subtitle">What I Do</span>
   <h2 class="section__title">My <span>Services</span></h2>
   <div class="services__container container grid">
-
     <div class="services__content fade-up">
-      <div class="services__icon"><i class="ri-store-2-line"></i></div>
+      <div class="services__icon"><i class="ri-store-2-line" aria-hidden="true"></i></div>
       <h3 class="services__title">Marketplace Management</h3>
       <p class="services__desc">End-to-end management of seller accounts on Amazon, Flipkart, and Myntra — from onboarding to scaling.</p>
       <ul class="services__list">
-        <li><i class="ri-check-double-line"></i> Account Health Management & Compliance</li>
-        <li><i class="ri-check-double-line"></i> Inventory & Stock Planning</li>
-        <li><i class="ri-check-double-line"></i> Brand Store Setup & Maintenance</li>
-        <li><i class="ri-check-double-line"></i> Returns & Dispute Management</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Account Health Management & Compliance</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Inventory & Stock Planning</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Brand Store Setup & Maintenance</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Returns & Dispute Management</li>
       </ul>
     </div>
-
     <div class="services__content fade-up">
-      <div class="services__icon"><i class="ri-bar-chart-grouped-line"></i></div>
+      <div class="services__icon"><i class="ri-bar-chart-grouped-line" aria-hidden="true"></i></div>
       <h3 class="services__title">PPC & Ad Optimization</h3>
       <p class="services__desc">Maximizing ROAS through structured, data-driven advertising campaigns that scale efficiently.</p>
       <ul class="services__list">
-        <li><i class="ri-check-double-line"></i> Sponsored Products, Brands & Display</li>
-        <li><i class="ri-check-double-line"></i> Keyword Research & Competitive Targeting</li>
-        <li><i class="ri-check-double-line"></i> ACOS & TACOS Reduction Strategy</li>
-        <li><i class="ri-check-double-line"></i> Campaign Audit & Restructuring</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Sponsored Products, Brands & Display</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Keyword Research & Competitive Targeting</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> ACOS & TACOS Reduction Strategy</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Campaign Audit & Restructuring</li>
       </ul>
     </div>
-
     <div class="services__content fade-up">
-      <div class="services__icon"><i class="ri-database-2-line"></i></div>
+      <div class="services__icon"><i class="ri-database-2-line" aria-hidden="true"></i></div>
       <h3 class="services__title">Analytics & Automation</h3>
       <p class="services__desc">Building custom tools to automate repetitive tasks and surface competitive intelligence.</p>
       <ul class="services__list">
-        <li><i class="ri-check-double-line"></i> Competitor Price Tracking Dashboards</li>
-        <li><i class="ri-check-double-line"></i> SQL & Excel Automated Reports</li>
-        <li><i class="ri-check-double-line"></i> Custom Python Scripting & Scrapers</li>
-        <li><i class="ri-check-double-line"></i> Google Sheets Automation</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Competitor Price Tracking Dashboards</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> SQL & Excel Automated Reports</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Custom Python Scripting & Scrapers</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Google Sheets Automation</li>
       </ul>
     </div>
-
     <div class="services__content fade-up">
-      <div class="services__icon"><i class="ri-search-eye-line"></i></div>
+      <div class="services__icon"><i class="ri-search-eye-line" aria-hidden="true"></i></div>
       <h3 class="services__title">Listing & SEO Optimization</h3>
       <p class="services__desc">Improving organic rank and conversion rates through content that satisfies both algorithm and customer.</p>
       <ul class="services__list">
-        <li><i class="ri-check-double-line"></i> A+ Content & Enhanced Brand Content</li>
-        <li><i class="ri-check-double-line"></i> Keyword Indexing & Rank Tracking</li>
-        <li><i class="ri-check-double-line"></i> Main Image & Gallery Optimization</li>
-        <li><i class="ri-check-double-line"></i> Title, Bullet & Description Copywriting</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> A+ Content & Enhanced Brand Content</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Keyword Indexing & Rank Tracking</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Main Image & Gallery Optimization</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Title, Bullet & Description Copywriting</li>
       </ul>
     </div>
-
     <div class="services__content fade-up">
-      <div class="services__icon"><i class="ri-box-3-line"></i></div>
+      <div class="services__icon"><i class="ri-box-3-line" aria-hidden="true"></i></div>
       <h3 class="services__title">Inventory & Forecasting</h3>
       <p class="services__desc">Data-driven forecasting to prevent revenue loss from stockouts and capital lock-up from overstock.</p>
       <ul class="services__list">
-        <li><i class="ri-check-double-line"></i> Demand Forecasting Models</li>
-        <li><i class="ri-check-double-line"></i> FBA/FBF Stock Management</li>
-        <li><i class="ri-check-double-line"></i> Restock Limits & IPI Score Optimization</li>
-        <li><i class="ri-check-double-line"></i> Seasonal & Flash Sale Prep</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Demand Forecasting Models</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> FBA/FBF Stock Management</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Restock Limits & IPI Score Optimization</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Seasonal & Flash Sale Prep</li>
       </ul>
     </div>
-
     <div class="services__content fade-up">
-      <div class="services__icon"><i class="ri-earth-line"></i></div>
+      <div class="services__icon"><i class="ri-earth-line" aria-hidden="true"></i></div>
       <h3 class="services__title">Global Expansion</h3>
       <p class="services__desc">Helping Indian D2C brands expand to US, UAE, Turkey, and beyond with localized strategies.</p>
       <ul class="services__list">
-        <li><i class="ri-check-double-line"></i> Amazon.com / .uk / .ae Setup</li>
-        <li><i class="ri-check-double-line"></i> Trendyol & Carrefour Onboarding</li>
-        <li><i class="ri-check-double-line"></i> Cross-border Logistics & Compliance</li>
-        <li><i class="ri-check-double-line"></i> Localized Listing & Pricing Strategy</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Amazon.com / .uk / .ae Setup</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Trendyol & Carrefour Onboarding</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Cross-border Logistics & Compliance</li>
+        <li><i class="ri-check-double-line" aria-hidden="true"></i> Localized Listing & Pricing Strategy</li>
       </ul>
     </div>
-
   </div>
 </section>
-
 <!-- ===== SKILLS ===== -->
 <section class="skills section" id="skills">
   <span class="section__subtitle">My Abilities</span>
   <h2 class="section__title">Technical <span>Skills</span></h2>
   <div class="skills__container container grid">
-
     <div class="skills__content fade-up">
       <h3 class="skills__title">Platform Management</h3>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-amazon-line"></i> Amazon (.in/.com/.uk/.ae)</span>
+          <span class="skills__name"><i class="ri-amazon-line" aria-hidden="true"></i> Amazon (.in/.com/.uk/.ae)</span>
           <span class="skills__level">Expert</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="95"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-shopping-bag-line"></i> Flipkart</span>
+          <span class="skills__name"><i class="ri-shopping-bag-line" aria-hidden="true"></i> Flipkart</span>
           <span class="skills__level">Expert</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="92"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-t-shirt-line"></i> Myntra</span>
+          <span class="skills__name"><i class="ri-t-shirt-line" aria-hidden="true"></i> Myntra</span>
           <span class="skills__level">Advanced</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="80"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-store-line"></i> Trendyol</span>
+          <span class="skills__name"><i class="ri-store-line" aria-hidden="true"></i> Trendyol</span>
           <span class="skills__level">Intermediate</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="60"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-building-line"></i> Carrefour</span>
+          <span class="skills__name"><i class="ri-building-line" aria-hidden="true"></i> Carrefour</span>
           <span class="skills__level">Intermediate</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="60"></div></div>
       </div>
     </div>
-
     <div class="skills__content fade-up">
       <h3 class="skills__title">Analytics & Tools</h3>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-file-excel-line"></i> Excel / SQL</span>
+          <span class="skills__name"><i class="ri-file-excel-line" aria-hidden="true"></i> Excel / SQL</span>
           <span class="skills__level">Advanced</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="88"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-bar-chart-2-line"></i> Power BI / Looker</span>
+          <span class="skills__name"><i class="ri-bar-chart-2-line" aria-hidden="true"></i> Power BI / Looker</span>
           <span class="skills__level">Intermediate</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="65"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-price-tag-3-line"></i> Pricing / Benchmarking</span>
+          <span class="skills__name"><i class="ri-price-tag-3-line" aria-hidden="true"></i> Pricing / Benchmarking</span>
           <span class="skills__level">Expert</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="93"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-building-4-line"></i> Brand Building</span>
+          <span class="skills__name"><i class="ri-building-4-line" aria-hidden="true"></i> Brand Building</span>
           <span class="skills__level">Intermediate</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="70"></div></div>
       </div>
       <div class="skills__item">
         <div class="skills__header">
-          <span class="skills__name"><i class="ri-user-star-line"></i> Influencer Marketing</span>
+          <span class="skills__name"><i class="ri-user-star-line" aria-hidden="true"></i> Influencer Marketing</span>
           <span class="skills__level">Expert</span>
         </div>
         <div class="skills__bar-track"><div class="skills__bar-fill" data-width="90"></div></div>
       </div>
     </div>
-
   </div>
 </section>
-
 <!-- ===== PROJECTS ===== -->
 <section class="work section" id="work">
   <span class="section__subtitle">My Portfolio</span>
   <h2 class="section__title">Recent <span>Projects</span></h2>
   <div class="work__container container grid">
-
     <div class="work__card fade-up">
       <div class="work__img-wrap">
         <img src="assets/img/work1.jpg" alt="Inventory System Dashboard" class="work__img" loading="lazy">
@@ -2167,12 +2117,11 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           <span class="work__metric">Overstock <strong>↓40%</strong></span>
           <span class="work__metric">Timeline <strong>3 months</strong></span>
         </div>
-        <button class="work__button" onclick="openModal('modal-inventory')">
-          View Details <i class="ri-arrow-right-line"></i>
+        <button type="button" class="work__button" onclick="openModal('modal-inventory')">
+          View Details <i class="ri-arrow-right-line" aria-hidden="true"></i>
         </button>
       </div>
     </div>
-
     <div class="work__card fade-up">
       <div class="work__img-wrap">
         <img src="assets/img/work2.jpg" alt="Catalog Standardization" class="work__img" loading="lazy">
@@ -2187,12 +2136,11 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           <span class="work__metric">Errors <strong>↓80%</strong></span>
           <span class="work__metric">Platforms <strong>8</strong></span>
         </div>
-        <button class="work__button" onclick="openModal('modal-catalog')">
-          View Details <i class="ri-arrow-right-line"></i>
+        <button type="button" class="work__button" onclick="openModal('modal-catalog')">
+          View Details <i class="ri-arrow-right-line" aria-hidden="true"></i>
         </button>
       </div>
     </div>
-
     <div class="work__card fade-up">
       <div class="work__img-wrap">
         <img src="assets/img/work3.jpg" alt="Price Monitoring Tool" class="work__img" loading="lazy">
@@ -2207,50 +2155,43 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           <span class="work__metric">Margin <strong>Improved</strong></span>
         </div>
         <a href="#contact" class="work__button">
-          Ask for Details <i class="ri-arrow-right-line"></i>
+          Ask for Details <i class="ri-arrow-right-line" aria-hidden="true"></i>
         </a>
       </div>
     </div>
-
   </div>
 </section>
-
 <!-- ===== TOOLS ===== -->
 <section class="section" id="tools">
   <span class="section__subtitle">Automation & Utility</span>
   <h2 class="section__title">Tools Made <span>By Me</span></h2>
   <div class="tools__container container grid">
-
     <div class="tool__card fade-up">
-      <i class="ri-calculator-line tool__icon"></i>
+      <i class="ri-calculator-line tool__icon" aria-hidden="true"></i>
       <h3 class="tool__title">RoAS Calculator</h3>
       <p class="tool__desc">A quick utility to project advertising profitability before launching campaigns. Input spend and revenue to instantly calculate ROAS, ACOS, and break-even thresholds.</p>
       <a href="https://smart-seller-tools.vercel.app/tools/ppc-calculator" target="_blank" rel="noopener" class="tool__link">
-        Use Tool <i class="ri-external-link-line"></i>
+        Use Tool <i class="ri-external-link-line" aria-hidden="true"></i>
       </a>
     </div>
-
     <div class="tool__card fade-up">
-      <i class="ri-file-list-3-line tool__icon"></i>
+      <i class="ri-file-list-3-line tool__icon" aria-hidden="true"></i>
       <h3 class="tool__title">Listing Auditor</h3>
       <p class="tool__desc">A structured checklist verifying whether your product listing meets Amazon's A9 algorithm criteria — covering title, bullets, images, backend keywords, and more.</p>
       <a href="https://smart-seller-tools.vercel.app/tools/lqs-checker" target="_blank" rel="noopener" class="tool__link">
-        Try Auditor <i class="ri-external-link-line"></i>
+        Try Auditor <i class="ri-external-link-line" aria-hidden="true"></i>
       </a>
     </div>
-
     <div class="tool__card fade-up">
-      <i class="ri-price-tag-3-line tool__icon"></i>
+      <i class="ri-price-tag-3-line tool__icon" aria-hidden="true"></i>
       <h3 class="tool__title">Margin Estimator</h3>
       <p class="tool__desc">Calculates true net profit after all platform fees — referral, closing, weight handling, and shipping — for both Flipkart and Amazon. Stops you from pricing at a loss.</p>
       <a href="https://smart-seller-tools.vercel.app/tools/calculator" target="_blank" rel="noopener" class="tool__link">
-        Use Tool <i class="ri-external-link-line"></i>
+        Use Tool <i class="ri-external-link-line" aria-hidden="true"></i>
       </a>
     </div>
-
   </div>
 </section>
-
 <!-- ===== CERTIFICATIONS ===== -->
 <section class="section fade-up" id="certifications">
   <span class="section__subtitle">Credentials</span>
@@ -2258,7 +2199,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   <div class="cert-grid container">
     <div class="cert-card">
       <div class="cert-icon-wrap">
-        <i class="ri-medal-2-fill" style="color: #f59e0b;"></i>
+        <i class="ri-medal-2-fill" style="color: #f59e0b;" aria-hidden="true"></i>
       </div>
       <div>
         <h3>Amazon Sponsored Ads</h3>
@@ -2267,7 +2208,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
     </div>
     <div class="cert-card">
       <div class="cert-icon-wrap">
-        <i class="ri-medal-2-fill" style="color: #4285F4;"></i>
+        <i class="ri-medal-2-fill" style="color: #4285F4;" aria-hidden="true"></i>
       </div>
       <div>
         <h3>Google Analytics</h3>
@@ -2276,99 +2217,87 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
     </div>
   </div>
 </section>
-
 <!-- ===== TESTIMONIALS ===== -->
 <section class="section fade-up" id="testimonials">
   <span class="section__subtitle">What Clients Say</span>
   <h2 class="section__title">Client <span>Testimonials</span></h2>
   <div class="testimonials__container container">
     <div class="testimonial-grid">
-
       <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"Ravinder transformed our Amazon presence completely. Our ACOS dropped from 42% to 18% in 90 days while revenue grew by 3x. His analytical approach is unlike any marketer we've worked with."</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">A</div>
+          <div class="testimonial-avatar" aria-hidden="true">A</div>
           <div>
             <span class="testimonial-name">Ankit Sharma</span>
             <span class="testimonial-role">Founder, D2C Lifestyle Brand</span>
           </div>
         </div>
       </div>
-
       <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"The catalog standardization project saved us hours every week. What used to take a day now takes 2 hours. The listing quality improvement also pushed us into the top search results organically."</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">P</div>
+          <div class="testimonial-avatar" aria-hidden="true">P</div>
           <div>
             <span class="testimonial-name">Priya Menon</span>
             <span class="testimonial-role">eCommerce Head, Fashion Brand</span>
           </div>
         </div>
       </div>
-
       <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p>"We had chronic stockout issues costing us lakhs every quarter. Ravinder built a simple but genius forecasting system that practically eliminated the problem. ROI on his work was 10x within 6 months."</p>
         <div class="testimonial-author">
-          <div class="testimonial-avatar">R</div>
+          <div class="testimonial-avatar" aria-hidden="true">R</div>
           <div>
             <span class="testimonial-name">Rahul Gupta</span>
             <span class="testimonial-role">Operations Director, Consumer Electronics</span>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ===== BLOG ===== -->
 <section class="section fade-up" id="blog">
   <span class="section__subtitle">Insights</span>
   <h2 class="section__title">My <span>Blog</span></h2>
   <div class="blog-grid container">
-
     <div class="blog-card fade-up">
-      <span class="blog-tag"><i class="ri-amazon-line"></i> Amazon SEO</span>
+      <span class="blog-tag"><i class="ri-amazon-line" aria-hidden="true"></i> Amazon SEO</span>
       <h3>Cracking the Amazon A9 Algorithm</h3>
       <p>A practical breakdown of how Amazon ranks products — covering keyword relevance, conversion velocity, and the metrics that actually move the needle on organic placement.</p>
       <div class="blog-meta">
-        <span><i class="ri-time-line"></i> 8 min read</span>
+        <span><i class="ri-time-line" aria-hidden="true"></i> 8 min read</span>
       </div>
-      <span class="blog-coming-soon"><i class="ri-time-line"></i> Coming Soon</span>
+      <span class="blog-coming-soon"><i class="ri-time-line" aria-hidden="true"></i> Coming Soon</span>
     </div>
-
     <div class="blog-card fade-up">
-      <span class="blog-tag"><i class="ri-shopping-bag-line"></i> Flipkart PPC</span>
+      <span class="blog-tag"><i class="ri-shopping-bag-line" aria-hidden="true"></i> Flipkart PPC</span>
       <h3>Why Your Flipkart Ads Aren't Converting</h3>
       <p>The five most common mistakes sellers make when running Flipkart PLA campaigns — and how to fix each one with better targeting and bid logic.</p>
       <div class="blog-meta">
-        <span><i class="ri-time-line"></i> 6 min read</span>
+        <span><i class="ri-time-line" aria-hidden="true"></i> 6 min read</span>
       </div>
-      <span class="blog-coming-soon"><i class="ri-time-line"></i> Coming Soon</span>
+      <span class="blog-coming-soon"><i class="ri-time-line" aria-hidden="true"></i> Coming Soon</span>
     </div>
-
     <div class="blog-card fade-up">
-      <span class="blog-tag"><i class="ri-earth-line"></i> Strategy</span>
+      <span class="blog-tag"><i class="ri-earth-line" aria-hidden="true"></i> Strategy</span>
       <h3>Going Global: From Amazon.in to .com</h3>
       <p>Lessons learned from helping Indian D2C brands expand to US and UAE marketplaces — what transfers, what doesn't, and what surprises every seller.</p>
       <div class="blog-meta">
-        <span><i class="ri-time-line"></i> 10 min read</span>
+        <span><i class="ri-time-line" aria-hidden="true"></i> 10 min read</span>
       </div>
-      <span class="blog-coming-soon"><i class="ri-time-line"></i> Coming Soon</span>
+      <span class="blog-coming-soon"><i class="ri-time-line" aria-hidden="true"></i> Coming Soon</span>
     </div>
-
   </div>
 </section>
-
 <!-- ===== CASE STUDIES ===== -->
 <section class="section fade-up" id="casestudies">
   <span class="section__subtitle">Deep Dive</span>
   <h2 class="section__title">Case <span>Studies</span></h2>
   <div class="casestudies-grid container">
-
     <div class="case-card fade-up">
       <span class="work__tag">Amazon India</span>
       <div class="work__body" style="padding: 1rem 0 0;">
@@ -2378,10 +2307,9 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           <span class="work__metric">Revenue <strong>₹10 Cr</strong></span>
           <span class="work__metric">BSR <strong>Top 3</strong></span>
         </div>
-        <span class="blog-coming-soon" style="margin-top: 0.85rem;"><i class="ri-time-line"></i> Full Case Study Coming Soon</span>
+        <span class="blog-coming-soon" style="margin-top: 0.85rem;"><i class="ri-time-line" aria-hidden="true"></i> Full Case Study Coming Soon</span>
       </div>
     </div>
-
     <div class="case-card fade-up">
       <span class="work__tag">Inventory</span>
       <div class="work__body" style="padding: 1rem 0 0;">
@@ -2391,149 +2319,134 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
           <span class="work__metric">Stockouts <strong>↓35%</strong></span>
           <span class="work__metric">IPI <strong>Improved</strong></span>
         </div>
-        <span class="blog-coming-soon" style="margin-top: 0.85rem;"><i class="ri-time-line"></i> Full Case Study Coming Soon</span>
+        <span class="blog-coming-soon" style="margin-top: 0.85rem;"><i class="ri-time-line" aria-hidden="true"></i> Full Case Study Coming Soon</span>
       </div>
     </div>
-
   </div>
 </section>
-
 <!-- ===== FAQ ===== -->
 <section class="section fade-up" id="faq">
   <span class="section__subtitle">Quick Answers</span>
   <h2 class="section__title">Frequently Asked <span>Questions</span></h2>
   <div class="faq__container container">
-
     <div class="faq__item">
-      <button class="faq__question">
+      <button type="button" class="faq__question" aria-expanded="false">
         Do you work with brands that are new to Amazon?
-        <i class="ri-add-line"></i>
+        <i class="ri-add-line" aria-hidden="true"></i>
       </button>
       <div class="faq__answer">
         <p>Yes — some of my most impactful work has been with brands launching from scratch. I handle everything from account setup and brand registry to first listings, initial PPC structure, and review generation strategy.</p>
       </div>
     </div>
-
     <div class="faq__item">
-      <button class="faq__question">
+      <button type="button" class="faq__question" aria-expanded="false">
         What is your typical engagement model?
-        <i class="ri-add-line"></i>
+        <i class="ri-add-line" aria-hidden="true"></i>
       </button>
       <div class="faq__answer">
         <p>I work on both project-based and monthly retainer models depending on the scope. For ongoing marketplace management, a monthly retainer makes more sense. For one-time projects like catalog overhauls or account audits, a fixed-scope project fee works best.</p>
       </div>
     </div>
-
     <div class="faq__item">
-      <button class="faq__question">
+      <button type="button" class="faq__question" aria-expanded="false">
         Which marketplaces do you actively manage?
-        <i class="ri-add-line"></i>
+        <i class="ri-add-line" aria-hidden="true"></i>
       </button>
       <div class="faq__answer">
         <p>My core expertise is Amazon India (.in), Amazon global (.com / .uk / .ae), and Flipkart. I also have hands-on experience with Myntra, Meesho, Trendyol, Carrefour, and Namshi. Reach out if you're on a platform not listed — I'm happy to assess.</p>
       </div>
     </div>
-
     <div class="faq__item">
-      <button class="faq__question">
+      <button type="button" class="faq__question" aria-expanded="false">
         How quickly can I expect results from PPC optimization?
-        <i class="ri-add-line"></i>
+        <i class="ri-add-line" aria-hidden="true"></i>
       </button>
       <div class="faq__answer">
         <p>Most clients see measurable ACOS improvement within 30–45 days of a proper campaign restructure. The first two weeks are diagnostic — auditing existing campaigns, identifying waste, and setting up a new structure. Weeks 3–6 is where you start seeing the numbers move.</p>
       </div>
     </div>
-
     <div class="faq__item">
-      <button class="faq__question">
+      <button type="button" class="faq__question" aria-expanded="false">
         Can you help with global marketplace expansion?
-        <i class="ri-add-line"></i>
+        <i class="ri-add-line" aria-hidden="true"></i>
       </button>
       <div class="faq__answer">
         <p>Yes — I have experience helping Indian brands expand to Amazon.com (US), Amazon.ae (UAE), and platforms like Trendyol and Carrefour for the Middle East and Turkey. Expansion requires rethinking pricing, shipping logistics, listing compliance, and ad strategy for each market.</p>
       </div>
     </div>
-
   </div>
 </section>
-
 <!-- ===== CONTACT ===== -->
 <section class="contact section" id="contact">
   <span class="section__subtitle">Get in touch</span>
   <h2 class="section__title">Contact <span>Me</span></h2>
   <div class="contact__container container grid">
-
     <div class="contact__info">
       <h3 class="contact__title">Let's talk business</h3>
       <div class="contact__cards">
         <div class="contact__card">
-          <div class="contact__card-icon"><i class="ri-mail-line"></i></div>
+          <div class="contact__card-icon"><i class="ri-mail-line" aria-hidden="true"></i></div>
           <div>
             <h4 class="contact__card-title">Email</h4>
             <span class="contact__card-data">rvndrrwl@gmail.com</span>
-            <a href="mailto:rvndrrwl@gmail.com" class="contact__button">Write me <i class="ri-arrow-right-line"></i></a>
+            <a href="mailto:rvndrrwl@gmail.com" class="contact__button">Write me <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="contact__card">
-          <div class="contact__card-icon"><i class="ri-whatsapp-line"></i></div>
+          <div class="contact__card-icon"><i class="ri-whatsapp-line" aria-hidden="true"></i></div>
           <div>
             <h4 class="contact__card-title">WhatsApp</h4>
             <span class="contact__card-data">+91 78910 10967</span>
-            <a href="https://api.whatsapp.com/send?phone=917891010967" target="_blank" rel="noopener" class="contact__button">Chat now <i class="ri-arrow-right-line"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=917891010967" target="_blank" rel="noopener" class="contact__button">Chat now <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="contact__card">
-          <div class="contact__card-icon"><i class="ri-linkedin-line"></i></div>
+          <div class="contact__card-icon"><i class="ri-linkedin-line" aria-hidden="true"></i></div>
           <div>
             <h4 class="contact__card-title">LinkedIn</h4>
             <span class="contact__card-data">linkedin.com/in/rvndrrwl</span>
-            <a href="https://www.linkedin.com/in/rvndrrwl" target="_blank" rel="noopener" class="contact__button">Connect <i class="ri-arrow-right-line"></i></a>
+            <a href="https://www.linkedin.com/in/rvndrrwl" target="_blank" rel="noopener" class="contact__button">Connect <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
     </div>
-
     <div class="contact__form-wrap">
       <h3 class="contact__form-title">Send me a message</h3>
-      <form id="contact-form" action="https://formspree.io/f/xovldylw" method="POST" class="contact__form">
+      <form id="contact-form" action="https://formspree.io/f/xovldylw" method="POST" class="contact__form" novalidate>
         <div class="contact__form-group">
-          <label class="contact__form-label">Your Name</label>
-          <input type="text" name="name" placeholder="Ankit Sharma" class="contact__form-input" required autocomplete="name">
+          <label class="contact__form-label" for="form-name">Your Name</label>
+          <input id="form-name" type="text" name="name" placeholder="Ankit Sharma" class="contact__form-input" required autocomplete="name">
         </div>
         <div class="contact__form-group">
-          <label class="contact__form-label">Email Address</label>
-          <input type="email" name="email" placeholder="ankit@brand.com" class="contact__form-input" required autocomplete="email">
+          <label class="contact__form-label" for="form-email">Email Address</label>
+          <input id="form-email" type="email" name="email" placeholder="ankit@brand.com" class="contact__form-input" required autocomplete="email">
         </div>
         <div class="contact__form-group">
-          <label class="contact__form-label">Your Message</label>
-          <textarea name="message" placeholder="Tell me about your project or what you need help with..." class="contact__form-input" required></textarea>
+          <label class="contact__form-label" for="form-message">Your Message</label>
+          <textarea id="form-message" name="message" placeholder="Tell me about your project or what you need help with..." class="contact__form-input" required></textarea>
         </div>
         <button type="submit" id="submit-btn" class="button" style="width: 100%; justify-content: center;">
-          <i class="ri-send-plane-line"></i> Send Message
+          <i class="ri-send-plane-line" aria-hidden="true"></i> Send Message
         </button>
-        <div id="form-status"></div>
+        <div id="form-status" role="status" aria-live="polite"></div>
       </form>
     </div>
-
   </div>
 </section>
-
 </main>
-
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer__container container">
     <div class="footer__brand">R<span>.</span>Rawal</div>
     <p class="footer__tagline">Amazon PPC & eCommerce Growth Specialist — turning data into revenue.</p>
-
     <div class="footer__newsletter">
       <p>Get eCommerce insights and platform updates straight to your inbox.</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="your@email.com" aria-label="Newsletter email">
+      <form class="newsletter-form" id="newsletter-form" onsubmit="return false;">
+        <label for="newsletter-email" class="sr-only">Newsletter email address</label>
+        <input id="newsletter-email" type="email" placeholder="your@email.com" aria-label="Newsletter email">
         <button type="button" onclick="handleNewsletter(this)">Subscribe</button>
-      </div>
+      </form>
     </div>
-
     <nav class="footer__nav" aria-label="Footer navigation">
       <a href="#about" class="footer__link">About</a>
       <a href="#experience" class="footer__link">Experience</a>
@@ -2544,72 +2457,95 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
       <a href="#faq" class="footer__link">FAQ</a>
       <a href="#contact" class="footer__link">Contact</a>
     </nav>
-
     <div class="footer__social">
-      <a href="https://www.linkedin.com/in/rvndrrwl" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-      <a href="https://github.com/Smart-rwl" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-      <a href="mailto:rvndrrwl@gmail.com" class="footer__social-link" aria-label="Email"><i class="ri-mail-fill"></i></a>
-      <a href="https://api.whatsapp.com/send?phone=917891010967" target="_blank" rel="noopener" class="footer__social-link" aria-label="WhatsApp"><i class="ri-whatsapp-fill"></i></a>
+      <a href="https://www.linkedin.com/in/rvndrrwl" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-fill" aria-hidden="true"></i></a>
+      <a href="https://github.com/Smart-rwl" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub"><i class="ri-github-fill" aria-hidden="true"></i></a>
+      <a href="mailto:rvndrrwl@gmail.com" class="footer__social-link" aria-label="Email"><i class="ri-mail-fill" aria-hidden="true"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=917891010967" target="_blank" rel="noopener" class="footer__social-link" aria-label="WhatsApp"><i class="ri-whatsapp-fill" aria-hidden="true"></i></a>
     </div>
-
-    <p class="footer__copy">&#169; 2026 Ravinder Rawal. All rights reserved.</p>
+    <p class="footer__copy">&copy; 2026 Ravinder Rawal. All rights reserved.</p>
   </div>
 </footer>
-
 <!-- ===== PROJECT MODALS ===== -->
-<div class="modal__overlay" id="modal-inventory">
+<div class="modal__overlay" id="modal-inventory" role="dialog" aria-modal="true" aria-labelledby="modal-inventory-title">
   <div class="modal__content">
-    <button class="modal__close" onclick="closeModal('modal-inventory')" aria-label="Close"><i class="ri-close-line"></i></button>
-    <h3 class="modal__title">Inventory Optimization System</h3>
+    <button type="button" class="modal__close" onclick="closeModal('modal-inventory')" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    <h3 class="modal__title" id="modal-inventory-title">Inventory Optimization System</h3>
     <div class="modal__list">
       <div class="modal__item">
-        <i class="ri-error-warning-line"></i>
+        <i class="ri-error-warning-line" aria-hidden="true"></i>
         <div><strong>Problem</strong><p>Frequent stockouts causing 15% revenue loss and poor seller metrics on Amazon Vendor Central.</p></div>
       </div>
       <div class="modal__item">
-        <i class="ri-tools-line"></i>
+        <i class="ri-tools-line" aria-hidden="true"></i>
         <div><strong>Solution</strong><p>Built automated Google Sheets tracker synced with Vendor Central data using Apps Script + SQL queries.</p></div>
       </div>
       <div class="modal__item">
-        <i class="ri-trophy-line"></i>
+        <i class="ri-trophy-line" aria-hidden="true"></i>
         <div><strong>Result</strong><p>Reduced stockouts by 35% and overstock by 40% within 3 months. IPI score improved significantly.</p></div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="modal__overlay" id="modal-catalog">
+<div class="modal__overlay" id="modal-catalog" role="dialog" aria-modal="true" aria-labelledby="modal-catalog-title">
   <div class="modal__content">
-    <button class="modal__close" onclick="closeModal('modal-catalog')" aria-label="Close"><i class="ri-close-line"></i></button>
-    <h3 class="modal__title">Catalog Standardization Engine</h3>
+    <button type="button" class="modal__close" onclick="closeModal('modal-catalog')" aria-label="Close"><i class="ri-close-line" aria-hidden="true"></i></button>
+    <h3 class="modal__title" id="modal-catalog-title">Catalog Standardization Engine</h3>
     <div class="modal__list">
       <div class="modal__item">
-        <i class="ri-error-warning-line"></i>
+        <i class="ri-error-warning-line" aria-hidden="true"></i>
         <div><strong>Problem</strong><p>Inconsistent product data across 8 platforms causing errors, rejections, and high per-listing time cost.</p></div>
       </div>
       <div class="modal__item">
-        <i class="ri-tools-line"></i>
+        <i class="ri-tools-line" aria-hidden="true"></i>
         <div><strong>Solution</strong><p>Designed a master template system with platform-specific transformation logic and automated validation.</p></div>
       </div>
       <div class="modal__item">
-        <i class="ri-trophy-line"></i>
+        <i class="ri-trophy-line" aria-hidden="true"></i>
         <div><strong>Result</strong><p>Cut listing time by 60% and reduced data errors by over 80% across all 8 platforms simultaneously.</p></div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- ===== SCRIPTS ===== -->
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-
+<!-- ===== SCRIPTS =====
+     Removed references to assets/js/scrollreveal.min.js, swiper-bundle.min.js,
+     and main.js. None of them are initialised/used anywhere, the inline code
+     below replaces what they would have done, and leaving the tags in place
+     was producing 404s (or worse, duplicate event handlers if those files
+     actually existed). -->
 <script>
-/* ===== ALL ENHANCED JS ===== */
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* --- HEADER SCROLL --- */
+  /* --- HEADER / SCROLL EFFECTS --- */
   const header = document.getElementById('header');
+  const progressBar = document.getElementById('scroll-progress');
+  const btt = document.getElementById('back-to-top');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__link');
+
+  function updateScrollProgress() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  function updateBackToTop() {
+    btt.classList.toggle('visible', window.scrollY > 500);
+  }
+  function updateActiveNav() {
+    const scrollMid = window.scrollY + window.innerHeight * 0.45;
+    let matched = null;
+    sections.forEach(sec => {
+      if (scrollMid >= sec.offsetTop && scrollMid < sec.offsetTop + sec.offsetHeight) {
+        const candidate = document.querySelector(`.nav__link[href="#${sec.id}"]`);
+        if (candidate) matched = candidate;
+      }
+    });
+    // Only update if we actually have a nav link for the section.
+    // This prevents the highlight getting stuck on the wrong link when the
+    // user is in a section (tools, blog, faq…) that has no entry in the nav.
+    if (matched) {
+      navLinks.forEach(a => a.classList.remove('active-link'));
+      matched.classList.add('active-link');
+    }
+  }
   function onScroll() {
     if (window.scrollY >= 60) header.classList.add('scroll-header');
     else header.classList.remove('scroll-header');
@@ -2618,46 +2554,18 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNav();
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* --- SCROLL PROGRESS --- */
-  const progressBar = document.getElementById('scroll-progress');
-  function updateScrollProgress() {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    progressBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-  }
-
-  /* --- BACK TO TOP --- */
-  const btt = document.getElementById('back-to-top');
-  function updateBackToTop() {
-    btt.classList.toggle('visible', window.scrollY > 500);
-  }
   btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  updateActiveNav();
 
-  /* --- NAV TOGGLE (mobile) --- */
+  /* --- MOBILE NAV TOGGLE --- */
   const navMenu = document.getElementById('nav-menu');
   const navToggle = document.getElementById('nav-toggle');
   const navClose = document.getElementById('nav-close');
   if (navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
   if (navClose) navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
-
-  /* --- CLOSE MENU ON LINK CLICK --- */
-  document.querySelectorAll('.nav__link').forEach(link => {
+  navLinks.forEach(link => {
     link.addEventListener('click', () => navMenu.classList.remove('show-menu'));
   });
-
-  /* --- ACTIVE NAV HIGHLIGHT --- */
-  const sections = document.querySelectorAll('section[id]');
-  function updateActiveNav() {
-    const scrollMid = window.scrollY + window.innerHeight * 0.45;
-    sections.forEach(sec => {
-      if (scrollMid >= sec.offsetTop && scrollMid < sec.offsetTop + sec.offsetHeight) {
-        document.querySelectorAll('.nav__link').forEach(a => a.classList.remove('active-link'));
-        const active = document.querySelector(`.nav__link[href="#${sec.id}"]`);
-        if (active) active.classList.add('active-link');
-      }
-    });
-  }
-  updateActiveNav();
 
   /* --- TYPEWRITER --- */
   const typeEl = document.getElementById('typewriter');
@@ -2688,7 +2596,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = +el.getAttribute('data-target');
         const prefix = el.getAttribute('data-prefix') || '';
         const suffix = el.getAttribute('data-suffix') || '';
-        let cur = 0; const step = Math.ceil(target / 50);
+        // Pick a step that gives ~40 frames regardless of target size
+        const step = Math.max(1, Math.ceil(target / 40));
+        let cur = 0;
         const t = setInterval(() => {
           cur = Math.min(cur + step, target);
           el.textContent = prefix + cur + suffix;
@@ -2726,14 +2636,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- FAQ ACCORDION --- */
   document.querySelectorAll('.faq__item').forEach(item => {
-    item.querySelector('.faq__question').addEventListener('click', () => {
+    const btn = item.querySelector('.faq__question');
+    btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq__item').forEach(i => {
+        i.classList.remove('open');
+        const q = i.querySelector('.faq__question');
+        if (q) q.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
-  /* --- CONTACT FORM AJAX --- */
+  /* --- CONTACT FORM (Formspree AJAX) --- */
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   const submitBtn = document.getElementById('submit-btn');
@@ -2741,39 +2659,56 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async e => {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="ri-loader-4-line"></i> Sending...';
-      status.className = ''; status.style.display = 'none';
+      submitBtn.innerHTML = '<i class="ri-loader-4-line" aria-hidden="true"></i> Sending...';
+      status.className = '';
+      status.style.display = 'none';
       try {
-        const resp = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
         if (resp.ok) {
           status.textContent = '✓ Message sent! I\'ll get back to you within 24 hours.';
-          status.className = 'success'; status.style.display = 'block';
+          status.className = 'success';
+          status.style.display = 'block';
           form.reset();
-        } else throw new Error();
+        } else {
+          throw new Error('Bad response');
+        }
       } catch {
         status.textContent = '✗ Something went wrong. Please email me at rvndrrwl@gmail.com';
-        status.className = 'error'; status.style.display = 'block';
+        status.className = 'error';
+        status.style.display = 'block';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="ri-send-plane-line"></i> Send Message';
+        submitBtn.innerHTML = '<i class="ri-send-plane-line" aria-hidden="true"></i> Send Message';
       }
     });
   }
 
-  /* --- THEME TOGGLE --- */
+  /* --- THEME TOGGLE ---
+       The button is now a real <button> with an inner <i> for the icon, so
+       class swaps target the <i>, not the button (original code swapped on
+       the button itself, which would wipe its `change-theme` class). */
   const themeBtn = document.getElementById('theme-button');
-  const stored = localStorage.getItem('theme');
-  if (stored === 'light') { document.body.classList.add('light-theme'); themeBtn.classList.replace('ri-moon-line', 'ri-sun-line'); }
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    const isLight = document.body.classList.contains('light-theme');
-    themeBtn.className = isLight ? 'ri-sun-line change-theme' : 'ri-moon-line change-theme';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  });
+  if (themeBtn) {
+    const themeIcon = themeBtn.querySelector('i');
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light') {
+      document.body.classList.add('light-theme');
+      themeIcon.className = 'ri-sun-line';
+    }
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      themeIcon.className = isLight ? 'ri-sun-line' : 'ri-moon-line';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  }
+});
 
-}); // end DOMContentLoaded
-
-/* ===== MODAL FUNCTIONS ===== */
+/* ===== GLOBAL HELPERS (used by inline onclick handlers) ===== */
 function openModal(id) {
   const m = document.getElementById(id);
   if (m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; }
@@ -2785,27 +2720,37 @@ function closeModal(id) {
 // Close on overlay click
 document.querySelectorAll('.modal__overlay').forEach(overlay => {
   overlay.addEventListener('click', e => {
-    if (e.target === overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 });
 // Close on Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal__overlay.active').forEach(m => {
-      m.classList.remove('active'); document.body.style.overflow = '';
+      m.classList.remove('active');
+      document.body.style.overflow = '';
     });
   }
 });
 
-/* ===== NEWSLETTER ===== */
+/* ===== NEWSLETTER (visual-only confirmation) ===== */
 function handleNewsletter(btn) {
-  const input = btn.previousElementSibling;
-  if (!input.value || !input.value.includes('@')) {
-    input.style.borderColor = 'hsl(0, 70%, 55%)';
-    input.focus(); return;
+  const input = btn.previousElementSibling.tagName === 'INPUT'
+    ? btn.previousElementSibling
+    : btn.parentElement.querySelector('input');
+  if (!input || !input.value || !input.value.includes('@') || !input.value.includes('.')) {
+    if (input) {
+      input.style.borderColor = 'hsl(0, 70%, 55%)';
+      input.focus();
+    }
+    return;
   }
   btn.textContent = '✓ Subscribed!';
-  btn.disabled = true; input.disabled = true;
+  btn.disabled = true;
+  input.disabled = true;
   input.style.borderColor = 'hsl(150, 60%, 50%)';
 }
 </script>
