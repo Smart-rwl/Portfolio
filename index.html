@@ -26,6 +26,21 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ravinder Rawal",
+  "url": "https://rvndrrwl.vercel.app/",
+  "image": "https://rvndrrwl.vercel.app/assets/img/perfil.png",
+  "jobTitle": "eCommerce & Performance Marketing Specialist",
+  "description": "Amazon PPC and Flipkart Marketplace Expert with 8+ years of experience in D2C brand scaling, catalog optimization, and data-driven advertising.",
+  "sameAs": ["https://www.linkedin.com/in/rvndrrwl","https://github.com/Smart-rwl"],
+  "email": "rvndrrwl@gmail.com",
+  "telephone": "+917891010967",
+  "address": {"@type": "PostalAddress","addressCountry": "IN"},
+  "knowsAbout": ["Amazon PPC","Flipkart Marketplace","eCommerce Marketing","Performance Marketing","Catalog Optimization","ROAS Optimization"]
+}
+</script>
+  {
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -2793,8 +2808,6 @@ document.addEventListener('DOMContentLoaded', () => {
        The button is now a real <button> with an inner <i> for the icon, so
        class swaps target the <i>, not the button (original code swapped on
        the button itself, which would wipe its `change-theme` class). */
-  const themeBtn = document.getElementById('theme-button');
-  if (themeBtn) {
     const themeBtn = document.getElementById('theme-button');
   if (themeBtn) {
     const themeIcon = themeBtn.querySelector('i');
@@ -2896,7 +2909,7 @@ document.addEventListener('keydown', e => {
         say("You're already on the list — thanks!", 'ok');
         btn.textContent = '✓ Subscribed';
       } else if (data.ok) {
-        say('Thanks! You&rsquo;re on the list.', 'ok');
+        say('Thanks! You are on the list.', 'ok');
         btn.textContent = '✓ Subscribed';
         input.disabled = true;
       } else {
