@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#0b0f18" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ravinder Rawal – Amazon PPC & Flipkart Marketplace Expert with 8+ years scaling D2C brands through data-driven advertising, catalog SEO, inventory automation, and performance marketing across India and global marketplaces.">
 <meta name="keywords" content="Amazon PPC Expert India, Flipkart Marketplace Manager, eCommerce Performance Marketing, ROAS Optimization, Amazon Vendor Central, Catalog Optimization, Amazon Sponsored Ads, Ravinder Rawal, Smartrwl, eCommerce Specialist Delhi">
@@ -19,20 +23,54 @@
 <meta property="twitter:description" content="8+ years scaling brands on Amazon, Flipkart & global marketplaces. Expert in PPC, catalog SEO, inventory automation, and performance marketing.">
 <meta property="twitter:image" content="https://rvndrrwl.vercel.app/assets/img/perfil.png">
 <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Ravinder Rawal",
-  "url": "https://rvndrrwl.vercel.app/",
-  "image": "https://rvndrrwl.vercel.app/assets/img/perfil.png",
-  "jobTitle": "eCommerce & Performance Marketing Specialist",
-  "description": "Amazon PPC and Flipkart Marketplace Expert with 8+ years of experience in D2C brand scaling, catalog optimization, and data-driven advertising.",
-  "sameAs": ["https://www.linkedin.com/in/rvndrrwl","https://github.com/Smart-rwl"],
-  "email": "rvndrrwl@gmail.com",
-  "telephone": "+917891010967",
-  "address": {"@type": "PostalAddress","addressCountry": "IN"},
-  "knowsAbout": ["Amazon PPC","Flipkart Marketplace","eCommerce Marketing","Performance Marketing","Catalog Optimization","ROAS Optimization"]
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you work with brands that are new to Amazon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — some of my most impactful work has been with brands launching from scratch. I handle everything from account setup and brand registry to first listings, initial PPC structure, and review generation strategy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your typical engagement model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I work on both project-based and monthly retainer models depending on the scope. For ongoing marketplace management, a monthly retainer makes more sense. For one-time projects like catalog overhauls or account audits, a fixed-scope project fee works best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which marketplaces do you actively manage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "My core expertise is Amazon India (.in), Amazon global (.com / .uk / .ae), and Flipkart. I also have hands-on experience with Myntra, Meesho, Trendyol, Carrefour, and Namshi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I expect results from PPC optimization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients see measurable ACOS improvement within 30–45 days of a proper campaign restructure. The first two weeks are diagnostic — auditing existing campaigns, identifying waste, and setting up a new structure. Weeks 3–6 is where the numbers start moving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help with global marketplace expansion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — I have experience helping Indian brands expand to Amazon.com (US), Amazon.ae (UAE), and platforms like Trendyol and Carrefour for the Middle East and Turkey. Expansion requires rethinking pricing, shipping logistics, listing compliance, and ad strategy for each market."
+      }
+    }
+  ]
 }
+</script>
 </script>
 <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,6 +156,16 @@ button {
   overflow: hidden; clip: rect(0,0,0,0);
   white-space: nowrap; border: 0;
 }
+
+/* Visible keyboard focus — never remove without a replacement */
+:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.button:focus-visible,
+.nav__link:focus-visible { outline-offset: 4px; }
+
 /* ===== SCROLL PROGRESS BAR ===== */
 #scroll-progress {
   position: fixed;
@@ -261,6 +309,18 @@ body.light-theme .nav__menu {
   color: var(--text-color);
   transition: var(--transition);
   position: relative;
+}
+/* Nav labels: text under icon on mobile, beside icon on desktop */
+.nav__link span {
+  font-family: var(--font-body);
+  font-size: var(--tiny-font-size);
+  letter-spacing: 0.02em;
+}
+@media screen and (min-width: 769px) {
+  .nav__link span { font-size: var(--small-font-size); }
+  /* Undo the icon-only sizing override from the desktop block */
+  .nav__list > .nav__item:not(:last-child) > .nav__link { font-size: 1rem; }
+  .nav__link i { font-size: 1rem; }
 }
 .nav__link.active-link {
   background: var(--first-color-glow);
@@ -1481,6 +1541,21 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
   font-size: var(--small-font-size);
   transition: var(--transition);
 }
+.nl-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.nl-status {
+  font-size: var(--smaller-font-size);
+  margin-top: 0.65rem;
+  min-height: 1.2em;
+}
+.nl-ok    { color: hsl(150, 60%, 55%); }
+.nl-error { color: hsl(0, 70%, 62%); }
+.nl-idle  { color: transparent; }
 .newsletter-form button:hover { background: var(--first-color-alt); }
 .newsletter-form button:disabled { opacity: 0.85; cursor: default; }
 .footer__nav {
@@ -1708,6 +1783,21 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
     padding: 0.4rem 0.7rem;
   }
 }
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+  .home__scroll,
+  .availability-badge .dot,
+  .chip { animation: none !important; }
+  .home__education .typewriter-text { border-right-color: transparent; }
+}
+
 </style>
 </head>
 <body>
@@ -1721,13 +1811,13 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
     <a href="#" class="nav__logo">R<span>.</span>Rawal</a>
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list">
-        <li class="nav__item"><a href="#home" class="nav__link active-link" aria-label="Home"><i class="ri-home-5-line" aria-hidden="true"></i></a></li>
-        <li class="nav__item"><a href="#about" class="nav__link" aria-label="About"><i class="ri-user-line" aria-hidden="true"></i></a></li>
-        <li class="nav__item"><a href="#experience" class="nav__link" aria-label="Experience"><i class="ri-time-line" aria-hidden="true"></i></a></li>
-        <li class="nav__item"><a href="#services" class="nav__link" aria-label="Services"><i class="ri-service-line" aria-hidden="true"></i></a></li>
-        <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line" aria-hidden="true"></i><span>Skills</span></a>
-        <li class="nav__item"><a href="#work" class="nav__link" aria-label="Projects"><i class="ri-briefcase-line" aria-hidden="true"></i></a></li>
-        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        <li class="nav__item"><a href="#home" class="nav__link active-link"><i class="ri-home-5-line" aria-hidden="true"></i><span>Home</span></a></li>
+        <li class="nav__item"><a href="#about" class="nav__link"><i class="ri-user-line" aria-hidden="true"></i><span>About</span></a></li>
+        <li class="nav__item"><a href="#experience" class="nav__link"><i class="ri-time-line" aria-hidden="true"></i><span>Experience</span></a></li>
+        <li class="nav__item"><a href="#services" class="nav__link"><i class="ri-service-line" aria-hidden="true"></i><span>Services</span></a></li>
+        <li class="nav__item"><a href="#skills" class="nav__link"><i class="ri-trophy-line" aria-hidden="true"></i><span>Skills</span></a></li>
+        <li class="nav__item"><a href="#work" class="nav__link"><i class="ri-briefcase-line" aria-hidden="true"></i><span>Projects</span></a></li>
+        <li class="nav__item"><a href="#contact" class="nav__link"><span>Contact</span></a></li>
       </ul>
       <button class="nav__close" id="nav-close" type="button" aria-label="Close menu"><i class="ri-close-line" aria-hidden="true"></i></button>
     </div>
@@ -1783,7 +1873,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
       <div class="home__img-badge">
         <i class="ri-line-chart-line" aria-hidden="true"></i>
         <div>
-          <strong>₹4 Cr+ Revenue</strong>
+          <strong>₹50 Cr+ Revenue</strong>
           <span>Generated for brands</span>
         </div>
       </div>
@@ -1808,19 +1898,19 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
 <div class="stats-strip">
   <div class="stats-strip__container container">
     <div class="stats-strip__item">
-      <span class="stats-strip__number" data-target="8" data-suffix="+">0</span>
+      <span class="stats-strip__number" data-target="8" data-suffix="+">8+</span>
       <span class="stats-strip__label">Years Experience</span>
     </div>
     <div class="stats-strip__item">
-      <span class="stats-strip__number" data-target="10" data-suffix="+">0</span>
+      <span class="stats-strip__number" data-target="10" data-suffix="+">10+</span>
       <span class="stats-strip__label">Brands Scaled</span>
     </div>
     <div class="stats-strip__item">
-      <span class="stats-strip__number" data-prefix="₹" data-target="50" data-suffix="Cr+">0</span>
+      <span class="stats-strip__number" data-prefix="₹" data-target="50" data-suffix=" Cr+">₹50 Cr+</span>
       <span class="stats-strip__label">Revenue Generated</span>
     </div>
     <div class="stats-strip__item">
-      <span class="stats-strip__number" data-target="12">0</span>
+      <span class="stats-strip__number" data-target="12">12</span>
       <span class="stats-strip__label">Platforms Managed</span>
     </div>
   </div>
@@ -2442,11 +2532,16 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
     <p class="footer__tagline">Amazon PPC & eCommerce Growth Specialist — turning data into revenue.</p>
     <div class="footer__newsletter">
       <p>Get eCommerce insights and platform updates straight to your inbox.</p>
-      <form class="newsletter-form" id="newsletter-form" onsubmit="return false;">
+      <form class="newsletter-form" id="newsletter-form">
         <label for="newsletter-email" class="sr-only">Newsletter email address</label>
-        <input id="newsletter-email" type="email" placeholder="your@email.com" aria-label="Newsletter email">
-        <button type="button" onclick="handleNewsletter(this)">Subscribe</button>
+        <input id="newsletter-email" name="email" type="email" required
+               placeholder="your@email.com" autocomplete="email">
+        <!-- honeypot: hidden from humans, catches bots -->
+        <input type="text" name="company" tabindex="-1" autocomplete="off"
+               aria-hidden="true" class="nl-honeypot">
+        <button type="submit" id="newsletter-btn">Subscribe</button>
       </form>
+      <p id="newsletter-status" role="status" aria-live="polite"></p>
     </div>
     <nav class="footer__nav" aria-label="Footer navigation">
       <a href="#about" class="footer__link">About</a>
@@ -2517,6 +2612,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   /* --- HEADER / SCROLL EFFECTS --- */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.getElementById('header');
   const progressBar = document.getElementById('scroll-progress');
   const btt = document.getElementById('back-to-top');
@@ -2585,7 +2681,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(type, 90);
     }
   }
-  type();
+  if (reduceMotion) {
+    if (typeEl) typeEl.textContent = texts[0];
+  } else {
+    type();
+  }
 
   /* --- STATS COUNTER --- */
   let statsAnimated = false;
@@ -2600,6 +2700,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pick a step that gives ~40 frames regardless of target size
         const step = Math.max(1, Math.ceil(target / 40));
         let cur = 0;
+        el.textContent = prefix + '0' + suffix;   // <-- add this line
         const t = setInterval(() => {
           cur = Math.min(cur + step, target);
           el.textContent = prefix + cur + suffix;
@@ -2694,12 +2795,20 @@ document.addEventListener('DOMContentLoaded', () => {
        the button itself, which would wipe its `change-theme` class). */
   const themeBtn = document.getElementById('theme-button');
   if (themeBtn) {
+    const themeBtn = document.getElementById('theme-button');
+  if (themeBtn) {
     const themeIcon = themeBtn.querySelector('i');
     const stored = localStorage.getItem('theme');
-    if (stored === 'light') {
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    // Stored choice wins; otherwise follow the operating system
+    const startLight = stored ? stored === 'light' : prefersLight;
+
+    if (startLight) {
       document.body.classList.add('light-theme');
       themeIcon.className = 'ri-sun-line';
     }
+
     themeBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-theme');
       const isLight = document.body.classList.contains('light-theme');
@@ -2737,23 +2846,69 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ===== NEWSLETTER (visual-only confirmation) ===== */
-function handleNewsletter(btn) {
-  const input = btn.previousElementSibling.tagName === 'INPUT'
-    ? btn.previousElementSibling
-    : btn.parentElement.querySelector('input');
-  if (!input || !input.value || !input.value.includes('@') || !input.value.includes('.')) {
-    if (input) {
-      input.style.borderColor = 'hsl(0, 70%, 55%)';
+/* ===== NEWSLETTER ===== */
+(function () {
+  // Paste your Apps Script /exec URL here
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbz6yqPzjfNXMl_BR-3LIEH1bLBkuJhSbrDvik7Z5gAjikhSZcXHyFfOb8m0y36jisF_tQ/exec';
+
+  const form   = document.getElementById('newsletter-form');
+  const input  = document.getElementById('newsletter-email');
+  const btn    = document.getElementById('newsletter-btn');
+  const status = document.getElementById('newsletter-status');
+  if (!form) return;
+
+  const say = (msg, kind) => {
+    status.textContent = msg;
+    status.className = 'nl-status nl-' + kind;
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      say('Please enter a valid email address.', 'error');
       input.focus();
+      return;
     }
-    return;
-  }
-  btn.textContent = '✓ Subscribed!';
-  btn.disabled = true;
-  input.disabled = true;
-  input.style.borderColor = 'hsl(150, 60%, 50%)';
-}
+
+    btn.disabled = true;
+    const original = btn.textContent;
+    btn.textContent = 'Subscribing…';
+    say('', 'idle');
+
+    try {
+      // text/plain keeps this a "simple" request, which skips the CORS
+      // preflight that Apps Script doesn't answer.
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          email:   email,
+          company: form.company.value,   // honeypot
+          source:  'portfolio-footer'
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.ok && data.status === 'already_subscribed') {
+        say("You're already on the list — thanks!", 'ok');
+        btn.textContent = '✓ Subscribed';
+      } else if (data.ok) {
+        say('Thanks! You&rsquo;re on the list.', 'ok');
+        btn.textContent = '✓ Subscribed';
+        input.disabled = true;
+      } else {
+        throw new Error(data.error || 'unknown');
+      }
+    } catch (err) {
+      say('Could not subscribe right now. Email me at rvndrrwl@gmail.com instead.', 'error');
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  });
+})();
 </script>
 </body>
 </html>
