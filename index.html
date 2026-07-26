@@ -2714,7 +2714,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pick a step that gives ~40 frames regardless of target size
         const step = Math.max(1, Math.ceil(target / 40));
         let cur = 0;
-        el.textContent = prefix + '0' + suffix;   // <-- add this line
+        el.textContent = prefix + '0' + suffix;
         const t = setInterval(() => {
           cur = Math.min(cur + step, target);
           el.textContent = prefix + cur + suffix;
