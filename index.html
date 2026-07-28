@@ -1273,6 +1273,26 @@ body.light-theme .nav__menu {
   border: 1px dashed var(--border-color);
   border-radius: 0.5rem;
 }
+.blog-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--first-color);
+  margin-top: 0.75rem;
+  transition: var(--transition);
+}
+.blog-readmore i {
+  transition: transform 0.25s ease;
+}
+.blog-readmore:hover {
+  color: var(--first-color-light);
+  gap: 0.6rem;
+}
+.blog-readmore:hover i {
+  transform: translateX(3px);
+}
 /* ===== CASE STUDIES ===== */
 .casestudies-grid {
   display: grid;
@@ -2376,7 +2396,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
       <div class="blog-meta">
         <span><i class="ri-time-line" aria-hidden="true"></i> 8 min read</span>
       </div>
-      <span class="blog-coming-soon"><i class="ri-time-line" aria-hidden="true"></i> Coming Soon</span>
+      <a class="blog-readmore" href="https://walkingkalam.blogspot.com/2026/07/cracking-amazon-a9-algorithm.html" target="_blank" rel="noopener">Read Article <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
     </div>
     <div class="blog-card fade-up">
       <span class="blog-tag"><i class="ri-shopping-bag-line" aria-hidden="true"></i> Flipkart PPC</span>
@@ -2385,7 +2405,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
       <div class="blog-meta">
         <span><i class="ri-time-line" aria-hidden="true"></i> 6 min read</span>
       </div>
-      <span class="blog-coming-soon"><i class="ri-time-line" aria-hidden="true"></i> Coming Soon</span>
+      <a class="blog-readmore" href="https://walkingkalam.blogspot.com/2026/07/why-your-flipkart-ads-arent-converting.html" target="_blank" rel="noopener">Read Article <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
     </div>
     <div class="blog-card fade-up">
       <span class="blog-tag"><i class="ri-earth-line" aria-hidden="true"></i> Strategy</span>
@@ -2394,7 +2414,7 @@ textarea.contact__form-input { resize: vertical; min-height: 130px; }
       <div class="blog-meta">
         <span><i class="ri-time-line" aria-hidden="true"></i> 10 min read</span>
       </div>
-      <span class="blog-coming-soon"><i class="ri-time-line" aria-hidden="true"></i> Coming Soon</span>
+      <a class="blog-readmore" href="https://walkingkalam.blogspot.com/2026/07/going-global-from-amazonin-to-com.html" target="_blank" rel="noopener">Read Article <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
